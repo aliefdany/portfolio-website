@@ -149,7 +149,7 @@ h4 {
   font-family: "Montserrat", sans-serif;
 }
 
-.navbar {
+nav {
   position: fixed;
   right: 0;
   left: 0;
@@ -189,7 +189,7 @@ h4 {
 }
 
 .vnav li a {
-  color: hsla(169, 38%, 38%, 0.5);
+  color: hsla(169, 38%, 38%, 0.3);
 }
 
 .vnav li a:hover,
@@ -210,7 +210,6 @@ h4 {
   font-size: 1.2vw;
   color: hsl(46, 25%, 83%);
 
-  /* border: 1px solid hsl(46, 25%, 83%); */
   display: flex;
   align-items: center;
 }
@@ -231,7 +230,6 @@ h4 {
 .homepage-1 {
   height: 90vh;
   position: relative;
-  top: 10vh;
 }
 
 .homepage-1 svg,
@@ -295,13 +293,11 @@ h4 {
 
 .homepage-2 {
   position: relative;
-  top: 10vh;
   height: 90vh;
 }
 
 .homepage-3 {
   position: relative;
-  top: 10vh;
   height: 90vh;
 }
 

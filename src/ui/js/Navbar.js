@@ -1,6 +1,6 @@
 const Navbar = () => {
   return (
-    <div className="navbar">
+    <nav>
       <svg
         className="logo"
         viewBox="0 0 487 87"
@@ -23,7 +23,7 @@ const Navbar = () => {
         <li>Projects</li>
         <li>Contact</li>
       </ul>
-    </div>
+    </nav>
   );
 };
 

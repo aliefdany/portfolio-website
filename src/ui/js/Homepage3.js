@@ -1,8 +1,11 @@
 import { Fragment } from "react";
+import { forwardRef } from "react";
 
-const Homepage3 = () => {
+const Homepage3 = (props, ref) => {
   return (
     <Fragment>
+      <div ref={ref} className="separator"></div>
+      <div className="separator"></div>
       <div className="homepage-3" id="skills">
         <svg
           className="bg"
@@ -217,4 +220,4 @@ const Homepage3 = () => {
   );
 };
 
-export default Homepage3;
+export default forwardRef(Homepage3);

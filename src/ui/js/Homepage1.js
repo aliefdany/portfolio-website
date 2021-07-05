@@ -1,10 +1,12 @@
 import { Fragment } from "react";
 import myPotrait from "url:../../img/my-potrait.png"; // eslint-disable-line
+import { forwardRef } from "react";
 
-const Homepage1 = () => {
+const Homepage1 = (props, ref) => {
   return (
     <Fragment>
-      <div className="homepage-1" id="home">
+      <div ref={ref} className="separator" id="home"></div>
+      <div className="homepage-1">
         <svg
           viewBox="0 0 1920 963"
           fill="none"
@@ -40,4 +42,4 @@ const Homepage1 = () => {
   );
 };
 
-export default Homepage1;
+export default forwardRef(Homepage1);

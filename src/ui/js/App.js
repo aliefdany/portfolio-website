@@ -5,16 +5,59 @@ import Homepage2 from "./Homepage2";
 import Homepage3 from "./Homepage3";
 import VNav from "./VNav";
 import { Fragment } from "react";
+import { useScrollPosition } from "@n8tb1t/use-scroll-position";
+import { useState, useRef } from "react";
 
-console.log(window.scrollY);
 const App = () => {
+  const [active, toggleActive] = useState("home");
+  const page1 = useRef();
+  const page2 = useRef();
+  const page3 = useRef();
+
+  // Element scroll position
+  useScrollPosition(
+    ({ currPos }) => {
+      if (currPos.y <= 0) {
+        toggleActive("home");
+      }
+
+      console.log(currPos.y);
+    },
+    [],
+    page1
+  );
+
+  useScrollPosition(
+    ({ currPos }) => {
+      if (currPos.y <= 0) {
+        toggleActive("profile");
+      }
+
+      // console.log(currPos.y);
+    },
+    [],
+    page2
+  );
+
+  useScrollPosition(
+    ({ currPos }) => {
+      if (currPos.y <= 0) {
+        toggleActive("skills");
+      }
+
+      // console.log(currPos.y);
+    },
+    [],
+    page3
+  );
+
   return (
     <Fragment>
-      <VNav />
+      <VNav active={active} />
       <Navbar />
-      <Homepage1 />
-      <Homepage2 />
-      <Homepage3 />
+      <Homepage1 ref={page1} />
+      <Homepage2 ref={page2} />
+      <Homepage3 ref={page3} />
     </Fragment>
   );
 };
