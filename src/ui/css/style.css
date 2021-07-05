@@ -128,22 +128,81 @@ table {
 }
 /* END OF RESET -- END OF RESET -- END OF RESET -- END OF RESET */
 
+html {
+  scroll-behavior: smooth;
+}
+
 .body {
-  font-family: "Montserrat", sans-serif;
   background-color: hsl(0, 0%, 91%);
 }
 
+a {
+  text-decoration: none;
+}
+
+h1 {
+  font-family: "Yeseva One", cursive;
+}
+
+p,
+h4 {
+  font-family: "Montserrat", sans-serif;
+}
+
 .navbar {
+  position: fixed;
+  right: 0;
+  left: 0;
+
   height: 10vh;
+  width: auto;
   padding: 0 10vw;
   display: flex;
   justify-content: space-between;
   align-items: center;
   background-color: hsl(49, 11%, 38%);
+  z-index: 4;
+
+  /* box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.25);*/
+}
+
+.vnav {
+  position: fixed;
+  top: 30vh;
+  left: 9vw;
+
+  width: 2vw;
+  height: 50vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  z-index: 5;
+  /* border: 1px solid black; */
+}
+
+.vnav li {
+  font-family: "Yeseva One", cursive;
+  font-size: 1.2vw;
+  transform-origin: 50% 50%;
+  transform: rotate(-90deg);
+}
+
+.vnav li a {
+  color: hsla(169, 38%, 38%, 0.5);
+}
+
+.vnav li a:hover,
+.vnav li a:active {
+  color: hsla(169, 38%, 38%, 1);
 }
 
 .logo {
   height: 90%;
+}
+
+.separator {
+  height: 10vh;
 }
 
 .main-menu {
@@ -172,39 +231,35 @@ table {
 .homepage-1 {
   height: 90vh;
   position: relative;
-  /* border: 1px solid black; */
+  top: 10vh;
 }
 
-.homepage-1 svg {
+.homepage-1 svg,
+.homepage-2 svg,
+.homepage-3 svg {
   position: absolute;
   width: 100%;
   height: 100%;
 }
 
-.homepage-1 h1 {
+.homepage-content h1 {
   font-size: 3vw;
-  font-family: "Yeseva One", cursive;
   margin-bottom: 3vh;
 }
 
-.homepage-1 h4,
-p {
-  font-family: "Montserrat", sans-serif;
-}
-
-.homepage-1 h4 {
-  margin-bottom: 0.8vh;
+.homepage-content h4 {
   font-size: 0.8vw;
+  margin-bottom: 0.8vh;
   text-decoration: underline;
 }
 
-.homepage-1 p {
-  margin-bottom: 3vh;
+.homepage-content p {
+  font-size: 1.2vw;
   line-height: 150%;
+  margin-bottom: 3vh;
 }
-.page1-content {
-  width: 55vw;
-  /* border: 1px solid black; */
+.homepage-content {
+  width: 65vw;
   color: hsl(48, 12%, 25%);
   position: absolute;
   display: flex;
@@ -216,19 +271,48 @@ p {
   transform: translate(-50%, -50%);
 }
 
-.page1-content .alief-potrait {
+.homepage-content .alief-potrait,
+.homepage-content .logo-filkom {
   width: 23vw;
   height: auto;
   flex: 0 1 auto;
 }
 
-.page1-content button {
+.homepage-content .alief-potrait {
+  width: 25vw;
+}
+
+.homepage-content button {
   padding: 0.2em 1em;
   font-weight: bold;
   color: hsl(0, 0%, 100%);
   border: none;
-  background: #3c8678;
+  background: hsl(169, 38%, 38%);
   border-radius: 50px;
   box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.25);
   cursor: pointer;
+}
+
+.homepage-2 {
+  position: relative;
+  top: 10vh;
+  height: 90vh;
+}
+
+.homepage-3 {
+  position: relative;
+  top: 10vh;
+  height: 90vh;
+}
+
+.homepage-2 .homepage-content,
+.homepage-3 .homepage-content {
+  /* cascade from line 215 */
+  position: relative;
+}
+
+.homepage-3 .skill-stack {
+  /* cascade from line 196 */
+  position: static;
+  width: 25vw;
 }
