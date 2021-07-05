@@ -4,9 +4,10 @@ import Homepage1 from "./Homepage1";
 import Homepage2 from "./Homepage2";
 import Homepage3 from "./Homepage3";
 import VNav from "./VNav";
-import { Fragment } from "react";
 import { useScrollPosition } from "@n8tb1t/use-scroll-position";
 import { useState, useRef } from "react";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import Contacts from "./Contacts";
 
 const App = () => {
   const [active, toggleActive] = useState("home");
@@ -52,13 +53,20 @@ const App = () => {
   );
 
   return (
-    <Fragment>
-      <VNav active={active} />
-      <Navbar />
-      <Homepage1 ref={page1} />
-      <Homepage2 ref={page2} />
-      <Homepage3 ref={page3} />
-    </Fragment>
+    <Router>
+      <Switch>
+        <Route path="/contacts">
+          <Contacts />
+        </Route>
+        <Route path="/">
+          <VNav active={active} />
+          <Navbar />
+          <Homepage1 ref={page1} />
+          <Homepage2 ref={page2} />
+          <Homepage3 ref={page3} />
+        </Route>
+      </Switch>
+    </Router>
   );
 };
 render(<App />, document.getElementById("root"));

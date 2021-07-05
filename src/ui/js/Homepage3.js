@@ -6,7 +6,7 @@ const Homepage3 = (props, ref) => {
     <Fragment>
       <div ref={ref} className="separator"></div>
       <div className="separator"></div>
-      <div className="homepage-3" id="skills">
+      <div className="page" id="skills">
         <svg
           className="bg"
           viewBox="0 0 1920 961"

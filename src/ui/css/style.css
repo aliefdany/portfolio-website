@@ -136,6 +136,16 @@ html {
   background-color: hsl(0, 0%, 91%);
 }
 
+body {
+  -ms-overflow-style: none; /* for Internet Explorer, Edge */
+  scrollbar-width: none; /* for Firefox */
+  overflow-y: scroll;
+}
+
+body::-webkit-scrollbar {
+  display: none; /* for Chrome, Safari, and Opera */
+}
+
 a {
   text-decoration: none;
 }
@@ -184,6 +194,7 @@ nav {
 .vnav li {
   font-family: "Yeseva One", cursive;
   font-size: 1.2vw;
+  width: 12vh;
   transform-origin: 50% 50%;
   transform: rotate(-90deg);
 }
@@ -198,7 +209,8 @@ nav {
 }
 
 .logo {
-  height: 90%;
+  height: 8vh;
+  width: auto;
 }
 
 .separator {
@@ -208,7 +220,6 @@ nav {
 .main-menu {
   font-family: "Yeseva One", cursive;
   font-size: 1.2vw;
-  color: hsl(46, 25%, 83%);
 
   display: flex;
   align-items: center;
@@ -219,6 +230,10 @@ nav {
   margin: 0 2vw;
 }
 
+.main-menu li a {
+  color: hsl(46, 25%, 83%);
+}
+
 .main-menu li:first-child {
   margin-left: 0;
 }
@@ -227,14 +242,12 @@ nav {
   margin-right: 0;
 }
 
-.homepage-1 {
-  height: 90vh;
+.page {
   position: relative;
+  height: 90vh;
 }
 
-.homepage-1 svg,
-.homepage-2 svg,
-.homepage-3 svg {
+svg.bg {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -277,6 +290,7 @@ nav {
 }
 
 .homepage-content .alief-potrait {
+  /* cascade from line 276 */
   width: 25vw;
 }
 
@@ -291,24 +305,35 @@ nav {
   cursor: pointer;
 }
 
-.homepage-2 {
-  position: relative;
-  height: 90vh;
-}
-
-.homepage-3 {
-  position: relative;
-  height: 90vh;
-}
-
-.homepage-2 .homepage-content,
-.homepage-3 .homepage-content {
-  /* cascade from line 215 */
-  position: relative;
-}
-
-.homepage-3 .skill-stack {
-  /* cascade from line 196 */
-  position: static;
+.skill-stack {
   width: 25vw;
+}
+
+.contacts-link svg {
+  width: 6vw;
+  height: auto;
+}
+
+.contacts-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 60vh;
+}
+
+.contacts-link {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.contacts-link a {
+  font-family: "Yeseva One", cursive;
+  font-size: 1.5vw;
+  color: hsl(48, 12%, 25%);
+  margin-left: 2vw;
+}
+
+.contacts-link a:hover {
+  text-decoration: underline;
 }
