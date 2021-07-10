@@ -1,12 +1,13 @@
 import { render } from "react-dom";
+import { useState, useRef } from "react";
+import { Route, Switch } from "react-router-dom";
+import { MemoryRouter } from "react-router";
+import { useScrollPosition } from "@n8tb1t/use-scroll-position";
 import Navbar from "./Navbar";
+import VNav from "./VNav";
 import Homepage1 from "./Homepage1";
 import Homepage2 from "./Homepage2";
 import Homepage3 from "./Homepage3";
-import VNav from "./VNav";
-import { useScrollPosition } from "@n8tb1t/use-scroll-position";
-import { useState, useRef } from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Contacts from "./Contacts";
 
 const App = () => {
@@ -53,7 +54,7 @@ const App = () => {
   );
 
   return (
-    <Router>
+    <MemoryRouter>
       <Switch>
         <Route path="/contacts">
           <Contacts />
@@ -66,7 +67,7 @@ const App = () => {
           <Homepage3 ref={page3} />
         </Route>
       </Switch>
-    </Router>
+    </MemoryRouter>
   );
 };
 render(<App />, document.getElementById("root"));
