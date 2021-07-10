@@ -164,7 +164,7 @@ nav {
   right: 0;
   left: 0;
 
-  max-height: 10vh;
+  height: 10vh;
   width: auto;
   padding: 0 10vw;
   display: flex;
@@ -209,7 +209,7 @@ nav {
 }
 
 .logo {
-  max-height: 8vh;
+  height: 8vh;
   width: auto;
 }
 
