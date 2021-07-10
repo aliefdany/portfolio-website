@@ -4,7 +4,8 @@ import { forwardRef } from "react";
 const Homepage3 = (props, ref) => {
   return (
     <Fragment>
-      <div ref={ref} className="separator"></div>
+      {/* <div className="separator with-bg"></div> */}
+      <div ref={ref} className="separator with-bg"></div>
       <div className="page" id="skills">
         <svg
           className="bg"

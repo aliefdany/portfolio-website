@@ -243,6 +243,7 @@ nav {
 }
 
 .page {
+  /* border: 1px solid black; */
   position: relative;
   height: 90vh;
 }
@@ -295,7 +296,7 @@ svg.bg {
 }
 
 .homepage-content button {
-  max-height: 4vh;
+  max-height: 4.5vh;
   width: auto;
   padding: 0.2em 1em;
   font-size: 1.2vw;
@@ -391,8 +392,7 @@ svg.bg {
   }
 
   .homepage-content button {
-    font-size: 2.4vw;
-    min-width: 18vw;
+    font-size: 4vw;
   }
 
   .homepage-content .alief-potrait {
@@ -440,7 +440,7 @@ svg.bg {
     height: auto;
   }
 
-  .separator {
+  .separator.with-bg {
     /* border: 1px solid black; */
     background-image: url("../../img/logo.svg");
     background-repeat: no-repeat;
