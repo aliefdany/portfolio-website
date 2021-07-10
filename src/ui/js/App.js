@@ -18,11 +18,11 @@ const App = () => {
   // Element scroll position
   useScrollPosition(
     ({ currPos }) => {
-      if (currPos.y <= 0) {
+      if (currPos.y == 0) {
         toggleActive("home");
       }
 
-      console.log(currPos.y);
+      // console.log(currPos.y);
     },
     [],
     page1
@@ -30,7 +30,7 @@ const App = () => {
 
   useScrollPosition(
     ({ currPos }) => {
-      if (currPos.y <= 0) {
+      if (currPos.y <= 0 && currPos.y > -50) {
         toggleActive("profile");
       }
 
