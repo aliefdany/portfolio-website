@@ -5,8 +5,7 @@ import { Fragment } from "react";
 const Homepage2 = (props, ref) => {
   return (
     <Fragment>
-      <div ref={ref} className="separator"></div>
-      <div className="separator" id="profile"></div>
+      <div ref={ref} className="separator" id="profile"></div>
       <div className="page">
         <svg
           className="bg"

@@ -5,7 +5,6 @@ const Homepage3 = (props, ref) => {
   return (
     <Fragment>
       <div ref={ref} className="separator"></div>
-      <div className="separator"></div>
       <div className="page" id="skills">
         <svg
           className="bg"

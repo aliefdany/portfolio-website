@@ -2,12 +2,13 @@
   "name": "aliefdany.github.io",
   "version": "1.0.0",
   "description": "This is Alief Dany's Portofolio Website",
-  "main": "index.js",
+  "main": "build/index.html",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "format": "prettier --write \"src/**/*.{js,jsx}\"",
     "lint": "eslint \"src/**/*.{js,jsx}\"",
-    "dev": "parcel src/ui/html/index.html"
+    "dev": "parcel src/ui/html/index.html",
+    "build": "parcel build src/ui/html/index.html --reporter @parcel/reporter-bundle-buddy"
   },
   "repository": {
     "type": "git",
@@ -25,6 +26,7 @@
   "devDependencies": {
     "@babel/core": "^7.14.6",
     "@babel/preset-react": "^7.14.5",
+    "@parcel/reporter-bundle-buddy": "^2.0.0-nightly.1902",
     "@parcel/transformer-image": "^2.0.0-beta.2",
     "eslint": "^7.29.0",
     "eslint-config-prettier": "^8.3.0",
