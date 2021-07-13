@@ -1,9 +1,22 @@
 import Navbar from "./Navbar";
-import { Fragment } from "react";
+import { Fragment, useLayoutEffect, useState } from "react";
 
-const Contacts = () => {
+const Project = () => {
+  const [projects, setProject] = useState([]);
+
+  async function fetchProjects() {
+    let res = await fetch("/api");
+    res = await res.json();
+    setProject(res);
+  }
+
+  useLayoutEffect(() => {
+    fetchProjects();
+  }, []);
+
   return (
     <Fragment>
+      <Navbar />
       <ul className="vnav">
         <li>
           <a href="#contacts" style={{ color: "hsl(169, 38%, 38%)" }}>
@@ -11,7 +24,6 @@ const Contacts = () => {
           </a>
         </li>
       </ul>
-      <Navbar />
       <div className="separator" id="contacts"></div>
       <div className="page">
         <svg
@@ -32,7 +44,7 @@ const Contacts = () => {
           />
         </svg>
         <div className="homepage-content">
-          <div className="text">
+          <div className="text project-text">
             <h4>Project</h4>
             <h1>Projects</h1>
             <p>
@@ -42,11 +54,30 @@ const Contacts = () => {
               side of this page and share your thought!
             </p>
           </div>
-          <div className="contacts-list"></div>
+          <div className="project-showcase">
+            {/* <div>
+              <h1>Whatson Indonesia</h1>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Voluptatum velit labore tenetur, recusandae voluptates odit?
+              </p>
+              <img src="#" alt="terserah anda" />
+            </div> */}
+            {projects.map((project) => {
+              return (
+                <div key={project._id}>
+                  <h1>{project.title}</h1>
+                  <p>{project.preview}</p>
+                  <img src={project.logoURL} alt="project-img" />
+                </div>
+              );
+            })}
+            <button>See Details</button>
+          </div>
         </div>
       </div>
     </Fragment>
   );
 };
 
-export default Contacts;
+export default Project;

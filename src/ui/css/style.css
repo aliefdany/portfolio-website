@@ -271,6 +271,7 @@ svg.bg {
   margin-bottom: 3vh;
 }
 .homepage-content {
+  border: 1px solid black;
   width: 65vw;
   color: hsl(48, 12%, 25%);
   position: absolute;
@@ -319,6 +320,7 @@ svg.bg {
 }
 
 .contacts-list {
+  border: 1px solid black;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -340,6 +342,38 @@ svg.bg {
 
 .contacts-link a:hover {
   text-decoration: underline;
+}
+
+.project-text {
+  width: 70vw;
+  flex: 0 1 auto;
+}
+
+.project-showcase {
+  flex: 0 1 auto;
+  margin-left: 3vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.project-showcase h1 {
+  font-size: 1.5vw;
+}
+
+.project-showcase p {
+  font-size: 1vw;
+}
+
+.project-showcase button {
+  font-size: 1vw;
+  max-width: 8vw;
+  margin-top: 3vh;
+}
+
+.project-showcase img {
+  width: 25vw;
+  height: auto;
 }
 
 @media (max-device-width: 480px) {
