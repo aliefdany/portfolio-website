@@ -9,6 +9,7 @@ import Homepage1 from "./Homepage1";
 import Homepage2 from "./Homepage2";
 import Homepage3 from "./Homepage3";
 import Contacts from "./Contacts";
+import Project from "./Project";
 
 const App = () => {
   const [active, toggleActive] = useState("home");
@@ -58,6 +59,9 @@ const App = () => {
       <Switch>
         <Route path="/contacts">
           <Contacts />
+        </Route>
+        <Route path="/project">
+          <Project />
         </Route>
         <Route path="/">
           <VNav active={active} />

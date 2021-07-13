@@ -1,5 +1,5 @@
 import Navbar from "./Navbar";
-import { Fragment } from "react-is";
+import { Fragment } from "react";
 
 const Contacts = () => {
   return (
