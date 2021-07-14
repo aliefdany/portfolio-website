@@ -1,11 +1,13 @@
 import Navbar from "./Navbar";
 import { Fragment, useLayoutEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 const Project = () => {
   const [projects, setProject] = useState([]);
+  let cacheId = "";
 
   async function fetchProjects() {
-    let res = await fetch("/api");
+    let res = await fetch("/api/project");
     res = await res.json();
     setProject(res);
   }
@@ -64,6 +66,7 @@ const Project = () => {
               <img src="#" alt="terserah anda" />
             </div> */}
             {projects.map((project) => {
+              cacheId = project._id;
               return (
                 <div key={project._id}>
                   <h1>{project.title}</h1>
@@ -72,7 +75,7 @@ const Project = () => {
                 </div>
               );
             })}
-            <button>See Details</button>
+            <Link to={`/project/${cacheId}`}>See Details</Link>
           </div>
         </div>
       </div>

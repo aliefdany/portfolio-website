@@ -1,7 +1,6 @@
 import { render } from "react-dom";
 import { useState, useRef } from "react";
-import { Route, Switch } from "react-router-dom";
-import { MemoryRouter } from "react-router";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { useScrollPosition } from "@n8tb1t/use-scroll-position";
 import Navbar from "./Navbar";
 import VNav from "./VNav";
@@ -10,6 +9,7 @@ import Homepage2 from "./Homepage2";
 import Homepage3 from "./Homepage3";
 import Contacts from "./Contacts";
 import Project from "./Project";
+import ProjectDetails from "./ProjectDetails";
 
 const App = () => {
   const [active, toggleActive] = useState("home");
@@ -55,13 +55,16 @@ const App = () => {
   );
 
   return (
-    <MemoryRouter>
+    <Router>
+      <Route path="/contacts">
+        <Contacts />
+      </Route>
       <Switch>
-        <Route path="/contacts">
-          <Contacts />
+        <Route path="/project/:id">
+          <ProjectDetails />
         </Route>
         <Route path="/project">
-          <Project />
+          <Project></Project>
         </Route>
         <Route path="/">
           <VNav active={active} />
@@ -71,7 +74,7 @@ const App = () => {
           <Homepage3 ref={page3} />
         </Route>
       </Switch>
-    </MemoryRouter>
+    </Router>
   );
 };
 render(<App />, document.getElementById("root"));
