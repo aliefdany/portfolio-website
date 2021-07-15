@@ -148,6 +148,7 @@ body::-webkit-scrollbar {
 
 a {
   text-decoration: none;
+  color: #e9e9e9;
 }
 
 h1 {
@@ -174,6 +175,13 @@ nav {
   z-index: 4;
 
   /* box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.25);*/
+}
+
+.homepage-content button:hover {
+  background-color: rgba(0, 0, 0, 0);
+  outline: 0.1vw solid hsla(169, 38%, 38%, 1);
+  color: hsla(169, 38%, 38%, 1);
+  transition: all 500ms;
 }
 
 .vnav {
@@ -206,6 +214,8 @@ nav {
 .vnav li a:hover,
 .vnav li a:active {
   color: hsla(169, 38%, 38%, 1);
+  font-size: 1.3vw;
+  transition: all 500ms;
 }
 
 .logo {
@@ -232,6 +242,10 @@ nav {
 
 .main-menu li a {
   color: hsl(46, 25%, 83%);
+}
+
+.main-menu li a:hover {
+  text-decoration: underline;
 }
 
 .main-menu li:first-child {
@@ -271,8 +285,9 @@ svg.bg {
   margin-bottom: 3vh;
 }
 .homepage-content {
-  border: 1px solid black;
+  /* border: 1px solid black; */
   width: 65vw;
+  height: 55vh;
   color: hsl(48, 12%, 25%);
   position: absolute;
   display: flex;
@@ -284,19 +299,29 @@ svg.bg {
   transform: translate(-50%, -50%);
 }
 
-.homepage-content .alief-potrait,
-.homepage-content .logo-filkom {
+.alief-potrait {
+  width: 25vw;
+  height: auto;
+  flex: 0 1 auto;
+  visibility: hidden;
+  opacity: 0;
+}
+
+.logo-filkom {
   width: 23vw;
   height: auto;
   flex: 0 1 auto;
+  visibility: hidden;
+  opacity: 0;
 }
 
-.homepage-content .alief-potrait {
-  /* cascade from line 276 */
-  width: 25vw;
+.text {
+  visibility: hidden;
+  opacity: 0;
 }
 
-.homepage-content button {
+.homepage-content button,
+.project-showcase button {
   max-height: 4.5vh;
   width: auto;
   padding: 0.2em 1em;
@@ -311,6 +336,8 @@ svg.bg {
 }
 
 .skill-stack {
+  visibility: hidden;
+  opacity: 0;
   width: 25vw;
 }
 
@@ -320,7 +347,7 @@ svg.bg {
 }
 
 .contacts-list {
-  border: 1px solid black;
+  /* border: 1px solid black; */
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -345,11 +372,13 @@ svg.bg {
 }
 
 .project-text {
-  width: 70vw;
-  flex: 0 1 auto;
+  /* border: 1px solid black; */
+  width: 35vw;
 }
 
 .project-showcase {
+  /* border: 1px solid black; */
+  width: 30vw;
   flex: 0 1 auto;
   margin-left: 3vw;
   display: flex;
@@ -366,14 +395,105 @@ svg.bg {
 }
 
 .project-showcase button {
-  font-size: 1vw;
-  max-width: 8vw;
+  max-width: 10vw;
   margin-top: 3vh;
 }
 
 .project-showcase img {
   width: 25vw;
   height: auto;
+  border-radius: 10px;
+}
+
+.slider {
+  height: 60%;
+  width: 25vw;
+  flex: 0 1 auto;
+  /* border: 1px solid black; */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-end;
+}
+
+.slider-button {
+  margin-bottom: 1vh;
+  /* border: 1px solid black; */
+  width: inherit;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.image-slider {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.image {
+  width: 25vw;
+  border-radius: 10px;
+}
+
+.right-arrow {
+  cursor: pointer;
+  user-select: none;
+  font-size: 2vw;
+  z-index: 10;
+}
+
+.left-arrow {
+  cursor: pointer;
+  user-select: none;
+  font-size: 2vw;
+  z-index: 10;
+}
+
+.slide {
+  position: absolute;
+  top: 0;
+  right: 1.3vw;
+  /* border: 1px solid black; */
+  opacity: 0;
+  transition-duration: 1s ease;
+}
+
+.slide.active {
+  opacity: 1;
+  transition-duration: 1s;
+  transform: scale(1.08);
+}
+
+.animate-left-enter,
+.animate-left-appear {
+  visibility: hidden;
+  opacity: 0;
+  transform: translateX(-50%);
+}
+
+.animate-right-enter,
+.animate-right-appear {
+  visibility: hidden;
+  opacity: 0;
+  transform: translateX(50%);
+}
+
+.animate-left-enter-active,
+.animate-left-appear-active,
+.animate-right-appear-active,
+.animate-right-enter-active {
+  visibility: visible;
+  opacity: 1;
+  transform: none;
+  transition: all 2s;
+}
+
+.animate-left-enter-done,
+.animate-right-enter-done {
+  visibility: visible;
+  opacity: 1;
+  transform: none;
 }
 
 @media (max-device-width: 480px) {
@@ -423,10 +543,6 @@ svg.bg {
     top: 50%;
     right: 50%;
     transform: translate(-48%, -50%);
-  }
-
-  .homepage-content button {
-    font-size: 4vw;
   }
 
   .homepage-content .alief-potrait {

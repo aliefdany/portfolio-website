@@ -2,18 +2,42 @@ import { Component } from "react";
 import { Fragment } from "react";
 import Navbar from "./Navbar";
 import { withRouter } from "react-router-dom";
+import { FaAngleRight, FaAngleLeft } from "react-icons/fa";
 
 class ProjectDetails extends Component {
-  state = { project: { title: "hi", overview: "halo", imageURL: [] } };
+  state = { loading: true, current: 0, imgLength: 0 };
 
   async componentDidMount() {
-    let res = await fetch(`/api/project/${this.props.match.params.id}`);
-    res = await res.json();
-    this.setState(Object.assign({ project: res }));
+    const res = await fetch(`/api/project/${this.props.match.params.id}`);
+    const json = await res.json();
+    this.setState(json[0]);
+    this.setState({ loading: false, imgLength: this.state.imageURL.length });
   }
+
+  nextSlide = () => {
+    const active =
+      this.state.current == this.state.imgLength - 1
+        ? 0
+        : this.state.current + 1;
+    this.setState({ current: active });
+  };
+
+  prevSlide = () => {
+    const active =
+      this.state.current == 0
+        ? this.state.imgLength - 1
+        : this.state.current - 1;
+    this.setState({ current: active });
+  };
 
   render() {
     console.log(this.state);
+    console.log(this.props.match.params.id);
+
+    if (this.state.loading) {
+      return <h1>Loading</h1>;
+    }
+
     return (
       <Fragment>
         <Navbar />
@@ -44,22 +68,38 @@ class ProjectDetails extends Component {
             />
           </svg>
           <div className="homepage-content">
-            <div className="text project-text">
+            <div className="project-text">
               <h4>Project</h4>
-              <h1>{this.state.project.title}</h1>
-              <p>{this.state.project.overview}</p>
+              <h1>{this.state.title}</h1>
+              <p>{this.state.overview[0]}</p>
+              <p>{this.state.overview[1]}</p>
               <button>Visit Site</button>
             </div>
-            <div className="project-showcase">
-              {this.state.project.imageURL.map((project) => {
-                return (
-                  <div key={project._id}>
-                    <h1>{project.title}</h1>
-                    <p>{project.preview}</p>
-                    <img src={project.logoURL} alt="project-img" />
-                  </div>
-                );
-              })}
+            <div className="slider">
+              <div className="slider-button">
+                <FaAngleLeft className="left-arrow" onClick={this.prevSlide} />
+                <FaAngleRight
+                  className="right-arrow"
+                  onClick={this.nextSlide}
+                />
+              </div>
+              <div className="image-slider">
+                {this.state.imageURL.map((url, index) => {
+                  console.log(this.state.current);
+                  return (
+                    <div
+                      className={
+                        index == this.state.current ? "slide active" : "slide"
+                      }
+                      key={url}
+                    >
+                      {index == this.state.current && (
+                        <img src={url} alt="" className="image" />
+                      )}
+                    </div>
+                  );
+                })}
+              </div>
             </div>
           </div>
         </div>

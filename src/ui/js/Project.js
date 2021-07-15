@@ -1,8 +1,9 @@
 import Navbar from "./Navbar";
 import { Fragment, useLayoutEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { CSSTransition } from "react-transition-group";
 
-const Project = () => {
+const Project = (props) => {
   const [projects, setProject] = useState([]);
   let cacheId = "";
 
@@ -46,18 +47,31 @@ const Project = () => {
           />
         </svg>
         <div className="homepage-content">
-          <div className="text project-text">
-            <h4>Project</h4>
-            <h1>Projects</h1>
-            <p>
-              By the time you end up on this page, i’ve done 3 project. 2 of
-              them is individual project and 1 is a team project. This website
-              is one of my individual project. Checkout my projects on the right
-              side of this page and share your thought!
-            </p>
-          </div>
-          <div className="project-showcase">
-            {/* <div>
+          <CSSTransition
+            in={props.animate}
+            timeout={400}
+            classNames="animate-left"
+            appear
+          >
+            <div className="project-text">
+              <h4>Project</h4>
+              <h1>Projects</h1>
+              <p>
+                By the time you end up on this page, i’ve done 3 project. 2 of
+                them is individual project and 1 is a team project. This website
+                is one of my individual project. Checkout my projects on the
+                right side of this page and share your thought!
+              </p>
+            </div>
+          </CSSTransition>
+          <CSSTransition
+            in={props.animate}
+            timeout={400}
+            classNames="animate-right"
+            appear
+          >
+            <div className="project-showcase">
+              {/* <div>
               <h1>Whatson Indonesia</h1>
               <p>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
@@ -65,18 +79,21 @@ const Project = () => {
               </p>
               <img src="#" alt="terserah anda" />
             </div> */}
-            {projects.map((project) => {
-              cacheId = project._id;
-              return (
-                <div key={project._id}>
-                  <h1>{project.title}</h1>
-                  <p>{project.preview}</p>
-                  <img src={project.logoURL} alt="project-img" />
-                </div>
-              );
-            })}
-            <Link to={`/project/${cacheId}`}>See Details</Link>
-          </div>
+              {projects.map((project) => {
+                cacheId = project._id;
+                return (
+                  <div key={project._id}>
+                    <h1>{project.title}</h1>
+                    <p>{project.preview}</p>
+                    <img src={project.logoURL} alt="project-img" />
+                  </div>
+                );
+              })}
+              <button>
+                <Link to={`/project/${cacheId} `}>See Details</Link>
+              </button>
+            </div>
+          </CSSTransition>
         </div>
       </div>
     </Fragment>

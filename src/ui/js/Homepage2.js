@@ -1,8 +1,10 @@
 import logoFILKOM from "url:../../img/logo-filkom-ub.png"; // eslint-disable-line
 import { forwardRef } from "react";
 import { Fragment } from "react";
+import { CSSTransition } from "react-transition-group";
 
 const Homepage2 = (props, ref) => {
+  console.log(props.animate);
   return (
     <Fragment>
       <div ref={ref} className="separator with-bg" id="profile"></div>
@@ -27,17 +29,29 @@ const Homepage2 = (props, ref) => {
         </svg>
 
         <div className="homepage-content">
-          <img src={logoFILKOM} alt="logo-filkom" className="logo-filkom" />
-          <div className="text">
-            <h4>ACADEMIC PROFILE</h4>
-            <h1>Brawijaya University</h1>
-            <p>
-              Faculty of Computer Science <br /> Department of Information
-              System <br />
-              (2019 - Now)
-            </p>
-            <button>Visit Site</button>
-          </div>
+          <CSSTransition
+            in={props.animate}
+            timeout={400}
+            classNames="animate-left"
+          >
+            <img src={logoFILKOM} alt="logo-filkom" className="logo-filkom" />
+          </CSSTransition>
+          <CSSTransition
+            in={props.animate}
+            timeout={400}
+            classNames="animate-right"
+          >
+            <div className="text">
+              <h4>ACADEMIC PROFILE</h4>
+              <h1>Brawijaya University</h1>
+              <p>
+                Faculty of Computer Science <br /> Department of Information
+                System <br />
+                (2019 - Now)
+              </p>
+              <button>Visit Site</button>
+            </div>
+          </CSSTransition>
         </div>
       </div>
     </Fragment>

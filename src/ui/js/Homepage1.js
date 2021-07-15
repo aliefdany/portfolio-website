@@ -1,6 +1,7 @@
 import { Fragment } from "react";
 import myPotrait from "url:../../img/my-potrait.png"; // eslint-disable-line
 import { forwardRef } from "react";
+import { CSSTransition } from "react-transition-group";
 
 const Homepage1 = (props, ref) => {
   return (
@@ -25,18 +26,37 @@ const Homepage1 = (props, ref) => {
           />
         </svg>
         <div className="homepage-content">
-          <div className="text">
-            <h4>GREETINGS</h4>
-            <h1>
-              Welcome! <br /> My Name is Alief
-            </h1>
-            <p>
-              I’m currently an IS student who have a dedication <br /> in modern
-              web development and designing <br /> UI/UX. Welcome to my site!
-            </p>
-            <button>My Profile</button>
-          </div>
-          <img src={myPotrait} alt="alief-potrait" className="alief-potrait" />
+          <CSSTransition
+            in={props.animate}
+            timeout={400}
+            classNames="animate-left"
+            appear
+          >
+            <div className="text">
+              <h4>GREETINGS</h4>
+              <h1>
+                Welcome! <br /> My Name is Alief
+              </h1>
+              <p>
+                I’m currently an IS student who have a dedication <br /> in
+                modern web development and designing <br /> UI/UX. Welcome to my
+                site!
+              </p>
+              <button>My Profile</button>
+            </div>
+          </CSSTransition>
+          <CSSTransition
+            in={props.animate}
+            timeout={400}
+            classNames="animate-right"
+            appear
+          >
+            <img
+              src={myPotrait}
+              alt="alief-potrait"
+              className="alief-potrait"
+            />
+          </CSSTransition>
         </div>
       </div>
     </Fragment>

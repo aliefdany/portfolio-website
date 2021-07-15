@@ -7,7 +7,15 @@ const VNav = ({ active }) => {
         <HashRouter hashType={"noslash"}>
           <Link
             to="home"
-            style={active == "home" ? { color: "hsl(169, 38%, 38%)" } : {}}
+            style={
+              active == "home"
+                ? {
+                    color: "hsl(169, 38%, 38%)",
+                    fontSize: "1.3vw",
+                    transition: "all 1s",
+                  }
+                : {}
+            }
           >
             —Home
           </Link>
@@ -17,7 +25,15 @@ const VNav = ({ active }) => {
         <HashRouter hashType={"noslash"}>
           <Link
             to="profile"
-            style={active == "profile" ? { color: "hsl(169, 38%, 38%)" } : {}}
+            style={
+              active == "profile"
+                ? {
+                    color: "hsl(169, 38%, 38%)",
+                    fontSize: "1.3vw",
+                    transition: "all 1s",
+                  }
+                : {}
+            }
           >
             —Profile
           </Link>
@@ -27,7 +43,15 @@ const VNav = ({ active }) => {
         <HashRouter hashType={"noslash"}>
           <Link
             to="skills"
-            style={active == "skills" ? { color: "hsl(169, 38%, 38%)" } : {}}
+            style={
+              active == "skills"
+                ? {
+                    color: "hsl(169, 38%, 38%)",
+                    fontSize: "1.3vw",
+                    transition: "all 1s",
+                  }
+                : {}
+            }
           >
             —Skills
           </Link>

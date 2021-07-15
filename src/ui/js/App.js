@@ -13,6 +13,10 @@ import ProjectDetails from "./ProjectDetails";
 
 const App = () => {
   const [active, toggleActive] = useState("home");
+  const [animate] = useState(true);
+  const [animate2, toggleAnimate2] = useState(false);
+  const [animate3, toggleAnimate3] = useState(false);
+  // const [visible, toggleVisible] = useState("visible");
   const page1 = useRef();
   const page2 = useRef();
   const page3 = useRef();
@@ -20,11 +24,9 @@ const App = () => {
   // Element scroll position
   useScrollPosition(
     ({ currPos }) => {
-      if (currPos.y == 0) {
+      if (currPos.y <= 0 && currPos.y > -200) {
         toggleActive("home");
       }
-
-      // console.log(currPos.y);
     },
     [],
     page1
@@ -32,11 +34,10 @@ const App = () => {
 
   useScrollPosition(
     ({ currPos }) => {
-      if (currPos.y <= 0 && currPos.y > -50) {
+      if (currPos.y <= 100 && currPos.y >= -100) {
         toggleActive("profile");
+        toggleAnimate2(true);
       }
-
-      // console.log(currPos.y);
     },
     [],
     page2
@@ -44,11 +45,10 @@ const App = () => {
 
   useScrollPosition(
     ({ currPos }) => {
-      if (currPos.y <= 0) {
+      if (currPos.y <= 100) {
         toggleActive("skills");
+        toggleAnimate3(true);
       }
-
-      // console.log(currPos.y);
     },
     [],
     page3
@@ -56,22 +56,22 @@ const App = () => {
 
   return (
     <Router>
-      <Route path="/contacts">
-        <Contacts />
-      </Route>
       <Switch>
+        <Route path="/contacts">
+          <Contacts animate={animate} />
+        </Route>
         <Route path="/project/:id">
           <ProjectDetails />
         </Route>
         <Route path="/project">
-          <Project></Project>
+          <Project animate={animate} />
         </Route>
         <Route path="/">
           <VNav active={active} />
           <Navbar />
-          <Homepage1 ref={page1} />
-          <Homepage2 ref={page2} />
-          <Homepage3 ref={page3} />
+          <Homepage1 ref={page1} animate={animate} />
+          <Homepage2 ref={page2} animate={animate2} />
+          <Homepage3 ref={page3} animate={animate3} />
         </Route>
       </Switch>
     </Router>
