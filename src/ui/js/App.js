@@ -10,6 +10,7 @@ import Homepage3 from "./Homepage3";
 import Contacts from "./Contacts";
 import Project from "./Project";
 import ProjectDetails from "./ProjectDetails";
+import Footer from "./Footer";
 
 const App = () => {
   const [active, toggleActive] = useState("home");
@@ -93,6 +94,7 @@ const App = () => {
           <Homepage3 ref={page3} animate={animate3} />
         </Route>
       </Switch>
+      <Footer />
     </Router>
   );
 };
