@@ -3,7 +3,7 @@ const Footer = () => {
     <footer>
       <div>
         <h5>
-          Developed With{" "}
+          Designed & Developed With{" "}
           <span aria-label="emoji" role="img">
             🔥
           </span>{" "}

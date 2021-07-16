@@ -177,8 +177,8 @@ nav {
   /* box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.25);*/
 }
 
-.homepage-content a.button-like:hover,
-.homepage-content a.button-like:focus {
+a.button-like:hover,
+a.button-like:focus {
   background-color: rgba(0, 0, 0, 0);
   border: 1px solid hsla(169, 38%, 38%, 1);
   color: hsla(169, 38%, 38%, 1);
@@ -251,6 +251,7 @@ nav {
 }
 
 .main-menu li a {
+  width: 0;
   color: hsl(46, 25%, 83%);
 }
 
@@ -344,8 +345,7 @@ svg.bg {
   opacity: 0;
 }
 
-.homepage-content a.button-like,
-.project-showcase a.button-like {
+a.button-like {
   transition: background 500ms;
   padding: 0.2em 1em;
   font-family: "Montserrat", sans-serif;
@@ -586,7 +586,7 @@ svg.bg {
 .navbar-underline {
   transition: width 300ms;
   margin-top: 0.5vh;
-  height: 0.4vh;
+  height: 0.3vh;
   width: 0;
   border-radius: 5px;
   background-color: hsl(46, 25%, 83%);
@@ -638,10 +638,19 @@ footer a:hover {
   -moz-text-fill-color: transparent;
 }
 
+.button-like.back-to-top {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  transform: translate(-50%, -100%);
+}
+
 .animate-left-enter,
 .animate-left-appear,
 .animate-left-delay-appear,
-.animate-left-delay-enter {
+.animate-left-delay-enter,
+.animate-left-exit-done,
+.animate-left-delay-exit-done {
   transform: translate3d(-50%, 0, 0);
   visibility: hidden;
   opacity: 0;
@@ -650,7 +659,9 @@ footer a:hover {
 .animate-right-enter,
 .animate-right-appear,
 .animate-right-delay-appear,
-.animate-right-delay-enter {
+.animate-right-delay-enter,
+.animate-right-exit-done,
+.animate-right-delay-exit-done {
   transform: translate3d(50%, 0, 0);
   visibility: hidden;
   opacity: 0;
@@ -667,10 +678,44 @@ footer a:hover {
 }
 
 .animate-left-enter-done,
-.animate-right-enter-done {
+.animate-right-enter-done,
+.animate-right-exit,
+.animate-left-exit,
+.animate-left-delay-exit,
+.animate-right-delay-exit {
   transform: translate3d(0, 0, 0);
   visibility: visible;
   opacity: 1;
+}
+
+.animate-right-exit-active {
+  transform: translate3d(50%, 0, 0);
+  visibility: hidden;
+  opacity: 0;
+  transition: all 500ms;
+}
+
+.animate-left-exit-active {
+  transform: translate3d(-50%, 0, 0);
+  visibility: hidden;
+  opacity: 0;
+  transition: all 500ms;
+}
+
+.animate-right-delay-exit-active {
+  transform: translate3d(50%, 0, 0);
+  visibility: hidden;
+  opacity: 0;
+  transition: all 1s;
+  transition-delay: 150ms;
+}
+
+.animate-left-delay-exit-active {
+  transform: translate3d(-50%, 0, 0);
+  visibility: hidden;
+  opacity: 0;
+  transition: all 1s;
+  transition-delay: 150ms;
 }
 
 .animate-left-delay-appear-active,

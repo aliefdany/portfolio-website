@@ -3,7 +3,6 @@ import { forwardRef } from "react";
 import { Fragment } from "react";
 import { CSSTransition } from "react-transition-group";
 const Homepage2 = (props, ref) => {
-  console.log(props.animate);
   return (
     <Fragment>
       <div ref={ref} className="separator with-bg" id="profile"></div>

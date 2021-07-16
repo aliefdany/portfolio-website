@@ -4,11 +4,12 @@ import { forwardRef } from "react";
 import { CSSTransition } from "react-transition-group";
 
 const Homepage1 = (props, ref) => {
+  // try to remove code below and see what happens
   useLayoutEffect(() => {
     props.toggleActive("home");
     props.toggleAnimate1(true);
   }, []);
-
+  console.log(props.animate);
   return (
     <Fragment>
       <div ref={ref} className="separator" id="home"></div>

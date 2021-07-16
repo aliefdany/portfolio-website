@@ -23,7 +23,7 @@ const Navbar = () => {
 
       <ul className="main-menu">
         <li>
-          <Link to="/home">
+          <Link to="/">
             Home
             <div className="navbar-underline"></div>
           </Link>

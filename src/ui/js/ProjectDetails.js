@@ -31,9 +31,6 @@ class ProjectDetails extends Component {
   };
 
   render() {
-    console.log(this.state);
-    console.log(this.props.match.params.id);
-
     if (this.state.loading) {
       return <h1>Loading</h1>;
     }
@@ -110,7 +107,6 @@ class ProjectDetails extends Component {
                 </div>
                 <div className="image-slider">
                   {this.state.imageURL.map((url, index) => {
-                    console.log(this.state.current);
                     return (
                       <div
                         className={

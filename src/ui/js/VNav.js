@@ -2,6 +2,8 @@ import { Link, HashRouter } from "react-router-dom";
 import { CSSTransition } from "react-transition-group";
 
 const VNav = ({ active, animate }) => {
+  console.log(active);
+
   return (
     <CSSTransition
       in={animate}

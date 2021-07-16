@@ -1,6 +1,6 @@
 import { Fragment } from "react";
 import { forwardRef } from "react";
-import { Link } from "react-router-dom";
+import { Link, HashRouter } from "react-router-dom";
 import { CSSTransition } from "react-transition-group";
 
 const Homepage3 = (props, ref) => {
@@ -246,6 +246,12 @@ const Homepage3 = (props, ref) => {
             </svg>
           </CSSTransition>
         </div>
+
+        <HashRouter hashType="noslash">
+          <Link to="home" className="back-to-top button-like">
+            Back To Top
+          </Link>
+        </HashRouter>
       </div>
     </Fragment>
   );
