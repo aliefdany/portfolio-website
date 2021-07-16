@@ -180,7 +180,7 @@ nav {
 .homepage-content a.button-like:hover,
 .homepage-content a.button-like:focus {
   background-color: rgba(0, 0, 0, 0);
-  outline: 0.1vw solid hsla(169, 38%, 38%, 1);
+  border: 1px solid hsla(169, 38%, 38%, 1);
   color: hsla(169, 38%, 38%, 1);
   transition: all 500ms;
 }
@@ -202,13 +202,15 @@ nav {
 
 .vnav li {
   font-family: "Yeseva One", cursive;
-  font-size: 1.2vw;
+
   width: 12vh;
   transform-origin: 50% 50%;
   transform: rotate(-90deg);
 }
 
 .vnav li a {
+  font-size: 1.2vw;
+  transition: font-size 400ms, color 400ms;
   color: hsla(169, 38%, 38%, 0.3);
 }
 
@@ -252,8 +254,10 @@ nav {
   color: hsl(46, 25%, 83%);
 }
 
-.main-menu li a:hover {
-  text-decoration: underline;
+.main-menu li a:hover > .navbar-underline,
+.main-menu li a:focus > .navbar-underline {
+  width: 100%;
+  transition: all 300ms;
 }
 
 .main-menu li:first-child {
@@ -342,12 +346,14 @@ svg.bg {
 
 .homepage-content a.button-like,
 .project-showcase a.button-like {
+  transition: background 500ms;
   padding: 0.2em 1em;
   font-family: "Montserrat", sans-serif;
   font-weight: 900;
   font-size: 1.1vw;
   color: hsl(0, 0%, 100%);
   background: hsl(169, 38%, 38%);
+  border: 1px solid hsl(169, 38%, 38%);
   border-radius: 50px;
   box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.25);
   cursor: pointer;
@@ -380,6 +386,8 @@ svg.bg {
 }
 
 .contacts-link a {
+  transition: transform 300ms;
+  transform: translateX(0);
   font-family: "Yeseva One", cursive;
   font-size: 1.5vw;
   color: hsl(48, 12%, 25%);
@@ -484,13 +492,6 @@ svg.bg {
   border-radius: 10px;
 }
 
-.right-arrow {
-  cursor: pointer;
-  user-select: none;
-  font-size: 2vw;
-  z-index: 10;
-}
-
 .right-arrow:hover,
 .right-arrow:focus,
 .left-arrow:hover,
@@ -499,10 +500,21 @@ svg.bg {
   transition: all 400ms;
 }
 
-.left-arrow {
+.right-arrow {
+  scale: 1;
+  transition: scale 400ms;
   cursor: pointer;
   user-select: none;
-  font-size: 2vw;
+  font-size: 3vw;
+  z-index: 10;
+}
+
+.left-arrow {
+  scale: 1;
+  transition: scale 400ms;
+  cursor: pointer;
+  user-select: none;
+  font-size: 3vw;
   z-index: 10;
 }
 
@@ -522,6 +534,7 @@ svg.bg {
 }
 
 .cp-underline {
+  transition: width 300ms;
   margin-top: 0.6vh;
   height: 0.5vh;
   width: 0;
@@ -538,6 +551,7 @@ svg.bg {
 }
 
 .twt-underline {
+  transition: width 300ms;
   margin-top: 0.6vh;
   height: 0.5vh;
   width: 0;
@@ -553,6 +567,7 @@ svg.bg {
 }
 
 .github-underline {
+  transition: width 300ms;
   margin-top: 0.7vh;
   height: 0.5vh;
   width: 0;
@@ -566,6 +581,15 @@ svg.bg {
     #6cc644,
     #d9e70f
   );
+}
+
+.navbar-underline {
+  transition: width 300ms;
+  margin-top: 0.5vh;
+  height: 0.4vh;
+  width: 0;
+  border-radius: 5px;
+  background-color: hsl(46, 25%, 83%);
 }
 
 .animate-left-enter,

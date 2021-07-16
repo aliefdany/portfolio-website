@@ -23,16 +23,28 @@ const Navbar = () => {
 
       <ul className="main-menu">
         <li>
-          <Link to="/home">Home</Link>
+          <Link to="/home">
+            Home
+            <div className="navbar-underline"></div>
+          </Link>
         </li>
         <li>
-          <Link>Blog</Link>
+          <Link>
+            Blog
+            <div className="navbar-underline"></div>
+          </Link>
         </li>
         <li>
-          <Link to="/project">Projects</Link>
+          <Link to="/project">
+            Projects
+            <div className="navbar-underline"></div>
+          </Link>
         </li>
         <li>
-          <Link to="/contacts">Contacts</Link>
+          <Link to="/contacts">
+            Contacts
+            <div className="navbar-underline"></div>
+          </Link>
         </li>
       </ul>
     </nav>
