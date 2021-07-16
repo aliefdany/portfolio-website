@@ -31,7 +31,8 @@ const Navbar = () => {
         <li>
           <Link>
             Blog
-            <div className="navbar-underline"></div>
+            <div className="coming-soon">Coming Soon</div>
+            {/* <div className="navbar-underline"></div> */}
           </Link>
         </li>
         <li>

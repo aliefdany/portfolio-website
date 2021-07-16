@@ -645,6 +645,30 @@ footer a:hover {
   transform: translate(-50%, -100%);
 }
 
+nav ul li:nth-child(2) {
+  position: relative;
+  margin-bottom: 0.8vh;
+}
+
+nav ul li:nth-child(2) a:hover > .coming-soon {
+  transition: all 400ms;
+  background-color: hsl(16, 100%, 50%);
+  opacity: 1;
+}
+
+nav ul li:nth-child(2) .coming-soon {
+  font-size: 1vw;
+  text-align: center;
+  /* width: 8vw; */
+  margin-top: 1vh;
+  opacity: 0;
+  transform: rotate(-25deg);
+  transform-origin: left center;
+  top: 0;
+  left: 0;
+  position: absolute;
+}
+
 .animate-left-enter,
 .animate-left-appear,
 .animate-left-delay-appear,
