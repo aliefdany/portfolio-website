@@ -177,7 +177,8 @@ nav {
   /* box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.25);*/
 }
 
-.homepage-content a.button-like:hover {
+.homepage-content a.button-like:hover,
+.homepage-content a.button-like:focus {
   background-color: rgba(0, 0, 0, 0);
   outline: 0.1vw solid hsla(169, 38%, 38%, 1);
   color: hsla(169, 38%, 38%, 1);
@@ -212,7 +213,7 @@ nav {
 }
 
 .vnav li a:hover,
-.vnav li a:active {
+.vnav li a:focus {
   color: hsla(169, 38%, 38%, 1);
   font-size: 1.3vw;
   transition: all 400ms;
@@ -385,8 +386,28 @@ svg.bg {
   margin-left: 2vw;
 }
 
+.contacts-link a:hover > .cp-underline,
+.contacts-link a:hover > .twt-underline,
+.contacts-link a:hover > .github-underline {
+  width: 100%;
+  transition: all 300ms;
+}
+
+.contacts-link a:focus > .cp-underline,
+.contacts-link a:focus > .twt-underline,
+.contacts-link a:focus > .github-underline {
+  width: 100%;
+  transition: all 300ms;
+}
+
 .contacts-link a:hover {
-  text-decoration: underline;
+  transform: translateX(3%);
+  transition: all 500ms;
+}
+
+.contacts-link a:focus {
+  transform: translateX(3%);
+  transition: all 500ms;
 }
 
 .project-text {
@@ -471,7 +492,9 @@ svg.bg {
 }
 
 .right-arrow:hover,
-.left-arrow:hover {
+.right-arrow:focus,
+.left-arrow:hover,
+.left-arrow:focus {
   scale: 1.08;
   transition: all 400ms;
 }
@@ -496,6 +519,53 @@ svg.bg {
   opacity: 1;
   transition-duration: 1s;
   transform: scale(1.08);
+}
+
+.cp-underline {
+  margin-top: 0.6vh;
+  height: 0.5vh;
+  width: 0;
+  background: linear-gradient(
+    45deg,
+    #f09433 0%,
+    #e6683c 25%,
+    #dc2743 50%,
+    #cc2366 75%,
+    #bc1888 100%
+  );
+
+  border-radius: 5px;
+}
+
+.twt-underline {
+  margin-top: 0.6vh;
+  height: 0.5vh;
+  width: 0;
+  border-radius: 5px;
+  background: linear-gradient(
+    45deg,
+    #66757f,
+    #00acee,
+    #36d8ff,
+    #6fbff5,
+    #80ccff
+  );
+}
+
+.github-underline {
+  margin-top: 0.7vh;
+  height: 0.5vh;
+  width: 0;
+  border-radius: 5px;
+  background: linear-gradient(
+    45deg,
+    #4078c0,
+    #6e5494,
+    #bd2c00,
+    #c9510c,
+    #6cc644,
+    #d9e70f
+  );
 }
 
 .animate-left-enter,

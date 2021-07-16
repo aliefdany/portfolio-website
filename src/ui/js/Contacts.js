@@ -95,6 +95,7 @@ const Contacts = () => {
                   target="_blank"
                 >
                   github.com/aliefdany
+                  <div className="github-underline"></div>
                 </a>
               </div>
               <div className="contacts-link">
@@ -120,6 +121,7 @@ const Contacts = () => {
                   target="_blank"
                 >
                   twitter.com/aliefseventri
+                  <div className="twt-underline"></div>
                 </a>
               </div>
               <div className="contacts-link">
@@ -176,6 +178,7 @@ const Contacts = () => {
                   target="_blank"
                 >
                   instagram.com/aliefseventri
+                  <div className="cp-underline"></div>
                 </a>
               </div>
             </div>
