@@ -1,8 +1,8 @@
 import { Component } from "react";
 import { Fragment } from "react";
-import Navbar from "./Navbar";
 import { withRouter } from "react-router-dom";
 import { FaAngleRight, FaAngleLeft } from "react-icons/fa";
+import { CSSTransition } from "react-transition-group";
 
 class ProjectDetails extends Component {
   state = { loading: true, current: 0, imgLength: 0 };
@@ -40,7 +40,6 @@ class ProjectDetails extends Component {
 
     return (
       <Fragment>
-        <Navbar />
         <ul className="vnav">
           <li>
             <a href="#contacts" style={{ color: "hsl(169, 38%, 38%)" }}>
@@ -68,39 +67,66 @@ class ProjectDetails extends Component {
             />
           </svg>
           <div className="homepage-content">
-            <div className="project-text">
-              <h4>Project</h4>
-              <h1>{this.state.title}</h1>
-              <p>{this.state.overview[0]}</p>
-              <p>{this.state.overview[1]}</p>
-              <button>Visit Site</button>
-            </div>
-            <div className="slider">
-              <div className="slider-button">
-                <FaAngleLeft className="left-arrow" onClick={this.prevSlide} />
-                <FaAngleRight
-                  className="right-arrow"
-                  onClick={this.nextSlide}
-                />
+            <CSSTransition
+              in={true}
+              timeout={400}
+              classNames="animate-left-delay"
+              appear
+            >
+              <div className="project-text">
+                <h4>Project</h4>
+                <h1>{this.state.title}</h1>
+                <p>{this.state.overview[0]}</p>
+                <p>{this.state.overview[1]}</p>
+                <a className="button-like" href="#project">
+                  Visit Site
+                </a>
               </div>
-              <div className="image-slider">
-                {this.state.imageURL.map((url, index) => {
-                  console.log(this.state.current);
-                  return (
-                    <div
-                      className={
-                        index == this.state.current ? "slide active" : "slide"
-                      }
-                      key={url}
-                    >
-                      {index == this.state.current && (
-                        <img src={url} alt="" className="image" />
-                      )}
-                    </div>
-                  );
-                })}
+            </CSSTransition>
+            <CSSTransition
+              in={true}
+              timeout={400}
+              classNames="animate-border"
+              appear
+            >
+              <div className="vertical-separator"></div>
+            </CSSTransition>
+            <CSSTransition
+              in={true}
+              timeout={400}
+              classNames="animate-right-delay"
+              appear
+            >
+              <div className="slider">
+                <div className="slider-button">
+                  <FaAngleLeft
+                    className="left-arrow"
+                    onClick={this.prevSlide}
+                  />
+                  <FaAngleRight
+                    className="right-arrow"
+                    onClick={this.nextSlide}
+                  />
+                </div>
+                <div className="image-slider">
+                  {this.state.imageURL.map((url, index) => {
+                    console.log(this.state.current);
+                    return (
+                      <div
+                        className={
+                          index == this.state.current ? "slide active" : "slide"
+                        }
+                        key={url}
+                      >
+                        {index == this.state.current && (
+                          <img src={url} alt="" className="image" />
+                        )}
+                      </div>
+                    );
+                  })}
+                </div>
               </div>
-            </div>
+            </CSSTransition>
           </div>
         </div>
       </Fragment>

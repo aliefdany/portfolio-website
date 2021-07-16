@@ -177,7 +177,7 @@ nav {
   /* box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.25);*/
 }
 
-.homepage-content button:hover {
+.homepage-content a.button-like:hover {
   background-color: rgba(0, 0, 0, 0);
   outline: 0.1vw solid hsla(169, 38%, 38%, 1);
   color: hsla(169, 38%, 38%, 1);
@@ -215,7 +215,14 @@ nav {
 .vnav li a:active {
   color: hsla(169, 38%, 38%, 1);
   font-size: 1.3vw;
-  transition: all 500ms;
+  transition: all 400ms;
+}
+
+.vertical-separator {
+  opacity: 0;
+  height: 0;
+  margin-left: 2vw;
+  border-left: 1px solid hsl(49, 11%, 38%);
 }
 
 .logo {
@@ -268,6 +275,12 @@ svg.bg {
   height: 100%;
 }
 
+.svg-bg-path {
+  visibility: hidden;
+  opacity: 0;
+  transform: translate3d(0, 0, 0);
+}
+
 .homepage-content h1 {
   font-size: 3vw;
   margin-bottom: 3vh;
@@ -282,10 +295,9 @@ svg.bg {
 .homepage-content p {
   font-size: 1.2vw;
   line-height: 150%;
-  margin-bottom: 3vh;
+  margin-bottom: 4vh;
 }
 .homepage-content {
-  /* border: 1px solid black; */
   width: 65vw;
   height: 55vh;
   color: hsl(48, 12%, 25%);
@@ -300,6 +312,9 @@ svg.bg {
 }
 
 .alief-potrait {
+  /* Hardware Acceleration */
+  transform: translate3d(0, 0, 0);
+
   width: 25vw;
   height: auto;
   flex: 0 1 auto;
@@ -308,6 +323,7 @@ svg.bg {
 }
 
 .logo-filkom {
+  transform: translateZ(0);
   width: 23vw;
   height: auto;
   flex: 0 1 auto;
@@ -316,19 +332,20 @@ svg.bg {
 }
 
 .text {
+  /* hardware acceleration */
+  transform: translateZ(0);
+
   visibility: hidden;
   opacity: 0;
 }
 
-.homepage-content button,
-.project-showcase button {
-  max-height: 4.5vh;
-  width: auto;
+.homepage-content a.button-like,
+.project-showcase a.button-like {
   padding: 0.2em 1em;
-  font-size: 1.2vw;
-  font-weight: bold;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 900;
+  font-size: 1.1vw;
   color: hsl(0, 0%, 100%);
-  border: none;
   background: hsl(169, 38%, 38%);
   border-radius: 50px;
   box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.25);
@@ -336,6 +353,7 @@ svg.bg {
 }
 
 .skill-stack {
+  transform: translateZ(0);
   visibility: hidden;
   opacity: 0;
   width: 25vw;
@@ -374,16 +392,20 @@ svg.bg {
 .project-text {
   /* border: 1px solid black; */
   width: 35vw;
+  flex-shrink: 0;
 }
 
 .project-showcase {
+  transform: translateZ(0);
   /* border: 1px solid black; */
-  width: 30vw;
-  flex: 0 1 auto;
+  width: 25vw;
+  /* flex: 0 1 auto;
+ */
   margin-left: 3vw;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  align-items: flex-start;
+  justify-content: flex;
 }
 
 .project-showcase h1 {
@@ -405,9 +427,14 @@ svg.bg {
   border-radius: 10px;
 }
 
+.project-logo {
+  margin-bottom: 3vh;
+}
+
 .slider {
+  transform: translateZ(0);
   height: 60%;
-  width: 25vw;
+  width: 30vw;
   flex: 0 1 auto;
   /* border: 1px solid black; */
   display: flex;
@@ -443,6 +470,12 @@ svg.bg {
   z-index: 10;
 }
 
+.right-arrow:hover,
+.left-arrow:hover {
+  scale: 1.08;
+  transition: all 400ms;
+}
+
 .left-arrow {
   cursor: pointer;
   user-select: none;
@@ -466,34 +499,75 @@ svg.bg {
 }
 
 .animate-left-enter,
-.animate-left-appear {
+.animate-left-appear,
+.animate-left-delay-appear,
+.animate-left-delay-enter {
+  transform: translate3d(-50%, 0, 0);
   visibility: hidden;
   opacity: 0;
-  transform: translateX(-50%);
 }
 
 .animate-right-enter,
-.animate-right-appear {
+.animate-right-appear,
+.animate-right-delay-appear,
+.animate-right-delay-enter {
+  transform: translate3d(50%, 0, 0);
   visibility: hidden;
   opacity: 0;
-  transform: translateX(50%);
 }
 
 .animate-left-enter-active,
 .animate-left-appear-active,
 .animate-right-appear-active,
 .animate-right-enter-active {
+  transform: translate3d(0, 0, 0);
   visibility: visible;
   opacity: 1;
-  transform: none;
-  transition: all 2s;
+  transition: all 500ms;
 }
 
 .animate-left-enter-done,
 .animate-right-enter-done {
+  transform: translate3d(0, 0, 0);
   visibility: visible;
   opacity: 1;
-  transform: none;
+}
+
+.animate-left-delay-appear-active,
+.animate-right-delay-appear-active,
+.animate-left-delay-enter-active,
+.animate-right-delay-enter-active {
+  transform: translate3d(0, 0, 0);
+  visibility: visible;
+  opacity: 1;
+  transition: all 1s;
+  transition-delay: 300ms;
+}
+
+.animate-left-delay-enter-done,
+.animate-right-delay-enter-done {
+  transform: translate3d(0, 0, 0);
+  visibility: visible;
+  opacity: 1;
+}
+
+.animate-border-enter {
+  transform: translateZ(0);
+  opacity: 0;
+  height: 0;
+}
+
+.animate-border-appear-active {
+  transform: translateZ(0);
+  opacity: 1;
+  height: 40%;
+  transition: all 500ms;
+}
+
+.animate-border-enter-done {
+  transform: translateZ(0);
+  opacity: 1;
+  height: 40%;
 }
 
 @media (max-device-width: 480px) {
