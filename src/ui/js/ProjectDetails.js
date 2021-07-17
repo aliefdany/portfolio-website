@@ -1,17 +1,27 @@
-import { Component } from "react";
+import React, { Component } from "react";
 import { Fragment } from "react";
 import { withRouter } from "react-router-dom";
 import { CSSTransition } from "react-transition-group";
 import ProjectCarousel from "./ProjectCarousel";
 
 class ProjectDetails extends Component {
-  state = { loading: true, current: 0, imgLength: 0 };
+  state = {
+    loading: true,
+    current: 0,
+    imgLength: 0,
+  };
 
   async componentDidMount() {
     const res = await fetch(`/api/project/${this.props.match.params.id}`);
     const json = await res.json();
     this.setState(json[0]);
     this.setState({ loading: false, imgLength: this.state.imageURL.length });
+  }
+
+  componentDidUpdate() {
+    if (!this.props.showNav) {
+      this.props.toggleNav(true);
+    }
   }
 
   nextSlide = () => {

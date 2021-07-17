@@ -20,6 +20,7 @@ const App = () => {
   const [animate1, toggleAnimate1] = useState(true);
   const [animate2, toggleAnimate2] = useState(false);
   const [animate3, toggleAnimate3] = useState(false);
+  const [showNav, toggleNav] = useState(true);
   const page1 = useRef();
   const page2 = useRef();
   const page3 = useRef();
@@ -43,7 +44,6 @@ const App = () => {
         toggleAnimate1(true);
         toggleAnimate2(false);
       }
-      console.log(currPos.y);
     },
     [],
     page1
@@ -64,29 +64,44 @@ const App = () => {
 
   useScrollPosition(
     ({ currPos }) => {
-      if (currPos.y <= 400 && currPos.y >= -500) {
+      if (currPos.y <= 400 && currPos.y >= 100) {
         toggleActive("skills");
         toggleAnimate3(true);
         toggleAnimate2(false);
       }
+      if (currPos.y <= -1) {
+        toggleNav(false);
+      }
+      if (currPos.y > 0) {
+        toggleNav(true);
+      }
+      console.log(showNav);
+      console.log(currPos.y);
     },
     [],
     page3
   );
 
+  function ScrollToTopOnMount() {
+    useEffect(() => {
+      window.scrollTo(0, 0);
+    }, []);
+    return null;
+  }
+
   return (
     <Router>
       <ScrollToTop />
-      <Navbar />
+      <Navbar showNav={showNav} />
       <Switch>
         <Route path="/contacts">
-          <Contacts />
+          <Contacts toggleNav={toggleNav} showNav={showNav} />
         </Route>
         <Route path="/project/:id">
-          <ProjectDetails />
+          <ProjectDetails toggleNav={toggleNav} showNav={showNav} />
         </Route>
         <Route path="/project">
-          <Project />
+          <Project toggleNav={toggleNav} showNav={showNav} />
         </Route>
         <Route path="/">
           <VNav

@@ -44,14 +44,14 @@ const Homepage2 = (props, ref) => {
           <CSSTransition
             in={props.animate}
             timeout={400}
-            classNames="animate-left-delay"
+            classNames="animate-left"
           >
             <img src={logoFILKOM} alt="logo-filkom" className="logo-filkom" />
           </CSSTransition>
           <CSSTransition
             in={props.animate}
             timeout={400}
-            classNames="animate-right-delay"
+            classNames="animate-right"
           >
             <div className="text">
               <h4>ACADEMIC PROFILE</h4>

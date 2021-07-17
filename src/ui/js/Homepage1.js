@@ -9,7 +9,6 @@ const Homepage1 = (props, ref) => {
     props.toggleActive("home");
     props.toggleAnimate1(true);
   }, []);
-  console.log(props.animate);
   return (
     <Fragment>
       <div ref={ref} className="separator" id="home"></div>
@@ -51,7 +50,7 @@ const Homepage1 = (props, ref) => {
           <CSSTransition
             in={props.animate}
             timeout={400}
-            classNames="animate-left-delay"
+            classNames="animate-left"
             appear
           >
             <div className="text">
@@ -73,7 +72,7 @@ const Homepage1 = (props, ref) => {
           <CSSTransition
             in={props.animate}
             timeout={400}
-            classNames="animate-right-delay"
+            classNames="animate-right"
             appear
           >
             <img

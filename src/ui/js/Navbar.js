@@ -1,8 +1,14 @@
 import { Link } from "react-router-dom";
 
-const Navbar = () => {
+const Navbar = ({ showNav }) => {
   return (
-    <nav>
+    <nav
+      style={
+        !showNav
+          ? { transform: "translateY(-100%)", transition: "all 500ms" }
+          : { transform: "translateY(0)", transition: "all 500ms" }
+      }
+    >
       <Link to="/">
         <svg
           className="logo"

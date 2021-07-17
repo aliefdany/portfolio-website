@@ -45,7 +45,7 @@ const Homepage3 = (props, ref) => {
           <CSSTransition
             in={props.animate}
             timeout={400}
-            classNames="animate-left-delay"
+            classNames="animate-left"
           >
             <div className="text">
               <h4>SKILLS</h4>
@@ -71,7 +71,7 @@ const Homepage3 = (props, ref) => {
           <CSSTransition
             in={props.animate}
             timeout={400}
-            classNames="animate-right-delay"
+            classNames="animate-right"
           >
             <svg
               className="skill-stack"

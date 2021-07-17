@@ -257,8 +257,9 @@ a.button-like:focus {
 
 .main-menu li a:hover > .navbar-underline,
 .main-menu li a:focus > .navbar-underline {
+  opacity: 1;
   width: 100%;
-  transition: all 300ms;
+  transition: width 300ms;
 }
 
 .main-menu li:first-child {
@@ -581,9 +582,12 @@ a.button-like {
   transition: width 300ms;
   margin-top: 0.5vh;
   height: 0.3vh;
+  opacity: 0;
   width: 0;
   border-radius: 5px;
-  background-color: hsl(46, 25%, 83%);
+  border-bottom: 2px solid hsl(46, 25%, 83%);
+  transition: opacity 300ms, width 300ms;
+  /* background-color: hsl(46, 25%, 83%); */
 }
 
 footer {
@@ -663,23 +667,16 @@ nav ul li:nth-child(2) .coming-soon {
   position: absolute;
 }
 
+/* Transition */
 .animate-left-enter,
-.animate-left-appear,
-.animate-left-delay-appear,
-.animate-left-delay-enter,
-.animate-left-exit-done,
-.animate-left-delay-exit-done {
+.animate-left-appear {
   transform: translate3d(-50%, 0, 0);
   visibility: hidden;
   opacity: 0;
 }
 
 .animate-right-enter,
-.animate-right-appear,
-.animate-right-delay-appear,
-.animate-right-delay-enter,
-.animate-right-exit-done,
-.animate-right-delay-exit-done {
+.animate-right-appear {
   transform: translate3d(50%, 0, 0);
   visibility: hidden;
   opacity: 0;
@@ -692,15 +689,17 @@ nav ul li:nth-child(2) .coming-soon {
   transform: translate3d(0, 0, 0);
   visibility: visible;
   opacity: 1;
+
   transition: all 500ms;
+  -webkit-transition: all 500ms;
+  -moz-transition: all 500ms;
+  -ms-transition: all 500ms;
 }
 
 .animate-left-enter-done,
 .animate-right-enter-done,
 .animate-right-exit,
-.animate-left-exit,
-.animate-left-delay-exit,
-.animate-right-delay-exit {
+.animate-left-exit {
   transform: translate3d(0, 0, 0);
   visibility: visible;
   opacity: 1;
@@ -711,6 +710,9 @@ nav ul li:nth-child(2) .coming-soon {
   visibility: hidden;
   opacity: 0;
   transition: all 500ms;
+  -webkit-transition: all 500ms;
+  -moz-transition: all 500ms;
+  -ms-transition: all 500ms;
 }
 
 .animate-left-exit-active {
@@ -718,40 +720,9 @@ nav ul li:nth-child(2) .coming-soon {
   visibility: hidden;
   opacity: 0;
   transition: all 500ms;
-}
-
-.animate-right-delay-exit-active {
-  transform: translate3d(50%, 0, 0);
-  visibility: hidden;
-  opacity: 0;
-  transition: all 1s;
-  transition-delay: 150ms;
-}
-
-.animate-left-delay-exit-active {
-  transform: translate3d(-50%, 0, 0);
-  visibility: hidden;
-  opacity: 0;
-  transition: all 1s;
-  transition-delay: 150ms;
-}
-
-.animate-left-delay-appear-active,
-.animate-right-delay-appear-active,
-.animate-left-delay-enter-active,
-.animate-right-delay-enter-active {
-  transform: translate3d(0, 0, 0);
-  visibility: visible;
-  opacity: 1;
-  transition: all 1s;
-  transition-delay: 300ms;
-}
-
-.animate-left-delay-enter-done,
-.animate-right-delay-enter-done {
-  transform: translate3d(0, 0, 0);
-  visibility: visible;
-  opacity: 1;
+  -webkit-transition: all 500ms;
+  -moz-transition: all 500ms;
+  -ms-transition: all 500ms;
 }
 
 .animate-border-enter {
@@ -764,7 +735,11 @@ nav ul li:nth-child(2) .coming-soon {
   transform: translateZ(0);
   opacity: 1;
   height: 40%;
+
   transition: all 500ms;
+  -webkit-transition: all 500ms;
+  -moz-transition: all 500ms;
+  -ms-transition: all 500ms;
 }
 
 .animate-border-enter-done {

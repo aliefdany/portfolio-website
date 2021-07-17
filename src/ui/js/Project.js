@@ -1,10 +1,31 @@
 import { Fragment, useLayoutEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { CSSTransition } from "react-transition-group";
+import { forwardRef, useRef } from "react";
+import { useScrollPosition } from "@n8tb1t/use-scroll-position";
 
-const Project = () => {
+const Project = ({ toggleNav }) => {
   const [projects, setProject] = useState([]);
   let cacheId = "";
+
+  const project = useRef();
+
+  useLayoutEffect(() => {
+    window.scroll(0, 0);
+  }, []);
+
+  useScrollPosition(
+    ({ currPos }) => {
+      if (currPos.y <= -100) {
+        toggleNav(false);
+      }
+      if (currPos.y == 0) {
+        toggleNav(true);
+      }
+    },
+    [],
+    project
+  );
 
   async function fetchProjects() {
     let res = await fetch("/api/project");
@@ -32,7 +53,7 @@ const Project = () => {
           </li>
         </ul>
       </CSSTransition>
-      <div className="separator" id="contacts"></div>
+      <div ref={project} className="separator" id="contacts"></div>
       <div className="page">
         <svg
           className="bg"
@@ -100,14 +121,6 @@ const Project = () => {
             appear
           >
             <div className="project-showcase">
-              {/* <div>
-              <h1>Whatson Indonesia</h1>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Voluptatum velit labore tenetur, recusandae voluptates odit?
-              </p>
-              <img src="#" alt="terserah anda" />
-            </div> */}
               {projects.map((project) => {
                 cacheId = project._id;
                 return (
@@ -122,7 +135,7 @@ const Project = () => {
                   </div>
                 );
               })}
-              <Link to={`/project/${cacheId} `} className="button-like">
+              <Link to={`/project/${cacheId}`} className="button-like">
                 See Details
               </Link>
             </div>
@@ -133,4 +146,4 @@ const Project = () => {
   );
 };
 
-export default Project;
+export default forwardRef(Project);

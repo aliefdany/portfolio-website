@@ -1,7 +1,28 @@
 import { Fragment } from "react";
 import { CSSTransition } from "react-transition-group";
+import { forwardRef, useRef, useLayoutEffect } from "react";
+import { useScrollPosition } from "@n8tb1t/use-scroll-position";
 
-const Contacts = () => {
+const Contacts = ({ toggleNav }) => {
+  const contacts = useRef();
+
+  useLayoutEffect(() => {
+    window.scroll(0, 0);
+  }, []);
+
+  useScrollPosition(
+    ({ currPos }) => {
+      if (currPos.y <= -100) {
+        toggleNav(false);
+      }
+      if (currPos.y == 0) {
+        toggleNav(true);
+      }
+    },
+    [],
+    contacts
+  );
+
   return (
     <Fragment>
       <CSSTransition
@@ -18,7 +39,8 @@ const Contacts = () => {
           </li>
         </ul>
       </CSSTransition>
-      <div className="separator" id="contacts"></div>
+
+      <div ref={contacts} className="separator" id="contacts"></div>
       <div className="page">
         <svg
           className="bg"
@@ -57,7 +79,7 @@ const Contacts = () => {
           <CSSTransition
             in={true}
             timeout={400}
-            classNames="animate-left-delay"
+            classNames="animate-left"
             appear
           >
             <div className="text">
@@ -189,4 +211,4 @@ const Contacts = () => {
   );
 };
 
-export default Contacts;
+export default forwardRef(Contacts);
