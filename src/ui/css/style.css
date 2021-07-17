@@ -224,7 +224,7 @@ a.button-like:focus {
 .vertical-separator {
   opacity: 0;
   height: 0;
-  margin-left: 2vw;
+  margin-right: 2vw;
   border-left: 1px solid hsl(49, 11%, 38%);
 }
 
@@ -464,12 +464,6 @@ a.button-like {
   transform: translateZ(0);
   height: 60%;
   width: 30vw;
-  flex: 0 1 auto;
-  /* border: 1px solid black; */
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-end;
 }
 
 .slider-button {
@@ -779,11 +773,40 @@ nav ul li:nth-child(2) .coming-soon {
   height: 40%;
 }
 
+.each-slide > div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-size: cover;
+  height: 350px;
+}
+
+.each-slide span {
+  padding: 20px;
+  font-size: 20px;
+  background: #efefef;
+  text-align: center;
+}
+
 @media (max-device-width: 480px) {
   /* CSS */
 
-  .vnav li {
+  .vnav li a {
+    font-size: 4vw;
+  }
+
+  footer h5 {
+    font-size: 4vw;
+  }
+  footer p {
     font-size: 3vw;
+  }
+
+  .vnav li a:hover,
+  .vnav li a:focus {
+    color: hsla(169, 38%, 38%, 1);
+    font-size: 4.2vw;
+    transition: all 400ms;
   }
   .logo {
     /* border: 1px solid black; */
@@ -792,6 +815,10 @@ nav ul li:nth-child(2) .coming-soon {
     height: 13vh;
     flex-direction: column;
     justify-content: center;
+  }
+
+  a.button-like {
+    font-size: 3vw;
   }
 
   .homepage-content h1 {

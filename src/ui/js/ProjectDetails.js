@@ -1,8 +1,8 @@
 import { Component } from "react";
 import { Fragment } from "react";
 import { withRouter } from "react-router-dom";
-import { FaAngleRight, FaAngleLeft } from "react-icons/fa";
 import { CSSTransition } from "react-transition-group";
+import ProjectCarousel from "./ProjectCarousel";
 
 class ProjectDetails extends Component {
   state = { loading: true, current: 0, imgLength: 0 };
@@ -95,32 +95,7 @@ class ProjectDetails extends Component {
               appear
             >
               <div className="slider">
-                <div className="slider-button">
-                  <FaAngleLeft
-                    className="left-arrow"
-                    onClick={this.prevSlide}
-                  />
-                  <FaAngleRight
-                    className="right-arrow"
-                    onClick={this.nextSlide}
-                  />
-                </div>
-                <div className="image-slider">
-                  {this.state.imageURL.map((url, index) => {
-                    return (
-                      <div
-                        className={
-                          index == this.state.current ? "slide active" : "slide"
-                        }
-                        key={url}
-                      >
-                        {index == this.state.current && (
-                          <img src={url} alt="" className="image" />
-                        )}
-                      </div>
-                    );
-                  })}
-                </div>
+                <ProjectCarousel id={this.props.match.params.id} />
               </div>
             </CSSTransition>
           </div>

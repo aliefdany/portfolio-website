@@ -1,5 +1,5 @@
 import { render } from "react-dom";
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { useScrollPosition } from "@n8tb1t/use-scroll-position";
 import Navbar from "./Navbar";
@@ -12,6 +12,7 @@ import Project from "./Project";
 import ProjectDetails from "./ProjectDetails";
 import Footer from "./Footer";
 import ScrollToTop from "./ScrollToTop";
+import axios from "axios";
 
 const App = () => {
   const [active, toggleActive] = useState("home");
@@ -22,6 +23,16 @@ const App = () => {
   const page1 = useRef();
   const page2 = useRef();
   const page3 = useRef();
+
+  function getData() {
+    axios.get(`/api/project/60ee9f970146f94bb9136fa5`, {}).then((res) => {
+      console.log(res.data[0].imageURL);
+    });
+  }
+
+  useEffect(() => {
+    getData();
+  }, []);
 
   // Element scroll position
 
