@@ -1,10 +1,9 @@
-import { Fragment, useLayoutEffect, useState } from "react";
+import { Fragment, forwardRef, useLayoutEffect, useState, useRef } from "react";
 import { Link } from "react-router-dom";
 import { CSSTransition } from "react-transition-group";
-import { forwardRef, useRef } from "react";
 import { useScrollPosition } from "@n8tb1t/use-scroll-position";
 
-const Project = ({ toggleNav }) => {
+const Project = ({ toggleNav, showNav }) => {
   const [projects, setProject] = useState([]);
   let cacheId = "";
 
@@ -22,6 +21,8 @@ const Project = ({ toggleNav }) => {
       if (currPos.y == 0) {
         toggleNav(true);
       }
+      console.log(showNav);
+      console.log(currPos.y);
     },
     [],
     project
@@ -39,12 +40,7 @@ const Project = ({ toggleNav }) => {
 
   return (
     <Fragment>
-      <CSSTransition
-        in={true}
-        timeout={400}
-        classNames="animate-left-delay"
-        appear
-      >
+      <CSSTransition in={true} timeout={400} classNames="animate-left" appear>
         <ul className="vnav">
           <li>
             <a href="#contacts" style={{ color: "hsl(169, 38%, 38%)" }}>
@@ -74,6 +70,7 @@ const Project = ({ toggleNav }) => {
               fillOpacity="0.05"
             />
           </CSSTransition>
+
           <CSSTransition
             in={true}
             timeout={400}
@@ -92,7 +89,7 @@ const Project = ({ toggleNav }) => {
           <CSSTransition
             in={true}
             timeout={400}
-            classNames="animate-left-delay"
+            classNames="animate-left"
             appear
           >
             <div className="project-text">
@@ -117,7 +114,7 @@ const Project = ({ toggleNav }) => {
           <CSSTransition
             in={true}
             timeout={400}
-            classNames="animate-right-delay"
+            classNames="animate-right"
             appear
           >
             <div className="project-showcase">

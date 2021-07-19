@@ -1,5 +1,5 @@
 import { render } from "react-dom";
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { useScrollPosition } from "@n8tb1t/use-scroll-position";
 import Navbar from "./Navbar";
@@ -11,8 +11,7 @@ import Contacts from "./Contacts";
 import Project from "./Project";
 import ProjectDetails from "./ProjectDetails";
 import Footer from "./Footer";
-import ScrollToTop from "./ScrollToTop";
-import axios from "axios";
+// import ScrollToTop from "./ScrollToTop";
 
 const App = () => {
   const [active, toggleActive] = useState("home");
@@ -25,18 +24,7 @@ const App = () => {
   const page2 = useRef();
   const page3 = useRef();
 
-  function getData() {
-    axios.get(`/api/project/60ee9f970146f94bb9136fa5`, {}).then((res) => {
-      console.log(res.data[0].imageURL);
-    });
-  }
-
-  useEffect(() => {
-    getData();
-  }, []);
-
   // Element scroll position
-
   useScrollPosition(
     ({ currPos }) => {
       if (currPos.y <= 0 && currPos.y > -100) {
@@ -64,7 +52,7 @@ const App = () => {
 
   useScrollPosition(
     ({ currPos }) => {
-      if (currPos.y <= 400 && currPos.y >= 100) {
+      if (currPos.y <= 400 && currPos.y >= -100) {
         toggleActive("skills");
         toggleAnimate3(true);
         toggleAnimate2(false);
@@ -75,23 +63,13 @@ const App = () => {
       if (currPos.y > 0) {
         toggleNav(true);
       }
-      console.log(showNav);
-      console.log(currPos.y);
     },
     [],
     page3
   );
 
-  function ScrollToTopOnMount() {
-    useEffect(() => {
-      window.scrollTo(0, 0);
-    }, []);
-    return null;
-  }
-
   return (
     <Router>
-      <ScrollToTop />
       <Navbar showNav={showNav} />
       <Switch>
         <Route path="/contacts">
@@ -101,7 +79,11 @@ const App = () => {
           <ProjectDetails toggleNav={toggleNav} showNav={showNav} />
         </Route>
         <Route path="/project">
-          <Project toggleNav={toggleNav} showNav={showNav} />
+          <Project
+            toggleNav={toggleNav}
+            showNav={showNav}
+            toggleAnimate1={toggleAnimate1}
+          />
         </Route>
         <Route path="/">
           <VNav

@@ -1,14 +1,14 @@
-import { Fragment, useLayoutEffect } from "react";
+import { Fragment, useLayoutEffect, forwardRef } from "react";
 import myPotrait from "url:../../img/my-potrait.png"; // eslint-disable-line
-import { forwardRef } from "react";
 import { CSSTransition } from "react-transition-group";
 
-const Homepage1 = (props, ref) => {
+const Homepage1 = ({ toggleActive, toggleAnimate1, animate }, ref) => {
   // try to remove code below and see what happens
   useLayoutEffect(() => {
-    props.toggleActive("home");
-    props.toggleAnimate1(true);
+    toggleActive("home");
+    toggleAnimate1(true);
   }, []);
+
   return (
     <Fragment>
       <div ref={ref} className="separator" id="home"></div>
@@ -20,7 +20,7 @@ const Homepage1 = (props, ref) => {
           xmlns="http://www.w3.org/2000/svg"
         >
           <CSSTransition
-            in={props.animate}
+            in={animate}
             timeout={400}
             classNames="animate-left"
             appear
@@ -33,7 +33,7 @@ const Homepage1 = (props, ref) => {
             />
           </CSSTransition>
           <CSSTransition
-            in={props.animate}
+            in={animate}
             timeout={400}
             classNames="animate-right"
             appear
@@ -48,7 +48,7 @@ const Homepage1 = (props, ref) => {
         </svg>
         <div className="homepage-content">
           <CSSTransition
-            in={props.animate}
+            in={animate}
             timeout={400}
             classNames="animate-left"
             appear
@@ -70,7 +70,7 @@ const Homepage1 = (props, ref) => {
             </div>
           </CSSTransition>
           <CSSTransition
-            in={props.animate}
+            in={animate}
             timeout={400}
             classNames="animate-right"
             appear

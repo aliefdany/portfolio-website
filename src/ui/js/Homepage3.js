@@ -1,12 +1,10 @@
-import { Fragment } from "react";
-import { forwardRef } from "react";
+import { Fragment, forwardRef } from "react";
 import { Link, HashRouter } from "react-router-dom";
 import { CSSTransition } from "react-transition-group";
 
 const Homepage3 = (props, ref) => {
   return (
     <Fragment>
-      {/* <div className="separator with-bg"></div> */}
       <div ref={ref} className="separator with-bg"></div>
       <div className="page" id="skills">
         <svg

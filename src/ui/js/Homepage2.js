@@ -1,12 +1,10 @@
+import { Fragment, forwardRef } from "react";
 import logoFILKOM from "url:../../img/logo-filkom-ub.png"; // eslint-disable-line
-import { forwardRef } from "react";
-import { Fragment } from "react";
 import { CSSTransition } from "react-transition-group";
 const Homepage2 = (props, ref) => {
   return (
     <Fragment>
       <div ref={ref} className="separator with-bg" id="profile"></div>
-      {/* <div className="separator with-bg"></div> */}
       <div className="page">
         <svg
           className="bg"

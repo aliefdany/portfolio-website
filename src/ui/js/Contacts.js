@@ -1,6 +1,5 @@
-import { Fragment } from "react";
+import { forwardRef, useRef, useLayoutEffect, Fragment } from "react";
 import { CSSTransition } from "react-transition-group";
-import { forwardRef, useRef, useLayoutEffect } from "react";
 import { useScrollPosition } from "@n8tb1t/use-scroll-position";
 
 const Contacts = ({ toggleNav }) => {
@@ -25,12 +24,7 @@ const Contacts = ({ toggleNav }) => {
 
   return (
     <Fragment>
-      <CSSTransition
-        in={true}
-        timeout={400}
-        classNames="animate-left-delay"
-        appear
-      >
+      <CSSTransition in={true} timeout={400} classNames="animate-left" appear>
         <ul className="vnav">
           <li>
             <a href="#contacts" style={{ color: "hsl(169, 38%, 38%)" }}>
@@ -96,7 +90,7 @@ const Contacts = ({ toggleNav }) => {
           <CSSTransition
             in={true}
             timeout={400}
-            classNames="animate-right-delay"
+            classNames="animate-right"
             appear
           >
             <div className="contacts-list">
