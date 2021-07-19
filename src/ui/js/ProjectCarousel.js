@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { Component } from "react";
-import "react-image-gallery/styles/css/image-gallery.css";
 import ImageGallery from "react-image-gallery";
+import "react-image-gallery/styles/css/image-gallery.css";
 
 class ProjectCarousel extends Component {
   state = { loading: true, urls: [] };

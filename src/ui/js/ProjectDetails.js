@@ -76,10 +76,10 @@ class ProjectDetails extends Component {
             <CSSTransition
               in={true}
               timeout={400}
-              classNames="animate-left-delay"
+              classNames="animate-left"
               appear
             >
-              <div className="project-text">
+              <div className="project-text reorder">
                 <h4>Project</h4>
                 <h1>{this.state.title}</h1>
                 <p>{this.state.overview[0]}</p>
@@ -95,12 +95,12 @@ class ProjectDetails extends Component {
               classNames="animate-border"
               appear
             >
-              <div className="vertical-separator"></div>
+              <div className="vertical-separator middle"></div>
             </CSSTransition>
             <CSSTransition
               in={true}
               timeout={400}
-              classNames="animate-right-delay"
+              classNames="animate-right"
               appear
             >
               <div className="slider">

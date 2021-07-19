@@ -505,7 +505,7 @@ Project Page
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  justify-content: flex;
+  justify-content: space-between;
 }
 
 .project-showcase h1 {
@@ -532,6 +532,7 @@ Project Page
 }
 
 .slider {
+  order: 2;
   transform: translateZ(0);
   height: 60%;
   width: 30vw;
@@ -747,6 +748,61 @@ END OF DESKTOP
 
 @media (max-device-width: 480px) {
   /* CSS */
+  .slider {
+    width: 70vw;
+    height: auto;
+    order: 2;
+    margin-bottom: 1.5vh;
+  }
+
+  .project-showcase {
+    /* border: 1px solid black; */
+    width: 65vw;
+    margin-left: 0;
+    align-items: center;
+  }
+
+  .project-showcase img {
+    width: 55vw;
+    height: auto;
+  }
+
+  .project-text {
+    order: 2;
+    width: 70vw;
+  }
+
+  .project-text.reorder {
+    order: 0;
+  }
+
+  .vertical-separator {
+    order: 1;
+    opacity: 0;
+    width: 0;
+    margin-bottom: 1.5vh;
+    border-top: 1px solid hsl(49, 11%, 38%);
+    border-left: 0;
+  }
+
+  .animate-border-appear-active {
+    transform: translateZ(0);
+    opacity: 1;
+    width: 40%;
+    height: 1vw;
+
+    transition: all 500ms;
+    -webkit-transition: all 500ms;
+    -moz-transition: all 500ms;
+    -ms-transition: all 500ms;
+  }
+
+  .animate-border-enter-done {
+    transform: translateZ(0);
+    opacity: 1;
+    width: 40%;
+    height: 1vw;
+  }
 
   .vnav li a {
     font-size: 4vw;
