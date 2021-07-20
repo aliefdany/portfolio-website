@@ -304,8 +304,9 @@ Vertical Navigation
  */
 .vnav {
   position: fixed;
-  top: 30vh;
+  top: 20vh;
   left: 9vw;
+  transform: translateY(0);
 
   width: 2vw;
   height: 50vh;
@@ -314,6 +315,7 @@ Vertical Navigation
   align-items: center;
   flex-direction: column;
   z-index: 5;
+  transition: transform 500ms;
   /* border: 1px solid black; */
 }
 
@@ -336,6 +338,11 @@ Vertical Navigation
   color: hsla(169, 38%, 38%, 1);
   font-size: 1.3vw;
   transition: all 400ms;
+}
+
+.push-vnav {
+  transform: translateY(20%) !important;
+  transition: all 500ms;
 }
 
 /* 
@@ -827,6 +834,7 @@ END OF DESKTOP
   
   */
   nav {
+    z-index: 20;
     height: 13vh;
     flex-direction: column;
     justify-content: center;
