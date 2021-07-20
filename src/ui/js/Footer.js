@@ -16,7 +16,7 @@ const Footer = () => {
             @aliefseventri
           </a>
         </h5>
-        <p>&copy; 2021 Alief Dany Seventri</p>
+        <p>&copy; 2021 | Alief Dany Seventri | All Rights Reserved</p>
       </div>
       <a
         className="do-referral"
