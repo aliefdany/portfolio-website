@@ -1,4 +1,4 @@
-import { Fragment, useEffect, useLayoutEffect, useRef, useState } from "react";
+import { Fragment, useLayoutEffect, useRef } from "react";
 import myPotrait from "url:../../img/my-potrait.png"; // eslint-disable-line
 import { CSSTransition } from "react-transition-group";
 import { useScrollPosition } from "@n8tb1t/use-scroll-position";
@@ -10,16 +10,16 @@ const Homepage1 = ({
   animate,
 }) => {
   const page1 = useRef();
-  const [isImageReady, setReady] = useState(false);
+  // const [isImageReady, setReady] = useState(false);
 
-  useEffect(() => {
-    const img = new Image();
-    img.onload = () => {
-      setReady(true);
-    };
-    console.log(isImageReady);
-    img.src = myPotrait; // by setting an src, you trigger browser download
-  });
+  // useEffect(() => {
+  //   const img = new Image();
+  //   img.onload = () => {
+  //     setReady(true);
+  //   };
+  //   console.log(isImageReady);
+  //   img.src = myPotrait; // by setting an src, you trigger browser download
+  // });
 
   useScrollPosition(
     ({ currPos }) => {
@@ -38,10 +38,6 @@ const Homepage1 = ({
     toggleActive("home");
     toggleAnimate1(true);
   }, []);
-
-  if (!isImageReady) {
-    return null;
-  }
 
   return (
     <Fragment>

@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { render } from "react-dom";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Loader from "react-loader-spinner";
+import myPotrait from "url:../../img/my-potrait.png"; // eslint-disable-line
 
 import Navbar from "./Navbar";
 import Homepage from "./Homepage";
@@ -20,6 +21,7 @@ const App = () => {
   const [animate2, toggleAnimate2] = useState(false);
   const [animate3, toggleAnimate3] = useState(false);
 
+  const [isImageReady, setReady] = useState(false);
   const fakeRequest = () => {
     return new Promise((resolve) => {
       setTimeout(() => {
@@ -35,12 +37,21 @@ const App = () => {
   }, []);
 
   useEffect(() => {
+    const img = new Image();
+    img.onload = () => {
+      setReady(true);
+    };
+    console.log(isImageReady);
+    img.src = myPotrait; // by setting an src, you trigger browser download
+  });
+
+  useEffect(() => {
     if (!isLoading) {
       toggleNav(true);
     }
   }, [isLoading]);
 
-  if (isLoading) {
+  if (isLoading || !isImageReady) {
     return (
       <div className="loader-container">
         <Loader
