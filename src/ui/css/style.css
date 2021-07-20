@@ -324,8 +324,7 @@ Vertical Navigation
   color: hsla(169, 38%, 38%, 0.3);
 }
 
-.vnav li a:hover,
-.vnav li a:focus {
+.vnav li a:hover {
   color: hsla(169, 38%, 38%, 1);
   font-size: 1.3vw;
   transition: all 400ms;
@@ -740,6 +739,13 @@ Transition
   text-align: center;
 }
 
+/* !Important ALERT!!! */
+.vnav-active {
+  color: hsla(169, 38%, 38%, 1) !important;
+  font-size: 1.3vw !important;
+  transition: all 1s;
+}
+
 /*
 
 END OF DESKTOP
@@ -748,6 +754,9 @@ END OF DESKTOP
 
 @media (max-device-width: 480px) {
   /* CSS */
+
+  /* !Important ALERT!!! */
+
   .slider {
     width: 70vw;
     height: auto;
@@ -806,6 +815,10 @@ END OF DESKTOP
 
   .vnav li a {
     font-size: 4vw;
+  }
+
+  .vnav-active {
+    font-size: 4.3vw !important;
   }
 
   footer h5 {

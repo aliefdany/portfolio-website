@@ -1,8 +1,24 @@
+import { useLayoutEffect, useState } from "react";
 import { Link, HashRouter } from "react-router-dom";
 import { CSSTransition } from "react-transition-group";
 
 const VNav = ({ active, animate }) => {
-  console.log(active);
+  const [classCache, setCache] = useState("home");
+
+  useLayoutEffect(() => {
+    handleActive();
+  });
+
+  function handleActive() {
+    const elem = document.querySelector(`.${active}`);
+
+    if (!(classCache == active)) {
+      document.querySelector(`.${classCache}`).classList.remove("vnav-active");
+    }
+
+    elem.classList.add("vnav-active");
+    setCache(active);
+  }
 
   return (
     <CSSTransition
@@ -14,54 +30,21 @@ const VNav = ({ active, animate }) => {
       <ul className="vnav">
         <li>
           <HashRouter hashType={"noslash"}>
-            <Link
-              to="home"
-              style={
-                active == "home"
-                  ? {
-                      color: "hsl(169, 38%, 38%)",
-                      fontSize: "1.3vw",
-                      transition: "all 1s",
-                    }
-                  : {}
-              }
-            >
+            <Link className="home" to="home">
               —Home
             </Link>
           </HashRouter>
         </li>
         <li>
           <HashRouter hashType={"noslash"}>
-            <Link
-              to="profile"
-              style={
-                active == "profile"
-                  ? {
-                      color: "hsl(169, 38%, 38%)",
-                      fontSize: "1.3vw",
-                      transition: "all 1s",
-                    }
-                  : {}
-              }
-            >
+            <Link className="profile" to="profile">
               —Profile
             </Link>
           </HashRouter>
         </li>
         <li>
           <HashRouter hashType={"noslash"}>
-            <Link
-              to="skills"
-              style={
-                active == "skills"
-                  ? {
-                      color: "hsl(169, 38%, 38%)",
-                      fontSize: "1.3vw",
-                      transition: "all 1s",
-                    }
-                  : {}
-              }
-            >
+            <Link className="skills" to="skills">
               —Skills
             </Link>
           </HashRouter>
