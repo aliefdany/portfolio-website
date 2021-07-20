@@ -12,7 +12,6 @@ class ProjectCarousel extends Component {
       .then((res) => {
         const data = res.data[0];
         const imageArr = data.imageURL;
-        console.log(imageArr);
         this.setState({ urls: imageArr });
         this.setState({ loading: false });
       })
@@ -36,7 +35,6 @@ class ProjectCarousel extends Component {
         thumbnail: url,
       };
     });
-    console.log(images);
 
     return <ImageGallery items={images} autoplay={true} />;
   }

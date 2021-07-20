@@ -1,8 +1,28 @@
-import { Fragment, useLayoutEffect, forwardRef } from "react";
+import { Fragment, useLayoutEffect, forwardRef, useRef } from "react";
 import myPotrait from "url:../../img/my-potrait.png"; // eslint-disable-line
 import { CSSTransition } from "react-transition-group";
+import { useScrollPosition } from "@n8tb1t/use-scroll-position";
 
-const Homepage1 = ({ toggleActive, toggleAnimate1, animate }, ref) => {
+const Homepage1 = ({
+  toggleActive,
+  toggleAnimate1,
+  toggleAnimate2,
+  animate,
+}) => {
+  const page1 = useRef();
+
+  useScrollPosition(
+    ({ currPos }) => {
+      if (currPos.y <= 0 && currPos.y > -100) {
+        toggleActive("home");
+        toggleAnimate1(true);
+        toggleAnimate2(false);
+      }
+    },
+    [],
+    page1
+  );
+
   // try to remove code below and see what happens
   useLayoutEffect(() => {
     toggleActive("home");
@@ -11,7 +31,7 @@ const Homepage1 = ({ toggleActive, toggleAnimate1, animate }, ref) => {
 
   return (
     <Fragment>
-      <div ref={ref} className="separator" id="home"></div>
+      <div ref={page1} className="separator" id="home"></div>
       <div className="page">
         <svg
           className="bg"

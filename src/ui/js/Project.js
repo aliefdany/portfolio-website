@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { CSSTransition } from "react-transition-group";
 import { useScrollPosition } from "@n8tb1t/use-scroll-position";
 
-const Project = ({ toggleNav, showNav }) => {
+const Project = ({ toggleNav }) => {
   const [projects, setProject] = useState([]);
   let cacheId = "";
 
@@ -21,8 +21,6 @@ const Project = ({ toggleNav, showNav }) => {
       if (currPos.y == 0) {
         toggleNav(true);
       }
-      console.log(showNav);
-      console.log(currPos.y);
     },
     [],
     project
