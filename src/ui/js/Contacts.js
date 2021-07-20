@@ -1,13 +1,9 @@
-import { useRef, useLayoutEffect, Fragment } from "react";
+import { useRef, Fragment } from "react";
 import { CSSTransition } from "react-transition-group";
 import { useScrollPosition } from "@n8tb1t/use-scroll-position";
 
 const Contacts = ({ toggleNav }) => {
   const contacts = useRef();
-
-  useLayoutEffect(() => {
-    window.scroll(0, 0);
-  }, []);
 
   useScrollPosition(
     ({ currPos }) => {

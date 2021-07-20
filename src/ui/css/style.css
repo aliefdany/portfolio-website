@@ -329,6 +329,7 @@ Vertical Navigation
   font-size: 1.2vw;
   transition: font-size 400ms, color 400ms;
   color: hsla(169, 38%, 38%, 0.3);
+  cursor: pointer;
 }
 
 .vnav li a:hover {
@@ -676,14 +677,16 @@ Transition
 
 */
 .animate-left-enter,
-.animate-left-appear {
+.animate-left-appear,
+.animate-left-exit-done {
   transform: translate3d(-50%, 0, 0);
   visibility: hidden;
   opacity: 0;
 }
 
 .animate-right-enter,
-.animate-right-appear {
+.animate-right-appear,
+.animate-right-exit-done {
   transform: translate3d(50%, 0, 0);
   visibility: hidden;
   opacity: 0;
@@ -1019,5 +1022,66 @@ END OF DESKTOP
     opacity: 1;
     width: 40%;
     height: 1vw;
+  }
+
+  /* Bug fix */
+
+  .animate-left-enter,
+  .animate-left-appear,
+  .animate-left-exit-done {
+    transform: translate3d(0, -40%, 0);
+    visibility: hidden;
+    opacity: 0;
+  }
+
+  .animate-right-enter,
+  .animate-right-appear,
+  .animate-right-exit-done {
+    transform: translate3d(0, -40%, 0);
+    visibility: hidden;
+    opacity: 0;
+  }
+
+  .animate-left-enter-active,
+  .animate-left-appear-active,
+  .animate-right-appear-active,
+  .animate-right-enter-active {
+    transform: translate3d(0, 0, 0);
+    visibility: visible;
+    opacity: 1;
+
+    transition: all 500ms;
+    -webkit-transition: all 500ms;
+    -moz-transition: all 500ms;
+    -ms-transition: all 500ms;
+  }
+
+  .animate-left-enter-done,
+  .animate-right-enter-done,
+  .animate-right-exit,
+  .animate-left-exit {
+    transform: translate3d(0, 0, 0);
+    visibility: visible;
+    opacity: 1;
+  }
+
+  .animate-right-exit-active {
+    transform: translate3d(0, -20%, 0);
+    visibility: hidden;
+    opacity: 0;
+    transition: all 500ms;
+    -webkit-transition: all 500ms;
+    -moz-transition: all 500ms;
+    -ms-transition: all 500ms;
+  }
+
+  .animate-left-exit-active {
+    transform: translate3d(0, -20%, 0);
+    visibility: hidden;
+    opacity: 0;
+    transition: all 500ms;
+    -webkit-transition: all 500ms;
+    -moz-transition: all 500ms;
+    -ms-transition: all 500ms;
   }
 }

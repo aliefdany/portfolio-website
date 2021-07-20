@@ -1,6 +1,7 @@
 import { useLayoutEffect, useState } from "react";
-import { Link, HashRouter } from "react-router-dom";
+// import { Link, HashRouter } from "react-router-dom";
 import { CSSTransition } from "react-transition-group";
+import { Link } from "react-scroll";
 
 const VNav = ({ active, animate }) => {
   const [classCache, setCache] = useState("home");
@@ -22,33 +23,22 @@ const VNav = ({ active, animate }) => {
   }
 
   return (
-    <CSSTransition
-      in={animate}
-      timeout={400}
-      classNames="animate-left-delay"
-      appear
-    >
+    <CSSTransition in={animate} timeout={400} classNames="animate-left" appear>
       <ul className="vnav">
         <li>
-          <HashRouter hashType={"noslash"}>
-            <Link className="home" to="home">
-              —Home
-            </Link>
-          </HashRouter>
+          <Link className="home" to="home">
+            —Home
+          </Link>
         </li>
         <li>
-          <HashRouter hashType={"noslash"}>
-            <Link className="profile" to="profile">
-              —Profile
-            </Link>
-          </HashRouter>
+          <Link className="profile" to="profile">
+            —Profile
+          </Link>
         </li>
         <li>
-          <HashRouter hashType={"noslash"}>
-            <Link className="skills" to="skills">
-              —Skills
-            </Link>
-          </HashRouter>
+          <Link className="skills" to="skills">
+            —Skills
+          </Link>
         </li>
       </ul>
     </CSSTransition>

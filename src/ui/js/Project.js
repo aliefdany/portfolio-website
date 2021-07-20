@@ -9,10 +9,6 @@ const Project = ({ toggleNav }) => {
 
   const project = useRef();
 
-  useLayoutEffect(() => {
-    window.scroll(0, 0);
-  }, []);
-
   useScrollPosition(
     ({ currPos }) => {
       if (currPos.y <= -50) {

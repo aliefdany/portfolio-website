@@ -13,7 +13,7 @@ const Homepage1 = ({
 
   useScrollPosition(
     ({ currPos }) => {
-      if (currPos.y <= 0 && currPos.y > -100) {
+      if (currPos.y <= 0 && currPos.y > -20) {
         toggleActive("home");
         toggleAnimate1(true);
         toggleAnimate2(false);

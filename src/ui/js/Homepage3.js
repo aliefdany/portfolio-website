@@ -13,7 +13,7 @@ const Homepage3 = ({
   const page3 = useRef();
   useScrollPosition(
     ({ currPos }) => {
-      if (currPos.y <= 400 && currPos.y >= -100) {
+      if (currPos.y <= 100 && currPos.y >= -200) {
         toggleActive("skills");
         toggleAnimate3(true);
         toggleAnimate2(false);
