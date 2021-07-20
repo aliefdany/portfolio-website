@@ -18,6 +18,21 @@ const Footer = () => {
         </h5>
         <p>&copy; 2021 Alief Dany Seventri</p>
       </div>
+      <a
+        className="do-referral"
+        target="_blank"
+        rel="noreferrer"
+        href="https://www.digitalocean.com/?refcode=f2c78bb764e7&utm_campaign=Referral_Invite&utm_medium=Referral_Program&utm_source=badge"
+      >
+        <img
+          src="https://web-platforms.sfo2.cdn.digitaloceanspaces.com/WWW/Badge%201.svg"
+          alt="DigitalOcean Referral Badge"
+        />
+        {/* <img
+          src="https://web-platforms.sfo2.digitaloceanspaces.com/WWW/Badge%203.svg"
+          alt="DigitalOcean Referral Badge"
+        /> */}
+      </a>
     </footer>
   );
 };

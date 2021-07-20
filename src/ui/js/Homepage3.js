@@ -88,12 +88,10 @@ const Homepage3 = ({
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
-                className="svg-bg-path"
                 d="M455 459C455 429.729 478.729 406 508 406C537.271 406 561 429.729 561 459C561 488.271 537.271 512 508 512C478.729 512 455 488.271 455 459Z"
                 fill="#333333"
               />
               <path
-                className="svg-bg-path"
                 d="M497.4 490.8C503.254 490.8 508 486.054 508 480.2V469.6H497.4C491.546 469.6 486.8 474.346 486.8 480.2C486.8 486.054 491.546 490.8 497.4 490.8Z"
                 fill="#0ACF83"
               />
@@ -251,6 +249,30 @@ const Homepage3 = ({
                 stroke="#6B6755"
                 strokeWidth="3"
               />
+              <defs>
+                <linearGradient
+                  id="paint0_linear"
+                  x1="500.827"
+                  y1="38.1085"
+                  x2="530.763"
+                  y2="68.049"
+                  gradientUnits="userSpaceOnUse"
+                >
+                  <stop stopOpacity="0.1" />
+                  <stop offset="1" stopOpacity="0" />
+                </linearGradient>
+                <linearGradient
+                  id="paint1_linear"
+                  x1="478.166"
+                  y1="52.4317"
+                  x2="556.963"
+                  y2="89.1739"
+                  gradientUnits="userSpaceOnUse"
+                >
+                  <stop stopColor="white" stopOpacity="0.2" />
+                  <stop offset="1" stopColor="white" stopOpacity="0" />
+                </linearGradient>
+              </defs>
             </svg>
           </CSSTransition>
         </div>

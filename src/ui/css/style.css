@@ -646,6 +646,30 @@ footer a:hover {
   -moz-text-fill-color: transparent;
 }
 
+a.do-referral {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  right: 2vw;
+  max-height: 10vh;
+  /* border: 1px solid black; */
+}
+
+.do-referral img:hover {
+  transform: translateX(-10%);
+  transition: all 400ms;
+
+  filter: drop-shadow(-3px 0px 8px #9fc7ff);
+}
+
+.do-referral img {
+  border-radius: 5px;
+  height: 6vh;
+  transition: transform 400ms, filter 400ms;
+  transform: translateX(0);
+  filter: none;
+}
+
 /*
 
 Transition 
@@ -746,7 +770,15 @@ Transition
   text-align: center;
 }
 
-/* !Important ALERT!!! */
+/*
+
+!Important ALERT!!!
+
+!important here is used intentionally to cascade the original color and font-size
+because this class is used with javascript along with classList.add() method
+(which cannot be cascaded if neither using !important nor remove and add new class)
+
+*/
 .vnav-active {
   color: hsla(169, 38%, 38%, 1) !important;
   font-size: 1.3vw !important;
@@ -760,17 +792,126 @@ END OF DESKTOP
 */
 
 @media (max-device-width: 480px) {
-  /* CSS */
+  /* 
+  
+  Utility
+  
+  */
+  a.button-like {
+    font-size: 3vw;
+  }
 
-  /* !Important ALERT!!! */
+  .vertical-separator {
+    order: 1;
+    opacity: 0;
+    width: 0;
+    margin-bottom: 1.5vh;
+    border-top: 1px solid hsl(49, 11%, 38%);
+    border-left: 0;
+  }
 
-  .slider {
-    width: 70vw;
-    height: auto;
-    order: 2;
+  .separator.with-bg {
+    background-image: url("../../img/logo.svg");
+    background-repeat: no-repeat;
+    background-size: 60%;
+    background-position-x: center;
+    background-position-y: center;
+  }
+
+  /* 
+  
+  Layout Related (Universal)
+  
+  */
+  nav {
+    height: 13vh;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .main-menu {
+    font-size: 4vw;
+  }
+
+  .vnav {
+    left: 4vw;
+  }
+
+  .vnav li a {
+    font-size: 4vw;
+  }
+
+  .vnav li a:hover,
+  .vnav li a:focus {
+    color: hsla(169, 38%, 38%, 1);
+    font-size: 4.2vw;
+    transition: all 400ms;
+  }
+
+  /* 
+  
+  !Important ALERT!!!
+  look for .vnav-active for desktop screen (above)
+
+  */
+  .vnav-active {
+    font-size: 4.3vw !important;
+  }
+
+  svg.bg {
+    /* border: 1px solid black; */
+    width: 100%;
+    height: 100%;
+  }
+
+  .homepage-content h1 {
+    font-size: 7vw;
     margin-bottom: 1.5vh;
   }
 
+  .homepage-content h4 {
+    font-size: 2.5vw;
+    margin-bottom: 0.4vh;
+  }
+
+  .homepage-content p {
+    font-size: 3vw;
+    margin-bottom: 1.5vh;
+  }
+
+  .homepage-content {
+    height: 100vh;
+    width: 90vw;
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    top: 50%;
+    right: 50%;
+    transform: translate(-48%, -50%);
+  }
+
+  .homepage-content .alief-potrait {
+    width: 60vw;
+  }
+
+  .homepage-content .logo-filkom {
+    order: 1;
+    width: 60vw;
+    margin-bottom: 3vh;
+  }
+
+  .skill-stack {
+    width: 50vw;
+    margin-bottom: 3vh;
+  }
+
+  /* 
+  
+  Project Page
+
+  */
   .project-showcase {
     /* border: 1px solid black; */
     width: 65vw;
@@ -792,127 +933,18 @@ END OF DESKTOP
     order: 0;
   }
 
-  .vertical-separator {
-    order: 1;
-    opacity: 0;
-    width: 0;
-    margin-bottom: 1.5vh;
-    border-top: 1px solid hsl(49, 11%, 38%);
-    border-left: 0;
-  }
-
-  .animate-border-appear-active {
-    transform: translateZ(0);
-    opacity: 1;
-    width: 40%;
-    height: 1vw;
-
-    transition: all 500ms;
-    -webkit-transition: all 500ms;
-    -moz-transition: all 500ms;
-    -ms-transition: all 500ms;
-  }
-
-  .animate-border-enter-done {
-    transform: translateZ(0);
-    opacity: 1;
-    width: 40%;
-    height: 1vw;
-  }
-
-  .vnav li a {
-    font-size: 4vw;
-  }
-
-  .vnav-active {
-    font-size: 4.3vw !important;
-  }
-
-  footer h5 {
-    font-size: 4vw;
-  }
-  footer p {
-    font-size: 3vw;
-  }
-
-  .vnav li a:hover,
-  .vnav li a:focus {
-    color: hsla(169, 38%, 38%, 1);
-    font-size: 4.2vw;
-    transition: all 400ms;
-  }
-  .logo {
-    /* border: 1px solid black; */
-  }
-  nav {
-    height: 13vh;
-    flex-direction: column;
-    justify-content: center;
-  }
-
-  a.button-like {
-    font-size: 3vw;
-  }
-
-  .homepage-content h1 {
-    font-size: 7vw;
+  .slider {
+    width: 70vw;
+    height: auto;
+    order: 2;
     margin-bottom: 1.5vh;
   }
 
-  .homepage-content h4 {
-    font-size: 2.5vw;
-    margin-bottom: 0.4vh;
-  }
+  /* 
 
-  .homepage-content p {
-    font-size: 3vw;
-    margin-bottom: 1.5vh;
-  }
+  Contact Page
 
-  .main-menu {
-    /* border: 1px solid black; */
-    font-size: 4vw;
-  }
-
-  .homepage-content {
-    height: 100vh;
-    width: 90vw;
-    /* border: 1px solid black; */
-    flex-direction: column-reverse;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-
-    top: 50%;
-    right: 50%;
-    transform: translate(-48%, -50%);
-  }
-
-  .homepage-content .alief-potrait {
-    width: 60vw;
-  }
-
-  .skill-stack {
-    width: 50vw;
-    margin-bottom: 3vh;
-  }
-
-  .homepage-content .logo-filkom {
-    order: 1;
-    width: 60vw;
-    margin-bottom: 3vh;
-  }
-
-  svg.bg {
-    /* border: 1px solid black; */
-    width: 100%;
-    height: 100%;
-  }
-
-  .vnav {
-    left: 4vw;
-  }
-
+  */
   .contacts-list {
     margin-top: 2vh;
     justify-content: center;
@@ -933,12 +965,59 @@ END OF DESKTOP
     height: auto;
   }
 
-  .separator.with-bg {
-    /* border: 1px solid black; */
-    background-image: url("../../img/logo.svg");
-    background-repeat: no-repeat;
-    background-size: 60%;
-    background-position-x: center;
-    background-position-y: center;
+  /* 
+  
+  Footer
+
+  */
+  footer {
+    height: 15vh;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+
+  footer h5 {
+    font-size: 4vw;
+  }
+  footer p {
+    font-size: 3vw;
+  }
+
+  /*
+  
+  default inline style from digital ocean referral makes this element absolute with !important,
+  so i had to overcome that with below
+  
+  */
+  .do-referral {
+    position: static !important;
+  }
+
+  .do-referral img:hover {
+    transform: translateX(0);
+  }
+
+  /* 
+  
+  styles for  react CSSTransition component
+  
+  */
+  .animate-border-appear-active {
+    transform: translateZ(0);
+    opacity: 1;
+    width: 40%;
+    height: 1vw;
+
+    transition: all 500ms;
+    -webkit-transition: all 500ms;
+    -moz-transition: all 500ms;
+    -ms-transition: all 500ms;
+  }
+
+  .animate-border-enter-done {
+    transform: translateZ(0);
+    opacity: 1;
+    width: 40%;
+    height: 1vw;
   }
 }
