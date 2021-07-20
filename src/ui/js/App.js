@@ -26,7 +26,7 @@ const App = () => {
     return new Promise((resolve) => {
       setTimeout(() => {
         resolve();
-      }, 4000);
+      }, 5000);
     });
   };
 
@@ -41,9 +41,8 @@ const App = () => {
     img.onload = () => {
       setReady(true);
     };
-    console.log(isImageReady);
     img.src = myPotrait; // by setting an src, you trigger browser download
-  });
+  }, []);
 
   useEffect(() => {
     if (!isLoading) {
@@ -58,9 +57,9 @@ const App = () => {
           type="MutatingDots"
           color="#3C8678"
           secondaryColor="#9A947C"
-          height={150}
-          width={150}
-          timeout={4000}
+          height={100}
+          width={100}
+          timeout={5000}
         />
       </div>
     );
