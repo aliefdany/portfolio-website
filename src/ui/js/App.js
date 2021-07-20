@@ -1,6 +1,7 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { render } from "react-dom";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import Loader from "react-loader-spinner";
 
 import Navbar from "./Navbar";
 import Homepage from "./Homepage";
@@ -11,12 +12,49 @@ import ProjectDetails from "./ProjectDetails";
 import Footer from "./Footer";
 
 const App = () => {
-  const [showNav, toggleNav] = useState(true);
+  const [isLoading, setLoading] = useState(true);
+  const [showNav, toggleNav] = useState(false);
   const [active, toggleActive] = useState("home"); // for VNAV
   const [animate] = useState(true); //for VNAV
   const [animate1, toggleAnimate1] = useState(true);
   const [animate2, toggleAnimate2] = useState(false);
   const [animate3, toggleAnimate3] = useState(false);
+
+  const fakeRequest = () => {
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        resolve();
+      }, 4000);
+    });
+  };
+
+  useEffect(() => {
+    fakeRequest().then(() => {
+      setLoading(false);
+      console.log(isLoading);
+    });
+  }, []);
+
+  useEffect(() => {
+    if (!isLoading) {
+      toggleNav(true);
+    }
+  }, [isLoading]);
+
+  if (isLoading) {
+    return (
+      <div className="loader-container">
+        <Loader
+          type="MutatingDots"
+          color="#3C8678"
+          secondaryColor="#9A947C"
+          height={150}
+          width={150}
+          timeout={4000}
+        />
+      </div>
+    );
+  }
 
   return (
     <Router>
