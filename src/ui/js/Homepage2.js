@@ -1,4 +1,4 @@
-import { Fragment, forwardRef, useRef } from "react";
+import { Fragment, useRef } from "react";
 import logoFILKOM from "url:../../img/logo-filkom-ub.png"; // eslint-disable-line
 import { CSSTransition } from "react-transition-group";
 import { useScrollPosition } from "@n8tb1t/use-scroll-position";
@@ -81,4 +81,4 @@ const Homepage2 = ({
   );
 };
 
-export default forwardRef(Homepage2);
+export default Homepage2;

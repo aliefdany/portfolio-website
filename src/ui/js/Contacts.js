@@ -1,4 +1,4 @@
-import { forwardRef, useRef, useLayoutEffect, Fragment } from "react";
+import { useRef, useLayoutEffect, Fragment } from "react";
 import { CSSTransition } from "react-transition-group";
 import { useScrollPosition } from "@n8tb1t/use-scroll-position";
 
@@ -11,7 +11,7 @@ const Contacts = ({ toggleNav }) => {
 
   useScrollPosition(
     ({ currPos }) => {
-      if (currPos.y <= -100) {
+      if (currPos.y <= -50) {
         toggleNav(false);
       }
       if (currPos.y == 0) {
@@ -205,4 +205,4 @@ const Contacts = ({ toggleNav }) => {
   );
 };
 
-export default forwardRef(Contacts);
+export default Contacts;

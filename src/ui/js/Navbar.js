@@ -1,14 +1,22 @@
 import { Link } from "react-router-dom";
+import { useLayoutEffect } from "react";
 
 const Navbar = ({ showNav }) => {
+  function handleNavbar() {
+    const elem = document.querySelector(".navbar");
+    if (showNav) {
+      elem.classList.add("show-navbar");
+    } else {
+      elem.classList.remove("show-navbar");
+    }
+  }
+
+  useLayoutEffect(() => {
+    handleNavbar();
+  });
+
   return (
-    <nav
-      style={
-        !showNav
-          ? { transform: "translateY(-100%)", transition: "all 500ms" }
-          : { transform: "translateY(0)", transition: "all 500ms" }
-      }
-    >
+    <nav className="navbar">
       <Link to="/">
         <svg
           className="logo"

@@ -1,4 +1,4 @@
-import { Fragment, useLayoutEffect, forwardRef, useRef } from "react";
+import { Fragment, useLayoutEffect, useRef } from "react";
 import myPotrait from "url:../../img/my-potrait.png"; // eslint-disable-line
 import { CSSTransition } from "react-transition-group";
 import { useScrollPosition } from "@n8tb1t/use-scroll-position";
@@ -107,4 +107,4 @@ const Homepage1 = ({
   );
 };
 
-export default forwardRef(Homepage1);
+export default Homepage1;

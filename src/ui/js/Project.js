@@ -1,4 +1,4 @@
-import { Fragment, forwardRef, useLayoutEffect, useState, useRef } from "react";
+import { Fragment, useLayoutEffect, useState, useRef } from "react";
 import { Link } from "react-router-dom";
 import { CSSTransition } from "react-transition-group";
 import { useScrollPosition } from "@n8tb1t/use-scroll-position";
@@ -15,7 +15,7 @@ const Project = ({ toggleNav }) => {
 
   useScrollPosition(
     ({ currPos }) => {
-      if (currPos.y <= -100) {
+      if (currPos.y <= -50) {
         toggleNav(false);
       }
       if (currPos.y == 0) {
@@ -141,4 +141,4 @@ const Project = ({ toggleNav }) => {
   );
 };
 
-export default forwardRef(Project);
+export default Project;

@@ -214,6 +214,13 @@ nav {
   align-items: center;
   background-color: hsl(49, 11%, 38%);
   z-index: 4;
+  transform: translate3d(0, -100%, 0);
+  transition: transform 500ms;
+}
+
+.navbar.show-navbar {
+  transform: translate3d(0, 0, 0);
+  transition: all 500ms;
 }
 
 nav ul li:nth-child(2) {

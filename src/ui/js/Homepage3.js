@@ -1,4 +1,4 @@
-import { Fragment, forwardRef, useRef } from "react";
+import { Fragment, useRef } from "react";
 import { Link, HashRouter } from "react-router-dom";
 import { CSSTransition } from "react-transition-group";
 import { useScrollPosition } from "@n8tb1t/use-scroll-position";
@@ -265,4 +265,4 @@ const Homepage3 = ({
   );
 };
 
-export default forwardRef(Homepage3);
+export default Homepage3;
