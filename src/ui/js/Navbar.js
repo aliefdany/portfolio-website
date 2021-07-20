@@ -13,8 +13,6 @@ const Navbar = ({ showNav }) => {
 
   function pushVnav() {
     const vnav = document.querySelector(".vnav");
-    console.log(vnav);
-    console.log(vnav.classList);
     if (showNav) {
       vnav.classList.add("push-vnav");
     } else {

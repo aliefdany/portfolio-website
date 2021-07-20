@@ -31,7 +31,6 @@ const App = () => {
   useEffect(() => {
     fakeRequest().then(() => {
       setLoading(false);
-      console.log(isLoading);
     });
   }, []);
 
