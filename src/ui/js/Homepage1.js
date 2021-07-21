@@ -1,5 +1,4 @@
 import { Fragment, useLayoutEffect, useRef } from "react";
-import myPotrait from "url:../../img/my-potrait.png"; // eslint-disable-line
 import { CSSTransition } from "react-transition-group";
 import { useScrollPosition } from "@n8tb1t/use-scroll-position";
 
@@ -98,7 +97,7 @@ const Homepage1 = ({
             appear
           >
             <img
-              src={myPotrait}
+              src="https://ik.imagekit.io/aliefseventri/Projects/Web_Portfolio/my-potrait_bDJvstrU0.png?updatedAt=1626881586779&ik-s=fa0534ddb44947d4142e421aab1bf6d9e711b24e"
               alt="alief-potrait"
               className="alief-potrait"
             />

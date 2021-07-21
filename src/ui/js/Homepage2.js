@@ -1,5 +1,4 @@
 import { Fragment, useRef } from "react";
-import logoFILKOM from "url:../../img/logo-filkom-ub.png"; // eslint-disable-line
 import { CSSTransition } from "react-transition-group";
 import { useScrollPosition } from "@n8tb1t/use-scroll-position";
 
@@ -55,7 +54,11 @@ const Homepage2 = ({
 
         <div className="homepage-content">
           <CSSTransition in={animate} timeout={400} classNames="animate-left">
-            <img src={logoFILKOM} alt="logo-filkom" className="logo-filkom" />
+            <img
+              src="https://ik.imagekit.io/aliefseventri/Projects/Web_Portfolio/logo-filkom-ub_LLoDkgTSZ.png?updatedAt=1626881666882&ik-s=f640f9a6fd519ed62923dabfddd8eb2e48e4c19a"
+              alt="logo-filkom"
+              className="logo-filkom"
+            />
           </CSSTransition>
           <CSSTransition in={animate} timeout={400} classNames="animate-right">
             <div className="text">

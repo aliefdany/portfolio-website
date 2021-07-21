@@ -1,9 +1,10 @@
 import { Link } from "react-router-dom";
-import { useLayoutEffect } from "react";
+import { useEffect } from "react";
 
 const Navbar = ({ showNav }) => {
   function handleNavbar() {
     const elem = document.querySelector(".navbar");
+    console.log(elem);
     if (showNav) {
       elem.classList.add("show-navbar");
     } else {
@@ -13,6 +14,7 @@ const Navbar = ({ showNav }) => {
 
   function pushVnav() {
     const vnav = document.querySelector(".vnav");
+    console.log(vnav);
     if (showNav) {
       vnav.classList.add("push-vnav");
     } else {
@@ -20,9 +22,11 @@ const Navbar = ({ showNav }) => {
     }
   }
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     handleNavbar();
-    pushVnav();
+
+    //bugs has to be fixed
+    // pushVnav();
   });
 
   return (

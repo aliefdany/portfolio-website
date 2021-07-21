@@ -2,6 +2,7 @@ import { Component, Fragment } from "react";
 import { withRouter } from "react-router-dom";
 import { CSSTransition } from "react-transition-group";
 import ProjectCarousel from "./ProjectCarousel";
+import Loader from "react-loader-spinner";
 
 class ProjectDetails extends Component {
   state = {
@@ -17,34 +18,37 @@ class ProjectDetails extends Component {
     history.replaceState(null, "", newUrl);
     console.log(newUrl);
     this.setState(json);
-    this.setState({ loading: false, imgLength: this.state.imageURL.length });
+    this.setState({ imgLength: this.state.imageURL.length });
+    this.props.toggleNav(true);
+
+    // setTimeout(() => {}, 4200);
+    this.fakeRequest().then(() => {
+      this.setState({ loading: false });
+    });
   }
 
-  componentDidUpdate() {
-    if (!this.props.showNav) {
-      this.props.toggleNav(true);
-    }
-  }
-
-  nextSlide = () => {
-    const active =
-      this.state.current == this.state.imgLength - 1
-        ? 0
-        : this.state.current + 1;
-    this.setState({ current: active });
-  };
-
-  prevSlide = () => {
-    const active =
-      this.state.current == 0
-        ? this.state.imgLength - 1
-        : this.state.current - 1;
-    this.setState({ current: active });
+  fakeRequest = () => {
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        resolve();
+      }, 2000);
+    });
   };
 
   render() {
     if (this.state.loading) {
-      return <h1>Loading</h1>;
+      return (
+        <div className="loader-container">
+          <Loader
+            type="TailSpin"
+            color="#3C8678"
+            secondaryColor="#9A947C"
+            height={90}
+            width={90}
+            timeout={2000}
+          />
+        </div>
+      );
     }
 
     return (

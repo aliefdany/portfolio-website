@@ -1,8 +1,7 @@
 import { useEffect, useState } from "react";
-import { hydrate } from "react-dom";
+import { render } from "react-dom";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Loader from "react-loader-spinner";
-import myPotrait from "url:../../img/my-potrait.png"; // eslint-disable-line
 
 import Navbar from "./Navbar";
 import Homepage from "./Homepage";
@@ -50,7 +49,8 @@ const App = () => {
     img.onload = () => {
       setReady(true);
     };
-    img.src = myPotrait; // by setting an src, you trigger browser download
+    img.src =
+      "https://ik.imagekit.io/aliefseventri/Projects/Web_Portfolio/my-potrait_bDJvstrU0.png?updatedAt=1626881586779&ik-s=fa0534ddb44947d4142e421aab1bf6d9e711b24e"; // by setting an src, you trigger browser download
   }, []);
 
   useEffect(() => {
@@ -114,4 +114,4 @@ const App = () => {
     </Router>
   );
 };
-hydrate(<App />, document.getElementById("root"));
+render(<App />, document.getElementById("root"));
