@@ -9,11 +9,12 @@ const Homepage3 = ({
   toggleAnimate2,
   toggleNav,
   animate,
+  halfHeight,
 }) => {
   const page3 = useRef();
   useScrollPosition(
     ({ currPos }) => {
-      if (currPos.y <= 100 && currPos.y >= -200) {
+      if (currPos.y <= halfHeight && currPos.y >= -halfHeight) {
         toggleActive("skills");
         toggleAnimate3(true);
         toggleAnimate2(false);

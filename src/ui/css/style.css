@@ -184,6 +184,16 @@ h4 {
   font-family: "Montserrat", sans-serif;
 }
 
+.loader-text {
+  font-size: 1.5vw;
+  font-family: "Yeseva One", cursive;
+  color: hsl(48, 12%, 25%);
+}
+
+.loader-text span {
+  font-size: 2.5vw;
+}
+
 .separator {
   height: 10vh;
 }
@@ -683,6 +693,33 @@ a.do-referral {
 Transition 
 
 */
+.loader-appear {
+  visibility: hidden;
+  opacity: 0;
+}
+
+.loader-appear-active {
+  visibility: visible;
+  opacity: 1;
+  transition: all 1s;
+}
+
+.loader-appear-done,
+.loader-exit {
+  visibility: visible;
+  opacity: 1;
+}
+
+.loader-exit-active {
+  visibility: hidden;
+  opacity: 0;
+  transition: all 500ms;
+}
+
+.loader-exit-done {
+  visibility: hidden;
+  opacity: 0;
+}
 
 .animate-left-enter,
 .animate-left-appear,
@@ -808,6 +845,15 @@ END OF DESKTOP
   Utility
   
   */
+
+  .loader-text {
+    font-size: 4vw;
+  }
+
+  .loader-text span {
+    font-size: 5vw;
+  }
+
   a.button-like {
     font-size: 3vw;
   }

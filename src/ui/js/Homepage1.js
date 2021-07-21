@@ -8,16 +8,18 @@ const Homepage1 = ({
   toggleAnimate1,
   toggleAnimate2,
   animate,
+  halfHeight,
 }) => {
   const page1 = useRef();
 
   useScrollPosition(
     ({ currPos }) => {
-      if (currPos.y <= 0 && currPos.y > -20) {
+      if (currPos.y <= 0 && currPos.y > -halfHeight) {
         toggleActive("home");
         toggleAnimate1(true);
         toggleAnimate2(false);
       }
+      console.log(currPos.y);
     },
     [],
     page1

@@ -11,6 +11,7 @@ import Contacts from "./Contacts";
 import Project from "./Project";
 import ProjectDetails from "./ProjectDetails";
 import Footer from "./Footer";
+import { CSSTransition } from "react-transition-group";
 
 const App = () => {
   const [isLoading, setLoading] = useState(true);
@@ -20,6 +21,8 @@ const App = () => {
   const [animate1, toggleAnimate1] = useState(true);
   const [animate2, toggleAnimate2] = useState(false);
   const [animate3, toggleAnimate3] = useState(false);
+  const [showLoader, setLoader] = useState(true);
+  const halfHeight = window.innerHeight * 0.5;
 
   const [isImageReady, setReady] = useState(false);
   const fakeRequest = () => {
@@ -29,6 +32,12 @@ const App = () => {
       }, 5000);
     });
   };
+
+  useEffect(() => {
+    setTimeout(() => {
+      setLoader(false);
+    }, 4200);
+  }, []);
 
   useEffect(() => {
     fakeRequest().then(() => {
@@ -52,16 +61,24 @@ const App = () => {
 
   if (isLoading || !isImageReady) {
     return (
-      <div className="loader-container">
-        <Loader
-          type="MutatingDots"
-          color="#3C8678"
-          secondaryColor="#9A947C"
-          height={100}
-          width={100}
-          timeout={5000}
-        />
-      </div>
+      <CSSTransition in={showLoader} timeout={400} classNames="loader" appear>
+        <div className="loader-container">
+          <Loader
+            type="MutatingDots"
+            color="#3C8678"
+            secondaryColor="#9A947C"
+            height={90}
+            width={90}
+            timeout={5000}
+          />
+          <div className="loader-text animate__animated animate__pulse animate__infinite animate__slow">
+            Hey, take your{" "}
+            <span role="img" aria-label="coffee emoji">
+              ☕
+            </span>
+          </div>
+        </div>
+      </CSSTransition>
     );
   }
 
@@ -89,6 +106,7 @@ const App = () => {
             animate1={animate1}
             animate2={animate2}
             animate3={animate3}
+            halfHeight={halfHeight}
           />
         </Route>
       </Switch>

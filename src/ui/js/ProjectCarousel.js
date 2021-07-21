@@ -36,7 +36,14 @@ class ProjectCarousel extends Component {
       };
     });
 
-    return <ImageGallery items={images} autoplay={true} />;
+    return (
+      <ImageGallery
+        items={images}
+        autoPlay={true}
+        showPlayButton={false}
+        lazyLoad={true}
+      />
+    );
   }
 }
 

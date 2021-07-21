@@ -9,12 +9,13 @@ const Homepage2 = ({
   toggleAnimate2,
   toggleAnimate3,
   animate,
+  halfHeight,
 }) => {
   const page2 = useRef();
 
   useScrollPosition(
     ({ currPos }) => {
-      if (currPos.y <= 200 && currPos.y >= -200) {
+      if (currPos.y <= halfHeight && currPos.y >= -halfHeight) {
         toggleActive("profile");
         toggleAnimate2(true);
         toggleAnimate1(false);
