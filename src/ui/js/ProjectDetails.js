@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from "react";
+import { Component, Fragment } from "react";
 import { withRouter } from "react-router-dom";
 import { CSSTransition } from "react-transition-group";
 import ProjectCarousel from "./ProjectCarousel";
@@ -13,7 +13,8 @@ class ProjectDetails extends Component {
   async componentDidMount() {
     const res = await fetch(`/api/project/${this.props.match.params.id}`);
     const json = await res.json();
-    this.setState(json[0]);
+    console.log(json);
+    this.setState(json);
     this.setState({ loading: false, imgLength: this.state.imageURL.length });
   }
 

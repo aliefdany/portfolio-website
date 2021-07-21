@@ -1,5 +1,5 @@
-import axios from "axios";
-import React, { Component } from "react";
+import { get } from "axios";
+import { Component } from "react";
 import ImageGallery from "react-image-gallery";
 import "react-image-gallery/styles/css/image-gallery.css";
 
@@ -7,13 +7,13 @@ class ProjectCarousel extends Component {
   state = { loading: true, urls: [] };
 
   getData() {
-    axios
-      .get(`/api/project/${this.props.id}`, {})
+    get(`/api/project/${this.props.id}`, {})
       .then((res) => {
-        const data = res.data[0];
+        const data = res.data;
         const imageArr = data.imageURL;
         this.setState({ urls: imageArr });
         this.setState({ loading: false });
+        console.log(this.state.urls);
       })
       .catch((error) => {
         console.error(error);

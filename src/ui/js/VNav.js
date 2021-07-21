@@ -1,5 +1,4 @@
 import { useLayoutEffect, useState } from "react";
-// import { Link, HashRouter } from "react-router-dom";
 import { CSSTransition } from "react-transition-group";
 import { Link } from "react-scroll";
 

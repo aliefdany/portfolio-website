@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { render } from "react-dom";
+import { hydrate } from "react-dom";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Loader from "react-loader-spinner";
 import myPotrait from "url:../../img/my-potrait.png"; // eslint-disable-line
@@ -96,4 +96,4 @@ const App = () => {
     </Router>
   );
 };
-render(<App />, document.getElementById("root"));
+hydrate(<App />, document.getElementById("root"));
