@@ -10,16 +10,6 @@ const Homepage1 = ({
   animate,
 }) => {
   const page1 = useRef();
-  // const [isImageReady, setReady] = useState(false);
-
-  // useEffect(() => {
-  //   const img = new Image();
-  //   img.onload = () => {
-  //     setReady(true);
-  //   };
-  //   console.log(isImageReady);
-  //   img.src = myPotrait; // by setting an src, you trigger browser download
-  // });
 
   useScrollPosition(
     ({ currPos }) => {

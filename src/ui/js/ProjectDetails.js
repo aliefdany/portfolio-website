@@ -13,7 +13,9 @@ class ProjectDetails extends Component {
   async componentDidMount() {
     const res = await fetch(`/api/project/${this.props.match.params.id}`);
     const json = await res.json();
-    console.log(json);
+    const newUrl = json.title.split(" ").join("-").toLowerCase();
+    history.replaceState(null, "", newUrl);
+    console.log(newUrl);
     this.setState(json);
     this.setState({ loading: false, imgLength: this.state.imageURL.length });
   }
