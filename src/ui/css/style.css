@@ -913,8 +913,7 @@ END OF DESKTOP
     font-size: 4vw;
   }
 
-  .vnav li a:hover,
-  .vnav li a:focus {
+  .vnav li a:hover {
     color: hsla(169, 38%, 38%, 1);
     font-size: 4.2vw;
     transition: all 400ms;
