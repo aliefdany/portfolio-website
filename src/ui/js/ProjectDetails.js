@@ -5,8 +5,9 @@ import ProjectCarousel from "./ProjectCarousel";
 import Loader from "react-loader-spinner";
 import { get } from "axios";
 import { useScrollPosition } from "@n8tb1t/use-scroll-position";
+import VNav from "./VNav";
 
-const ProjectDetails = ({ toggleNav }) => {
+const ProjectDetails = ({ toggleNav, showNav }) => {
   const [loading, setLoading] = useState(true);
   const { id } = useParams();
   const [data, setData] = useState({});
@@ -33,7 +34,7 @@ const ProjectDetails = ({ toggleNav }) => {
         const data = res.data;
         setData(data);
 
-        const newUrl = data.title.split(" ").join("-").toLowerCase();
+        const newUrl = data.title.split(" ").join("-");
         history.replaceState(null, "", newUrl);
 
         const imageArr = data.imageURL;
@@ -73,6 +74,7 @@ const ProjectDetails = ({ toggleNav }) => {
 
   return (
     <Fragment>
+      <VNav active={"project"} showNav={showNav} VNavArr={["project"]} />
       <div ref={project} className="separator" id="contacts"></div>
       <div className="page">
         <svg
