@@ -28,10 +28,6 @@ const Footer = () => {
           src="https://web-platforms.sfo2.cdn.digitaloceanspaces.com/WWW/Badge%201.svg"
           alt="DigitalOcean Referral Badge"
         />
-        {/* <img
-          src="https://web-platforms.sfo2.digitaloceanspaces.com/WWW/Badge%203.svg"
-          alt="DigitalOcean Referral Badge"
-        /> */}
       </a>
     </footer>
   );

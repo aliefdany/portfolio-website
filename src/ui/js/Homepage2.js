@@ -14,7 +14,7 @@ const Homepage2 = ({
 
   useScrollPosition(
     ({ currPos }) => {
-      if (currPos.y <= halfHeight && currPos.y >= -halfHeight) {
+      if (currPos.y <= halfHeight - 100 && currPos.y >= -halfHeight) {
         toggleActive("profile");
         toggleAnimate2(true);
         toggleAnimate1(false);

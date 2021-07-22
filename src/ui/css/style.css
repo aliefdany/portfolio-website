@@ -360,6 +360,15 @@ Vertical Navigation
 General Page 
 
 */
+svg.diagonal-bg {
+  position: absolute;
+  left: 0;
+  top: 10vh;
+}
+/* .separator.first {
+  background-color: #9e9980;
+} */
+
 .page {
   /* border: 1px solid black; */
   position: relative;
@@ -885,6 +894,11 @@ END OF DESKTOP
     height: 13vh;
     flex-direction: column;
     justify-content: center;
+  }
+
+  svg.diagonal-bg {
+    top: 13vh;
+    height: 5vh;
   }
 
   .main-menu {

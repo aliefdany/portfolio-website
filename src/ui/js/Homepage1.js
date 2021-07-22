@@ -13,7 +13,7 @@ const Homepage1 = ({
 
   useScrollPosition(
     ({ currPos }) => {
-      if (currPos.y <= 0 && currPos.y > -halfHeight) {
+      if (currPos.y <= 0 && currPos.y > -halfHeight + 100) {
         toggleActive("home");
         toggleAnimate1(true);
         toggleAnimate2(false);
@@ -32,7 +32,7 @@ const Homepage1 = ({
 
   return (
     <Fragment>
-      <div ref={page1} className="separator" id="home"></div>
+      <div ref={page1} className="separator first" id="home"></div>
       <div className="page">
         <svg
           className="bg"

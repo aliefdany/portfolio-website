@@ -1,5 +1,6 @@
 import { Fragment, useRef } from "react";
-import { Link, HashRouter } from "react-router-dom";
+import { Link } from "react-router-dom";
+import { Link as ScrollLink } from "react-scroll";
 import { CSSTransition } from "react-transition-group";
 import { useScrollPosition } from "@n8tb1t/use-scroll-position";
 
@@ -14,7 +15,7 @@ const Homepage3 = ({
   const page3 = useRef();
   useScrollPosition(
     ({ currPos }) => {
-      if (currPos.y <= halfHeight && currPos.y >= -halfHeight) {
+      if (currPos.y <= halfHeight - 200 && currPos.y >= -halfHeight + 100) {
         toggleActive("skills");
         toggleAnimate3(true);
         toggleAnimate2(false);
@@ -297,12 +298,9 @@ const Homepage3 = ({
             </svg>
           </CSSTransition>
         </div>
-
-        <HashRouter hashType="noslash">
-          <Link to="home" className="back-to-top button-like">
-            Back To Top
-          </Link>
-        </HashRouter>
+        <ScrollLink to="home" className="back-to-top button-like">
+          Back To Top
+        </ScrollLink>
       </div>
     </Fragment>
   );
