@@ -1,8 +1,9 @@
 import { useRef, Fragment } from "react";
 import { CSSTransition } from "react-transition-group";
 import { useScrollPosition } from "@n8tb1t/use-scroll-position";
+import VNav from "./VNav";
 
-const Contacts = ({ toggleNav }) => {
+const Contacts = ({ toggleNav, showNav }) => {
   const contacts = useRef();
 
   useScrollPosition(
@@ -20,16 +21,7 @@ const Contacts = ({ toggleNav }) => {
 
   return (
     <Fragment>
-      <CSSTransition in={true} timeout={400} classNames="animate-left" appear>
-        <ul className="vnav">
-          <li>
-            <a href="#contacts" style={{ color: "hsl(169, 38%, 38%)" }}>
-              —Contact
-            </a>
-          </li>
-        </ul>
-      </CSSTransition>
-
+      <VNav active="contacts" showNav={showNav} VNavArr={["contacts"]} />
       <div ref={contacts} className="separator" id="contacts"></div>
       <div className="page">
         <svg

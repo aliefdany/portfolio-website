@@ -2,6 +2,7 @@ import { Fragment } from "react";
 import Homepage1 from "./Homepage1";
 import Homepage2 from "./Homepage2";
 import Homepage3 from "./Homepage3";
+import VNav from "./VNav";
 
 const Homepage = ({
   toggleActive,
@@ -13,9 +14,16 @@ const Homepage = ({
   animate2,
   animate3,
   halfHeight,
+  active,
+  showNav,
 }) => {
   return (
     <Fragment>
+      <VNav
+        active={active}
+        showNav={showNav}
+        VNavArr={["home", "profile", "skills"]}
+      />
       <Homepage1
         toggleActive={toggleActive}
         toggleAnimate1={toggleAnimate1}

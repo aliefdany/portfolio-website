@@ -2,8 +2,9 @@ import { Fragment, useLayoutEffect, useState, useRef } from "react";
 import { Link } from "react-router-dom";
 import { CSSTransition } from "react-transition-group";
 import { useScrollPosition } from "@n8tb1t/use-scroll-position";
+import VNav from "./VNav";
 
-const Project = ({ toggleNav }) => {
+const Project = ({ toggleNav, showNav }) => {
   const [projects, setProject] = useState([]);
   let cacheId = "";
 
@@ -34,15 +35,8 @@ const Project = ({ toggleNav }) => {
 
   return (
     <Fragment>
-      <CSSTransition in={true} timeout={400} classNames="animate-left" appear>
-        <ul className="vnav">
-          <li>
-            <a href="#contacts" style={{ color: "hsl(169, 38%, 38%)" }}>
-              —Project
-            </a>
-          </li>
-        </ul>
-      </CSSTransition>
+      <VNav active={"project"} showNav={showNav} VNavArr={["project"]} />
+
       <div ref={project} className="separator" id="contacts"></div>
       <div className="page">
         <svg

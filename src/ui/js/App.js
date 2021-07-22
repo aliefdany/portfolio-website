@@ -5,7 +5,6 @@ import Loader from "react-loader-spinner";
 
 import Navbar from "./Navbar";
 import Homepage from "./Homepage";
-import VNav from "./VNav";
 import Contacts from "./Contacts";
 import Project from "./Project";
 import ProjectDetails from "./ProjectDetails";
@@ -16,7 +15,6 @@ const App = () => {
   const [isLoading, setLoading] = useState(true);
   const [showNav, toggleNav] = useState(false);
   const [active, toggleActive] = useState("home"); // for VNAV
-  const [animate] = useState(true); //for VNAV
   const [animate1, toggleAnimate1] = useState(true);
   const [animate2, toggleAnimate2] = useState(false);
   const [animate3, toggleAnimate3] = useState(false);
@@ -54,6 +52,7 @@ const App = () => {
   }, []);
 
   useEffect(() => {
+    console.log(active);
     if (!isLoading) {
       toggleNav(true);
     }
@@ -96,7 +95,6 @@ const App = () => {
           <Project toggleNav={toggleNav} showNav={showNav} />
         </Route>
         <Route path="/">
-          <VNav active={active} animate={animate} />
           <Homepage
             toggleActive={toggleActive}
             toggleAnimate1={toggleAnimate1}
@@ -107,6 +105,8 @@ const App = () => {
             animate2={animate2}
             animate3={animate3}
             halfHeight={halfHeight}
+            active={active}
+            showNav={showNav}
           />
         </Route>
       </Switch>

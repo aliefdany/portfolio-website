@@ -4,21 +4,10 @@ import { useEffect } from "react";
 const Navbar = ({ showNav }) => {
   function handleNavbar() {
     const elem = document.querySelector(".navbar");
-    console.log(elem);
     if (showNav) {
       elem.classList.add("show-navbar");
     } else {
       elem.classList.remove("show-navbar");
-    }
-  }
-
-  function pushVnav() {
-    const vnav = document.querySelector(".vnav");
-    console.log(vnav);
-    if (showNav) {
-      vnav.classList.add("push-vnav");
-    } else {
-      vnav.classList.remove("push-vnav");
     }
   }
 
