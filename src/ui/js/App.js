@@ -52,7 +52,6 @@ const App = () => {
   }, []);
 
   useEffect(() => {
-    console.log(active);
     if (!isLoading) {
       toggleNav(true);
     }

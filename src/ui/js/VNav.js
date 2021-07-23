@@ -7,7 +7,6 @@ const VNav = ({ active, showNav, VNavArr }) => {
 
   // ??
   useLayoutEffect(() => {
-    console.log(active);
     handleActive();
   });
 

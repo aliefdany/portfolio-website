@@ -39,7 +39,6 @@ const ProjectDetails = ({ toggleNav, showNav, active }) => {
 
         const imageArr = data.imageURL;
         setUrls(imageArr);
-        console.log(imageArr);
       })
       .catch((error) => {
         console.error(error);
