@@ -304,7 +304,13 @@ const Homepage3 = ({
             </svg>
           </CSSTransition>
         </div>
-        <ScrollLink to="home" className="back-to-top button-like">
+        <ScrollLink
+          to="intro"
+          onClick={() => {
+            toggleActive("intro");
+          }}
+          className="back-to-top button-like"
+        >
           Back To Top
         </ScrollLink>
       </div>
