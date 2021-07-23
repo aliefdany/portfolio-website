@@ -1,6 +1,7 @@
 import { Fragment, useLayoutEffect, useRef } from "react";
 import { CSSTransition } from "react-transition-group";
 import { useScrollPosition } from "@n8tb1t/use-scroll-position";
+import { Link } from "react-scroll";
 
 const Homepage1 = ({
   toggleActive,
@@ -8,17 +9,17 @@ const Homepage1 = ({
   toggleAnimate2,
   animate,
   halfHeight,
+  vnavState,
 }) => {
   const page1 = useRef();
 
   useScrollPosition(
     ({ currPos }) => {
       if (currPos.y <= 0 && currPos.y > -halfHeight + 100) {
-        toggleActive("home");
+        toggleActive(vnavState);
         toggleAnimate1(true);
         toggleAnimate2(false);
       }
-      console.log(currPos.y);
     },
     [],
     page1
@@ -26,13 +27,13 @@ const Homepage1 = ({
 
   // try to remove code below and see what happens
   useLayoutEffect(() => {
-    toggleActive("home");
+    toggleActive(vnavState);
     toggleAnimate1(true);
   }, []);
 
   return (
     <Fragment>
-      <div ref={page1} className="separator first" id="home"></div>
+      <div ref={page1} className="separator first" id={vnavState}></div>
       <div className="page">
         <svg
           className="bg"
@@ -80,14 +81,20 @@ const Homepage1 = ({
                 Welcome! <br /> My Name is Alief
               </h1>
               <p>
-                I’m currently an IS student who have a dedication <br /> in
-                modern web development and designing <br /> UI/UX. Welcome to my
-                site!
+                I am a Javascript Developer that focused on building <br />
+                Accessible Web with technology like React, Node, and Express.
+                Managing online data through the use of REST API and Mongo to
+                provide smooth User Experience. Welcome to my site!
               </p>
-              <a href="#profile" className="button-like">
-                {" "}
-                My Profile{" "}
-              </a>
+              <Link
+                to="education"
+                onClick={() => {
+                  toggleActive("education");
+                }}
+                className="button-like"
+              >
+                My Profile
+              </Link>
             </div>
           </CSSTransition>
           <CSSTransition

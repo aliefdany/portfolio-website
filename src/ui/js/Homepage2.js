@@ -9,13 +9,14 @@ const Homepage2 = ({
   toggleAnimate3,
   animate,
   halfHeight,
+  vnavState,
 }) => {
   const page2 = useRef();
 
   useScrollPosition(
     ({ currPos }) => {
       if (currPos.y <= halfHeight - 100 && currPos.y >= -halfHeight) {
-        toggleActive("profile");
+        toggleActive(vnavState);
         toggleAnimate2(true);
         toggleAnimate1(false);
         toggleAnimate3(false);
@@ -26,7 +27,7 @@ const Homepage2 = ({
   );
   return (
     <Fragment>
-      <div ref={page2} className="separator with-bg" id="profile"></div>
+      <div ref={page2} className="separator with-bg" id={vnavState}></div>
       <div className="page">
         <svg
           className="bg"

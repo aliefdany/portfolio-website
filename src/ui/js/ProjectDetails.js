@@ -7,7 +7,7 @@ import { get } from "axios";
 import { useScrollPosition } from "@n8tb1t/use-scroll-position";
 import VNav from "./VNav";
 
-const ProjectDetails = ({ toggleNav, showNav }) => {
+const ProjectDetails = ({ toggleNav, showNav, active }) => {
   const [loading, setLoading] = useState(true);
   const { id } = useParams();
   const [data, setData] = useState({});
@@ -74,7 +74,7 @@ const ProjectDetails = ({ toggleNav, showNav }) => {
 
   return (
     <Fragment>
-      <VNav active={"project"} showNav={showNav} VNavArr={["project"]} />
+      <VNav active={active} showNav={showNav} VNavArr={["project"]} />
       <div ref={project} className="separator" id="contacts"></div>
       <div className="page">
         <svg

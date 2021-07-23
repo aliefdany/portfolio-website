@@ -332,7 +332,7 @@ Vertical Navigation
 .vnav li {
   font-family: "Yeseva One", cursive;
 
-  width: 12vh;
+  width: 20vh;
   transform-origin: 50% 50%;
   transform: rotate(-90deg);
 }
@@ -864,7 +864,7 @@ END OF DESKTOP
   }
 
   a.button-like {
-    font-size: 3vw;
+    font-size: 4vw;
   }
 
   .vertical-separator {
@@ -897,7 +897,7 @@ END OF DESKTOP
   }
 
   svg.diagonal-bg {
-    top: 13vh;
+    top: 12.5vh;
     height: 5vh;
   }
 
@@ -947,7 +947,7 @@ END OF DESKTOP
 
   .homepage-content p {
     font-size: 3vw;
-    margin-bottom: 1.5vh;
+    margin-bottom: 2vh;
   }
 
   .homepage-content {

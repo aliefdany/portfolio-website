@@ -14,7 +14,7 @@ import { CSSTransition } from "react-transition-group";
 const App = () => {
   const [isLoading, setLoading] = useState(true);
   const [showNav, toggleNav] = useState(false);
-  const [active, toggleActive] = useState("home"); // for VNAV
+  const [active, toggleActive] = useState("intro"); // for VNAV
   const [animate1, toggleAnimate1] = useState(true);
   const [animate2, toggleAnimate2] = useState(false);
   const [animate3, toggleAnimate3] = useState(false);
@@ -83,16 +83,25 @@ const App = () => {
 
   return (
     <Router>
-      <Navbar showNav={showNav} />
+      <Navbar showNav={showNav} toggleActive={toggleActive} />
       <Switch>
         <Route path="/contacts">
-          <Contacts toggleNav={toggleNav} showNav={showNav} />
+          <Contacts
+            toggleNav={toggleNav}
+            toggleActive={toggleActive}
+            active={active}
+            showNav={showNav}
+          />
         </Route>
         <Route path="/project/:id">
-          <ProjectDetails toggleNav={toggleNav} showNav={showNav} />
+          <ProjectDetails
+            toggleNav={toggleNav}
+            showNav={showNav}
+            active={active}
+          />
         </Route>
         <Route path="/project">
-          <Project toggleNav={toggleNav} showNav={showNav} />
+          <Project toggleNav={toggleNav} showNav={showNav} active={active} />
         </Route>
         <Route path="/">
           <Homepage

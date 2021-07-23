@@ -4,7 +4,7 @@ import { CSSTransition } from "react-transition-group";
 import { useScrollPosition } from "@n8tb1t/use-scroll-position";
 import VNav from "./VNav";
 
-const Project = ({ toggleNav, showNav }) => {
+const Project = ({ toggleNav, showNav, active }) => {
   const [projects, setProject] = useState([]);
   let cacheId = "";
 
@@ -35,7 +35,7 @@ const Project = ({ toggleNav, showNav }) => {
 
   return (
     <Fragment>
-      <VNav active={"project"} showNav={showNav} VNavArr={["project"]} />
+      <VNav active={active} showNav={showNav} VNavArr={["project"]} />
 
       <div ref={project} className="separator" id="contacts"></div>
       <div className="page">

@@ -11,12 +11,13 @@ const Homepage3 = ({
   toggleNav,
   animate,
   halfHeight,
+  vnavState,
 }) => {
   const page3 = useRef();
   useScrollPosition(
     ({ currPos }) => {
       if (currPos.y <= halfHeight - 200 && currPos.y >= -halfHeight + 100) {
-        toggleActive("skills");
+        toggleActive(vnavState);
         toggleAnimate3(true);
         toggleAnimate2(false);
       }
@@ -34,7 +35,7 @@ const Homepage3 = ({
   return (
     <Fragment>
       <div ref={page3} className="separator with-bg"></div>
-      <div className="page" id="skills">
+      <div className="page" id={vnavState}>
         <svg
           className="bg"
           viewBox="0 0 1920 961"
@@ -80,10 +81,9 @@ const Homepage3 = ({
               <h4>SKILLS</h4>
               <h1>Current Skill Stack</h1>
               <p>
-                Web development and UI/UX is a major, vast and growing <br />{" "}
-                expertise. There was so much things happened since the <br />{" "}
-                beginning of the web until what’s happening and <br /> emerging
-                right now.
+                Web development is a major, vast and growing <br /> expertise.
+                There was so much things happened since the <br /> beginning of
+                the web until what’s happening and <br /> emerging right now.
               </p>
               <p>
                 To caught up with all this technology, as a college student,{" "}
@@ -92,7 +92,13 @@ const Homepage3 = ({
                 possibilities to growth and expand my experience with <br />{" "}
                 project, intership, and communities
               </p>
-              <Link to="/project" className="button-like">
+              <Link
+                to="/project"
+                onClick={() => {
+                  toggleActive("project");
+                }}
+                className="button-like"
+              >
                 See My Project
               </Link>
             </div>

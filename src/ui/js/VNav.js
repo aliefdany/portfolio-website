@@ -13,7 +13,7 @@ const VNav = ({ active, showNav, VNavArr }) => {
 
   useEffect(() => {
     pushVnav();
-  });
+  }, [showNav]);
 
   function pushVnav() {
     const vnav = document.querySelector(".vnav");

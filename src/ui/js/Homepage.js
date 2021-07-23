@@ -22,9 +22,10 @@ const Homepage = ({
       <VNav
         active={active}
         showNav={showNav}
-        VNavArr={["home", "profile", "skills"]}
+        VNavArr={["intro", "education", "experience"]}
       />
       <Homepage1
+        vnavState="intro"
         toggleActive={toggleActive}
         toggleAnimate1={toggleAnimate1}
         toggleAnimate2={toggleAnimate2}
@@ -32,6 +33,7 @@ const Homepage = ({
         halfHeight={halfHeight}
       />
       <Homepage2
+        vnavState="education"
         toggleActive={toggleActive}
         toggleAnimate1={toggleAnimate1}
         toggleAnimate2={toggleAnimate2}
@@ -40,6 +42,7 @@ const Homepage = ({
         halfHeight={halfHeight}
       />
       <Homepage3
+        vnavState="experience"
         toggleNav={toggleNav}
         toggleActive={toggleActive}
         toggleAnimate2={toggleAnimate2}

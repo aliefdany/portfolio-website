@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { Fragment, useEffect } from "react";
 
-const Navbar = ({ showNav }) => {
+const Navbar = ({ showNav, toggleActive }) => {
   function handleNavbar() {
     const elem = document.querySelector(".navbar");
     if (showNav) {
@@ -13,15 +13,21 @@ const Navbar = ({ showNav }) => {
 
   useEffect(() => {
     handleNavbar();
-
-    //bugs has to be fixed
-    // pushVnav();
   });
+
+  function handleActive(state) {
+    toggleActive(state);
+  }
 
   return (
     <Fragment>
       <nav className="navbar">
-        <Link to="/">
+        <Link
+          to="/"
+          onClick={() => {
+            handleActive("intro");
+          }}
+        >
           <svg
             className="logo"
             viewBox="0 0 487 87"
@@ -41,7 +47,12 @@ const Navbar = ({ showNav }) => {
 
         <ul className="main-menu">
           <li>
-            <Link to="/">
+            <Link
+              to="/"
+              onClick={() => {
+                handleActive("intro");
+              }}
+            >
               Home
               <div className="navbar-underline"></div>
             </Link>
@@ -54,13 +65,23 @@ const Navbar = ({ showNav }) => {
             </Link>
           </li>
           <li>
-            <Link to="/project">
+            <Link
+              to="/project"
+              onClick={() => {
+                handleActive("project");
+              }}
+            >
               Projects
               <div className="navbar-underline"></div>
             </Link>
           </li>
           <li>
-            <Link to="/contacts">
+            <Link
+              to="/contacts"
+              onClick={() => {
+                handleActive("contacts");
+              }}
+            >
               Contacts
               <div className="navbar-underline"></div>
             </Link>
