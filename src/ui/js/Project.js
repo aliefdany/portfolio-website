@@ -4,7 +4,7 @@ import { CSSTransition } from "react-transition-group";
 import { useScrollPosition } from "@n8tb1t/use-scroll-position";
 import VNav from "./VNav";
 
-const Project = ({ toggleNav, showNav, active }) => {
+const Project = ({ toggleNav, showNav }) => {
   const [projects, setProject] = useState([]);
   let cacheId = "";
 
@@ -35,7 +35,12 @@ const Project = ({ toggleNav, showNav, active }) => {
 
   return (
     <Fragment>
-      <VNav active={active} showNav={showNav} VNavArr={["project"]} />
+      <VNav
+        // handling browser's back button
+        active="project"
+        showNav={showNav}
+        VNavArr={["project"]}
+      />
 
       <div ref={project} className="separator" id="contacts"></div>
       <div className="page">

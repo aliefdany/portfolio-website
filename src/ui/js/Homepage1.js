@@ -10,6 +10,7 @@ const Homepage1 = ({
   animate,
   halfHeight,
   vnavState,
+  setActiveCache,
 }) => {
   const page1 = useRef();
 
@@ -17,6 +18,7 @@ const Homepage1 = ({
     ({ currPos }) => {
       if (currPos.y <= 0 && currPos.y > -halfHeight + 100) {
         toggleActive(vnavState);
+        setActiveCache(vnavState);
         toggleAnimate1(true);
         toggleAnimate2(false);
       }

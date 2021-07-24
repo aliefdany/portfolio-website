@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { render } from "react-dom";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Loader from "react-loader-spinner";
+import { CSSTransition } from "react-transition-group";
 
 import Navbar from "./Navbar";
 import Homepage from "./Homepage";
@@ -9,7 +10,6 @@ import Contacts from "./Contacts";
 import Project from "./Project";
 import ProjectDetails from "./ProjectDetails";
 import Footer from "./Footer";
-import { CSSTransition } from "react-transition-group";
 
 const App = () => {
   const [isLoading, setLoading] = useState(true);
@@ -70,7 +70,7 @@ const App = () => {
             timeout={5000}
           />
           <div className="loader-text animate__animated animate__pulse animate__infinite animate__slow">
-            Hey, take your{" "}
+            Hey, get your{" "}
             <span role="img" aria-label="coffee emoji">
               ☕
             </span>

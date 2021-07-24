@@ -12,12 +12,14 @@ const Homepage3 = ({
   animate,
   halfHeight,
   vnavState,
+  setActiveCache,
 }) => {
   const page3 = useRef();
   useScrollPosition(
     ({ currPos }) => {
       if (currPos.y <= halfHeight - 200 && currPos.y >= -halfHeight + 100) {
         toggleActive(vnavState);
+        setActiveCache(vnavState);
         toggleAnimate3(true);
         toggleAnimate2(false);
       }

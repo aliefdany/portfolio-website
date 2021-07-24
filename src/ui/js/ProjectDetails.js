@@ -73,7 +73,12 @@ const ProjectDetails = ({ toggleNav, showNav, active }) => {
 
   return (
     <Fragment>
-      <VNav active={active} showNav={showNav} VNavArr={["project"]} />
+      <VNav
+        // handlin browser's back button
+        active={active == "project" ? active : "project"}
+        showNav={showNav}
+        VNavArr={["project"]}
+      />
       <div ref={project} className="separator" id="contacts"></div>
       <div className="page">
         <svg

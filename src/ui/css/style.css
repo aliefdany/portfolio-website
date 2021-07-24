@@ -288,8 +288,7 @@ nav ul li:nth-child(2) .coming-soon {
   color: hsl(46, 25%, 83%);
 }
 
-.main-menu li a:hover > .navbar-underline,
-.main-menu li a:focus > .navbar-underline {
+.main-menu li a:hover > .navbar-underline {
   opacity: 1;
   width: 100%;
   transition: width 300ms;
@@ -316,7 +315,7 @@ Vertical Navigation
   position: fixed;
   top: 20vh;
   left: 9vw;
-  transform: translateY(0);
+  transform: translate3d(0, 0, 0);
 
   width: 2vw;
   height: 50vh;
@@ -351,7 +350,7 @@ Vertical Navigation
 }
 
 .push-vnav {
-  transform: translateY(20%) !important;
+  transform: translate3d(0, 20%, 0) !important;
   transition: all 500ms;
 }
 
@@ -488,7 +487,7 @@ Homepage 3
 
 .contacts-link a {
   transition: transform 300ms;
-  transform: translateX(0);
+  transform: translate3d(0, 0, 0);
   font-family: "Yeseva One", cursive;
   font-size: 1.5vw;
   color: hsl(48, 12%, 25%);
@@ -510,12 +509,12 @@ Homepage 3
 }
 
 .contacts-link a:hover {
-  transform: translateX(3%);
+  transform: translate3d(3%, 0, 0);
   transition: all 500ms;
 }
 
 .contacts-link a:focus {
-  transform: translateX(3%);
+  transform: translate3d(3%, 0, 0);
   transition: all 500ms;
 }
 
@@ -683,7 +682,7 @@ a.do-referral {
 }
 
 .do-referral img:hover {
-  transform: translateX(-10%);
+  transform: translate3d(-10%, 0, 0);
   transition: all 400ms;
 
   filter: drop-shadow(-3px 0px 8px #9fc7ff);
@@ -693,7 +692,7 @@ a.do-referral {
   border-radius: 5px;
   height: 6vh;
   transition: transform 400ms, filter 400ms;
-  transform: translateX(0);
+  transform: translate3d(0, 0, 0);
   filter: none;
 }
 
@@ -960,7 +959,7 @@ END OF DESKTOP
 
     top: 50%;
     right: 50%;
-    transform: translate(-48%, -50%);
+    transform: translate(-50%, -50%);
   }
 
   .homepage-content .alief-potrait {
@@ -1065,7 +1064,7 @@ END OF DESKTOP
   }
 
   .do-referral img:hover {
-    transform: translateX(0);
+    transform: translate3d(0, 0, 0);
   }
 
   /* 

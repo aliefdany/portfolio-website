@@ -1,4 +1,4 @@
-import { Fragment } from "react";
+import { Fragment, useState } from "react";
 import Homepage1 from "./Homepage1";
 import Homepage2 from "./Homepage2";
 import Homepage3 from "./Homepage3";
@@ -14,13 +14,14 @@ const Homepage = ({
   animate2,
   animate3,
   halfHeight,
-  active,
   showNav,
 }) => {
+  const [activeCache, setActiveCache] = useState("intro");
   return (
     <Fragment>
       <VNav
-        active={active}
+        // handlin browser's back button
+        active={activeCache}
         showNav={showNav}
         VNavArr={["intro", "education", "experience"]}
       />
@@ -31,6 +32,7 @@ const Homepage = ({
         toggleAnimate2={toggleAnimate2}
         animate={animate1}
         halfHeight={halfHeight}
+        setActiveCache={setActiveCache}
       />
       <Homepage2
         vnavState="education"
@@ -40,6 +42,7 @@ const Homepage = ({
         toggleAnimate3={toggleAnimate3}
         animate={animate2}
         halfHeight={halfHeight}
+        setActiveCache={setActiveCache}
       />
       <Homepage3
         vnavState="experience"
@@ -49,6 +52,7 @@ const Homepage = ({
         toggleAnimate3={toggleAnimate3}
         animate={animate3}
         halfHeight={halfHeight}
+        setActiveCache={setActiveCache}
       />
     </Fragment>
   );

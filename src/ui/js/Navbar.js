@@ -13,7 +13,7 @@ const Navbar = ({ showNav, toggleActive }) => {
 
   useEffect(() => {
     handleNavbar();
-  });
+  }, [showNav]);
 
   function handleActive(state) {
     toggleActive(state);
