@@ -63,8 +63,8 @@ const ProjectDetails = ({ toggleNav, showNav, active }) => {
           type="TailSpin"
           color="#3C8678"
           secondaryColor="#9A947C"
-          height={90}
-          width={90}
+          height={80}
+          width={80}
           timeout={2000}
         />
       </div>
