@@ -438,6 +438,21 @@ Homepage 1
   flex: 0 1 auto;
   visibility: hidden;
   opacity: 0;
+  background: transparent;
+  animation: floating 5s ease-in-out infinite;
+}
+
+/* float animation */
+@keyframes floating {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(0, 8%, 0);
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
 }
 
 /* 
