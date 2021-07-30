@@ -1,7 +1,7 @@
 import { Fragment, useEffect, useState } from "react";
 import { Route, Switch } from "react-router-dom";
-import Loader from "react-loader-spinner";
-import { CSSTransition } from "react-transition-group";
+// import Loader from "react-loader-spinner";
+// import { CSSTransition } from "react-transition-group";
 
 import Navbar from "./Navbar";
 import Homepage from "./Homepage";
@@ -11,77 +11,77 @@ import ProjectDetails from "./ProjectDetails";
 import Footer from "./Footer";
 
 const App = () => {
-  const [isLoading, setLoading] = useState(true);
-  const [showNav, toggleNav] = useState(false);
+  // const [isLoading, setLoading] = useState(true);
+  const [showNav, toggleNav] = useState(true);
   const [active, toggleActive] = useState("intro"); // for VNAV
   const [animate1, toggleAnimate1] = useState(true);
   const [animate2, toggleAnimate2] = useState(false);
   const [animate3, toggleAnimate3] = useState(false);
-  const [showLoader, setLoader] = useState(true);
+  // const [showLoader, setLoader] = useState(true);
   const [halfHeight, setHalfHeight] = useState(0);
 
-  const [isImageReady, setReady] = useState(false);
-  const fakeRequest = () => {
-    return new Promise((resolve) => {
-      setTimeout(() => {
-        resolve();
-      }, 1500);
-    });
-  };
+  // const [isImageReady, setReady] = useState(false);
+  // const fakeRequest = () => {
+  //   return new Promise((resolve) => {
+  //     setTimeout(() => {
+  //       resolve();
+  //     }, 1500);
+  //   });
+  // };
 
   useEffect(() => {
     setHalfHeight(window.innerHeight * 0.5);
   }, []);
 
-  useEffect(() => {
-    setTimeout(() => {
-      setLoader(false);
-    }, 1200);
-  }, []);
+  // useEffect(() => {
+  //   setTimeout(() => {
+  //     setLoader(false);
+  //   }, 1200);
+  // }, []);
 
-  useEffect(() => {
-    fakeRequest().then(() => {
-      setLoading(false);
-    });
-  }, []);
+  // useEffect(() => {
+  //   fakeRequest().then(() => {
+  //     setLoading(false);
+  //   });
+  // }, []);
 
-  useEffect(() => {
-    const img = new Image();
-    img.onload = () => {
-      setReady(true);
-    };
-    img.src =
-      "https://ik.imagekit.io/aliefseventri/Projects/Web_Portfolio/my-potrait_bDJvstrU0.png?updatedAt=1626881586779&ik-s=fa0534ddb44947d4142e421aab1bf6d9e711b24e"; // by setting an src, you trigger browser download
-  }, []);
+  // useEffect(() => {
+  //   const img = new Image();
+  //   img.onload = () => {
+  //     setReady(true);
+  //   };
+  //   img.src =
+  //     "https://ik.imagekit.io/aliefseventri/Projects/Web_Portfolio/my-potrait_bDJvstrU0.png?updatedAt=1626881586779&ik-s=fa0534ddb44947d4142e421aab1bf6d9e711b24e"; // by setting an src, you trigger browser download
+  // }, []);
 
-  useEffect(() => {
-    if (!isLoading) {
-      toggleNav(true);
-    }
-  }, [isLoading]);
+  // useEffect(() => {
+  //   if (!isLoading) {
+  //     toggleNav(true);
+  //   }
+  // }, [isLoading]);
 
-  if (isLoading || !isImageReady) {
-    return (
-      <CSSTransition in={showLoader} timeout={400} classNames="loader" appear>
-        <div className="loader-container">
-          <Loader
-            type="MutatingDots"
-            color="#3C8678"
-            secondaryColor="#9A947C"
-            height={90}
-            width={90}
-            timeout={5000}
-          />
-          <div className="loader-text animate__animated animate__pulse animate__infinite animate__slow">
-            Hey, get your{" "}
-            <span role="img" aria-label="coffee emoji">
-              ☕
-            </span>
-          </div>
-        </div>
-      </CSSTransition>
-    );
-  }
+  // if (isLoading || !isImageReady) {
+  //   return (
+  //     <CSSTransition in={showLoader} timeout={400} classNames="loader" appear>
+  //       <div className="loader-container">
+  //         <Loader
+  //           type="MutatingDots"
+  //           color="#3C8678"
+  //           secondaryColor="#9A947C"
+  //           height={90}
+  //           width={90}
+  //           timeout={5000}
+  //         />
+  //         <div className="loader-text animate__animated animate__pulse animate__infinite animate__slow">
+  //           Hey, get your{" "}
+  //           <span role="img" aria-label="coffee emoji">
+  //             ☕
+  //           </span>
+  //         </div>
+  //       </div>
+  //     </CSSTransition>
+  //   );
+  // }
 
   return (
     <Fragment>
