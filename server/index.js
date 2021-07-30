@@ -1,24 +1,10 @@
-// ignore style
-require("ignore-styles");
+// import path from "path";
+import "ignore-styles"; //ignore css style for being parsed
+// import register from "@babel/register"; // transpile imports on the fly
+import { start } from "./server";
 
-// transpile import on the fly
-require("@babel/register")({
-  presets: [
-    [
-      "@babel/preset-react",
-      {
-        runtime: "automatic",
-      },
-    ],
-    "@babel/preset-env",
-  ],
-  plugins: [
-    "@babel/plugin-proposal-class-properties",
-    "@babel/plugin-proposal-object-rest-spread",
-    "@babel/plugin-transform-async-to-generator",
-    "@babel/plugin-transform-runtime",
-  ],
-});
+// register({
+//   configFile: path.resolve(__dirname, "../.babelrc"),
+// });
 
-//import express server
-require("./express.js");
+start();

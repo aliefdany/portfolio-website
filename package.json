@@ -8,9 +8,11 @@
     "format": "prettier --write \"src/**/*.{js,jsx}\"",
     "lint": "eslint \"src/**/*.{js,jsx}\"",
     "dev": "parcel src/ui/html/index.html",
-    "build:server-app": "babel ./src -d ./dist --copy-files -s inline",
+    "build:server": "babel server --out-dir server-dist",
+    "build:server-app": "babel ./src -d ./dist-server --copy-files -s inline",
     "build:client-app": "parcel build src/ui/html/index.html ",
-    "start": "npm -s run build:client-app && babel-node server/index.js"
+    "start": "npm -s run build:client-app && babel-node server/index.js",
+    "start:server": "node server-dist/index.js"
   },
   "repository": {
     "type": "git",

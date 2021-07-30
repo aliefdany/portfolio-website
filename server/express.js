@@ -9,8 +9,7 @@ const { StaticRouter } = require("react-router-dom");
 const app = express();
 
 // import app component
-
-const App = require("../dist/ui/js/App").default;
+const App = require("../dist-server/ui/js/App").default;
 
 // serve static assets
 app.get(
