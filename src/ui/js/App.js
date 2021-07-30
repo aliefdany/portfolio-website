@@ -25,7 +25,7 @@ const App = () => {
     return new Promise((resolve) => {
       setTimeout(() => {
         resolve();
-      }, 5000);
+      }, 1500);
     });
   };
 
@@ -36,7 +36,7 @@ const App = () => {
   useEffect(() => {
     setTimeout(() => {
       setLoader(false);
-    }, 4200);
+    }, 1200);
   }, []);
 
   useEffect(() => {
