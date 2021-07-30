@@ -6,5 +6,4 @@ dist/
 coverage/
 .vscode/
 .parcel-cache/
-server/
 build/

@@ -1,6 +1,5 @@
-import { useEffect, useState } from "react";
-import { render } from "react-dom";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { Fragment, useEffect, useState } from "react";
+import { Route, Switch } from "react-router-dom";
 import Loader from "react-loader-spinner";
 import { CSSTransition } from "react-transition-group";
 
@@ -19,7 +18,7 @@ const App = () => {
   const [animate2, toggleAnimate2] = useState(false);
   const [animate3, toggleAnimate3] = useState(false);
   const [showLoader, setLoader] = useState(true);
-  const halfHeight = window.innerHeight * 0.5;
+  const [halfHeight, setHalfHeight] = useState(0);
 
   const [isImageReady, setReady] = useState(false);
   const fakeRequest = () => {
@@ -29,6 +28,10 @@ const App = () => {
       }, 5000);
     });
   };
+
+  useEffect(() => {
+    setHalfHeight(window.innerHeight * 0.5);
+  }, []);
 
   useEffect(() => {
     setTimeout(() => {
@@ -81,7 +84,7 @@ const App = () => {
   }
 
   return (
-    <Router>
+    <Fragment>
       <Navbar showNav={showNav} toggleActive={toggleActive} />
       <Switch>
         <Route path="/contacts">
@@ -119,7 +122,8 @@ const App = () => {
         </Route>
       </Switch>
       <Footer />
-    </Router>
+    </Fragment>
   );
 };
-render(<App />, document.getElementById("root"));
+
+export default App;
