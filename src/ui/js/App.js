@@ -43,7 +43,7 @@ const App = () => {
           <Project toggleNav={toggleNav} showNav={showNav} />
         </Route>
         <Route path="/">
-          <Helmet defaultTitle="Alief Dany | Home">
+          <Helmet defaultTitle="Alief Dany | Portfolio">
             <meta charSet="utf-8" />
           </Helmet>
           <Homepage
