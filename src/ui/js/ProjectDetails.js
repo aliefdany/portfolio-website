@@ -6,6 +6,7 @@ import Loader from "react-loader-spinner";
 import { get } from "axios";
 import { useScrollPosition } from "@n8tb1t/use-scroll-position";
 import VNav from "./VNav";
+import { Helmet } from "react-helmet";
 
 const ProjectDetails = ({ toggleNav, showNav, active }) => {
   const [loading, setLoading] = useState(true);
@@ -73,6 +74,9 @@ const ProjectDetails = ({ toggleNav, showNav, active }) => {
 
   return (
     <Fragment>
+      <Helmet defaultTitle={`Alief Dany | ${data.title}`}>
+        <meta charSet="utf-8" />
+      </Helmet>
       <VNav
         // handlin browser's back button
         active={active == "project" ? active : "project"}

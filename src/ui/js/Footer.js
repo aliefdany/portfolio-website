@@ -13,7 +13,7 @@ const Footer = () => {
             target="_blank"
             rel="noreferrer"
           >
-            @aliefseventri
+            @aliefdany
           </a>
         </h5>
         <p>&copy; 2021 | Alief Dany Seventri | All Rights Reserved</p>

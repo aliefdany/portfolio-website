@@ -128,7 +128,7 @@ const Contacts = ({ toggleNav, showNav }) => {
                   rel="noreferrer"
                   target="_blank"
                 >
-                  twitter.com/aliefseventri
+                  twitter.com/aliefdany
                   <div className="twt-underline"></div>
                 </a>
               </div>
@@ -185,7 +185,7 @@ const Contacts = ({ toggleNav, showNav }) => {
                   rel="noreferrer"
                   target="_blank"
                 >
-                  instagram.com/aliefseventri
+                  instagram.com/aliefdany
                   <div className="cp-underline"></div>
                 </a>
               </div>
