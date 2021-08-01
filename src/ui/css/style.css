@@ -136,6 +136,15 @@ html {
   background-color: #e9e9e9;
 }
 
+.loader-container {
+  background-color: #ffffff;
+  width: 99%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 /* 
 
 Below is a style for utility
