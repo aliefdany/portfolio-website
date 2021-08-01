@@ -48,6 +48,14 @@ app.get(
 
 app.use("/api/project", projectRouter);
 
+app.get("/robots.txt", (req, res) => {
+  let robots = fs.readFileSync(path.resolve(__dirname, "../robots.txt"), {
+    encoding: "utf-8",
+  });
+
+  res.status(200).send(robots);
+});
+
 app.use("*", (req, res) => {
   // read index.html file
   let indexHTML = fs.readFileSync(
