@@ -5,12 +5,12 @@ import imported from "react-imported-component"; //eslint-disable-line
 import { Helmet } from "react-helmet";
 
 import Navbar from "./Navbar";
+import Footer from "./Footer";
+import Homepage from "./Homepage";
 
-const Homepage = imported(() => import("./Homepage"));
 const Contacts = imported(() => import("./Contacts"));
 const Project = imported(() => import("./Project"));
 const ProjectDetails = imported(() => import("./ProjectDetails"));
-const Footer = imported(() => import("./Footer"));
 
 const App = () => {
   const [showNav, toggleNav] = useState(true);
