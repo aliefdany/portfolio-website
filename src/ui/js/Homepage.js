@@ -135,10 +135,14 @@ const Homepage = ({
                 Welcome! <br /> My Name is Alief Dany
               </h1>
               <p>
-                I am a Javascript Developer that focused on building <br />
-                Accessible Web with technology like React, Node, and Express.
-                Managing online data through the use of REST API and Mongo to
-                provide smooth User Experience. Welcome to my site!
+                I am a <a href="https://reactjs.org/">Javascript</a> Developer
+                that focused on building Accessible Web with technology like{" "}
+                <a href="https://reactjs.org/">React</a> ,{" "}
+                <a href="https://reactjs.org/">Node</a>, and{" "}
+                <a href="https://reactjs.org/">Express</a>. Managing online data
+                through the use of REST API and{" "}
+                <a href="https://reactjs.org/">Mongo</a> to provide smooth User
+                Experience. Welcome to my site!
               </p>
               <Link
                 to="education"
