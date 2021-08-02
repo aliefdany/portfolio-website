@@ -3,15 +3,13 @@ import { Route, Switch } from "react-router-dom";
 
 import imported from "react-imported-component"; //eslint-disable-line
 import { Helmet } from "react-helmet";
-import ProjectDetails from "./ProjectDetails";
 
-import Navbar from "./Navbar";
-import Homepage from "./Homepage";
-import Footer from "./Footer";
-
+const Navbar = imported(() => import("./Navbar"));
+const Footer = imported(() => import("./Footer"));
+const Homepage = imported(() => import("./Homepage"));
 const Contacts = imported(() => import("./Contacts"));
 const Project = imported(() => import("./Project"));
-// const ProjectDetails = imported(() => import("./ProjectDetails"));
+const ProjectDetails = imported(() => import("./ProjectDetails"));
 
 const App = () => {
   const [showNav, toggleNav] = useState(true);
