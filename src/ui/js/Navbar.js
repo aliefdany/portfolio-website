@@ -89,12 +89,88 @@ const Navbar = ({ showNav, toggleActive }) => {
         </ul>
         <svg
           className="diagonal-bg"
-          viewBox="0 0 1920 76"
+          viewBox="0 0 1920 116"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
         >
-          <path d="M0 13H1920V76L0 13Z" fill="#CEC8B2" />
-          <path d="M0 0H1920V13H0V0Z" fill="#9E9980" />
+          <g filter="url(#filter0_d)">
+            <path d="M0 23H1920V99L0 23Z" fill="#353229" />
+          </g>
+          <g filter="url(#filter1_d)">
+            <path d="M0 23H1920V36H0V23Z" fill="#545142" />
+          </g>
+          <defs>
+            <filter
+              id="filter0_d"
+              x="-15"
+              y="10"
+              width="1950"
+              height="106"
+              filterUnits="userSpaceOnUse"
+              colorInterpolationFilters="sRGB"
+            >
+              <feFlood floodOpacity="0" result="BackgroundImageFix" />
+              <feColorMatrix
+                in="SourceAlpha"
+                type="matrix"
+                values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                result="hardAlpha"
+              />
+              <feOffset dy="2" />
+              <feGaussianBlur stdDeviation="7.5" />
+              <feComposite in2="hardAlpha" operator="out" />
+              <feColorMatrix
+                type="matrix"
+                values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.16 0"
+              />
+              <feBlend
+                mode="normal"
+                in2="BackgroundImageFix"
+                result="effect1_dropShadow"
+              />
+              <feBlend
+                mode="normal"
+                in="SourceGraphic"
+                in2="effect1_dropShadow"
+                result="shape"
+              />
+            </filter>
+            <filter
+              id="filter1_d"
+              x="-25"
+              y="0"
+              width="1970"
+              height="63"
+              filterUnits="userSpaceOnUse"
+              colorInterpolationFilters="sRGB"
+            >
+              <feFlood floodOpacity="0" result="BackgroundImageFix" />
+              <feColorMatrix
+                in="SourceAlpha"
+                type="matrix"
+                values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                result="hardAlpha"
+              />
+              <feOffset dy="2" />
+              <feGaussianBlur stdDeviation="12.5" />
+              <feComposite in2="hardAlpha" operator="out" />
+              <feColorMatrix
+                type="matrix"
+                values="0 0 0 0 0.0823529 0 0 0 0 0.0705882 0 0 0 0 0 0 0 0 0.5 0"
+              />
+              <feBlend
+                mode="normal"
+                in2="BackgroundImageFix"
+                result="effect1_dropShadow"
+              />
+              <feBlend
+                mode="normal"
+                in="SourceGraphic"
+                in2="effect1_dropShadow"
+                result="shape"
+              />
+            </filter>
+          </defs>
         </svg>
       </nav>
     </Fragment>

@@ -132,12 +132,13 @@ html {
   scroll-behavior: smooth;
 }
 
-.body {
-  background-color: #e9e9e9;
+body {
+  /* background-color: #e9e9e9; */
+  background-color: #080808;
 }
 
 .loader-container {
-  background-color: #ffffff;
+  background-color: #080808;
   width: 99%;
   height: 100vh;
   display: flex;
@@ -161,8 +162,9 @@ a.button-like {
   font-family: "Montserrat", sans-serif;
   font-weight: 900;
   font-size: 1.1vw;
-  color: hsl(0, 0%, 100%);
-  background: hsl(169, 38%, 38%);
+  /* color: hsl(0, 0%, 100%); */
+  color: hsl(46, 25%, 83%);
+  background: #012a1c;
   border: 1px solid hsl(169, 38%, 38%);
   border-radius: 50px;
   box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.25);
@@ -231,7 +233,8 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: hsl(49, 11%, 38%);
+  /* background-color: hsl(49, 11%, 38%); */
+  background-color: #151200;
   z-index: 4;
   transform: translate3d(0, -100%, 0);
   transition: transform 500ms;
@@ -371,7 +374,7 @@ General Page
 svg.diagonal-bg {
   position: absolute;
   left: 0;
-  top: 10vh;
+  top: 7.5vh;
 }
 /* .separator.first {
   background-color: #9e9980;
@@ -422,7 +425,8 @@ svg.bg {
 .homepage-content {
   width: 65vw;
   height: 55vh;
-  color: hsl(48, 12%, 25%);
+  /* color: hsl(48, 12%, 25%); */
+  color: hsl(46, 25%, 83%);
   position: absolute;
   display: flex;
   justify-content: space-between;
@@ -448,6 +452,8 @@ Homepage 1
   visibility: hidden;
   opacity: 0;
   background: transparent;
+  filter: contrast(120%) brightness(80%);
+  /* filter: contrast(110%); */
   animation: floating 5s ease-in-out infinite;
 }
 
@@ -514,7 +520,8 @@ Homepage 3
   transform: translate3d(0, 0, 0);
   font-family: "Yeseva One", cursive;
   font-size: 1.5vw;
-  color: hsl(48, 12%, 25%);
+  color: hsl(46, 25%, 83%);
+  /* color: hsl(48, 12%, 25%); */
   margin-left: 2vw;
 }
 
@@ -540,6 +547,10 @@ Homepage 3
 .contacts-link a:focus {
   transform: translate3d(3%, 0, 0);
   transition: all 500ms;
+}
+
+.github-svg {
+  filter: invert(100%);
 }
 
 /* 
@@ -655,9 +666,11 @@ footer {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #e9e9e9;
+  /* color: #e9e9e9; */
+  color: hsl(46, 25%, 83%);
   text-align: center;
-  background-color: hsl(48, 18%, 22%);
+  background-color: #151200;
+  /* background-color: hsl(48, 18%, 22%); */
   height: 10vh;
 }
 
@@ -920,7 +933,7 @@ END OF DESKTOP
   }
 
   svg.diagonal-bg {
-    top: 12.5vh;
+    top: 12vh;
     height: 5vh;
   }
 
