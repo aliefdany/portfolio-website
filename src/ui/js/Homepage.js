@@ -136,7 +136,11 @@ const Homepage = ({
               </h1>
               <p>
                 I am a{" "}
-                <a href="https://reactjs.org/" target="_blank" rel="noreferrer">
+                <a
+                  href="https://www.javascript.com/"
+                  target="_blank"
+                  rel="noreferrer"
+                >
                   Javascript
                 </a>{" "}
                 Developer that focused on building Accessible Web with
@@ -145,12 +149,16 @@ const Homepage = ({
                   React
                 </a>{" "}
                 ,{" "}
-                <a href="https://reactjs.org/" target="_blank" rel="noreferrer">
+                <a href="https://nodejs.org/" target="_blank" rel="noreferrer">
                   Node
                 </a>
-                , and <a href="https://reactjs.org/">Express</a>. Managing
+                , and <a href="https://expressjs.com/">Express</a>. Managing
                 online data through the use of REST API and{" "}
-                <a href="https://reactjs.org/" target="_blank" rel="noreferrer">
+                <a
+                  href="https://www.mongodb.com/"
+                  target="_blank"
+                  rel="noreferrer"
+                >
                   Mongo
                 </a>{" "}
                 to provide smooth User Experience. Welcome to my site!
