@@ -1,4 +1,4 @@
-[![Anurag's GitHub stats](https://github-readme-stats.vercel.app/api?username=aliefdany&hide=issues,stars&count_private=true&show_icons=true&theme=radical)](https://github.com/anuraghazra/github-readme-stats)
+[![Anurag's GitHub stats](https://github-readme-stats.vercel.app/api?username=aliefdany&count_private=true&hide=issues,stars&show_icons=true&theme=radical)](https://github.com/anuraghazra/github-readme-stats)
 
 # Alief Dany's Portfolio Website
 
