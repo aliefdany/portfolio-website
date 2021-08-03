@@ -125,7 +125,7 @@ const Contacts = ({ toggleNav, showNav }) => {
                   />
                 </svg>
                 <a
-                  href="https://twitter.com/aliefseventri"
+                  href="https://twitter.com/aliefdany"
                   rel="noreferrer"
                   target="_blank"
                 >
@@ -182,7 +182,7 @@ const Contacts = ({ toggleNav, showNav }) => {
                   </defs>
                 </svg>
                 <a
-                  href="https://instagram.com/aliefseventri"
+                  href="https://instagram.com/aliefdany"
                   rel="noreferrer"
                   target="_blank"
                 >
