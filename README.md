@@ -1,3 +1,5 @@
+[![Anurag's GitHub stats](https://github-readme-stats.vercel.app/api?username=anuraghazra)](https://github.com/anuraghazra/github-readme-stats)
+
 # Alief Dany's Portfolio Website
 
 This is a website for my portfolio, you can find anything about me such as my profile, education background, experiences, contacts and projects that i've been worked for. you can even download my resume or CV to look forward much deeper about me.
@@ -7,3 +9,5 @@ you can visit this web by going to this url https://aliefdany.me , Or you can vi
 See You Onsite!
 Regards,
 Alief Dany
+
+
