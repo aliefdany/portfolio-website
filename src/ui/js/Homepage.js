@@ -4,7 +4,7 @@ import { useScrollPosition } from "@n8tb1t/use-scroll-position";
 
 // 1
 import { CSSTransition } from "react-transition-group";
-import { Link } from "react-scroll";
+import { Link } from "react-router-dom";
 
 // 3
 import { Link as ScrollLink } from "react-scroll";

@@ -1,12 +1,13 @@
 import { Fragment, useLayoutEffect, useState, useRef } from "react";
-import { Link } from "react-router-dom";
+import { Link } from "react-router-dom"; //eslint-disable-line
 import { CSSTransition } from "react-transition-group";
 import { useScrollPosition } from "@n8tb1t/use-scroll-position";
 import VNav from "./VNav";
 
+import ProjectCard from "./ProjectCard";
+
 const Project = ({ toggleNav, showNav }) => {
-  const [projects, setProject] = useState([]);
-  let cacheId = "";
+  const [projects, setProject] = useState([]); //eslint-disable-line
 
   const project = useRef();
 
@@ -18,6 +19,7 @@ const Project = ({ toggleNav, showNav }) => {
       if (currPos.y == 0) {
         toggleNav(true);
       }
+      console.log(currPos.y);
     },
     [],
     project
@@ -43,7 +45,7 @@ const Project = ({ toggleNav, showNav }) => {
       />
 
       <div ref={project} className="separator" id="contacts"></div>
-      <div className="page">
+      <div className="page project">
         <svg
           className="bg"
           viewBox="0 0 1920 961"
@@ -78,7 +80,8 @@ const Project = ({ toggleNav, showNav }) => {
             />
           </CSSTransition>
         </svg>
-        <div className="homepage-content">
+
+        <div className="homepage-content project">
           <CSSTransition
             in={true}
             timeout={400}
@@ -99,35 +102,24 @@ const Project = ({ toggleNav, showNav }) => {
           <CSSTransition
             in={true}
             timeout={400}
-            classNames="animate-border"
+            classNames="animate-left"
             appear
           >
-            <div className="vertical-separator"></div>
-          </CSSTransition>
-          <CSSTransition
-            in={true}
-            timeout={400}
-            classNames="animate-right"
-            appear
-          >
-            <div className="project-showcase">
+            <div className="cards">
               {projects.map((project) => {
-                cacheId = project._id;
                 return (
-                  <div key={project._id}>
-                    <h1>{project.title}</h1>
-                    <p>{project.preview}</p>
-                    <img
-                      className="project-logo"
-                      src={project.logoURL}
-                      alt="project-img"
-                    />
-                  </div>
+                  <ProjectCard
+                    key={project.title}
+                    title={project.title}
+                    thumb={project.imageURL[0]}
+                    preview={project.preview}
+                    done={project.done}
+                    repoLink={project.repoLink}
+                    siteLink={project.siteLink}
+                    tags={project.tags}
+                  />
                 );
               })}
-              <Link to={`/project/${cacheId}`} className="button-like">
-                See Details
-              </Link>
             </div>
           </CSSTransition>
         </div>

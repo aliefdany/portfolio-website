@@ -12,16 +12,34 @@ const projectSchema = new mongoose.Schema({
   overview: [
     {
       type: String,
-      required: true,
+      required: false,
     },
   ],
   logoURL: {
     type: String,
-    required: true,
+    required: false,
   },
   imageURL: [
     {
       type: String,
+      required: true,
+    },
+  ],
+  done: {
+    type: Boolean,
+    required: true,
+  },
+  siteLink: {
+    type: String,
+    required: false,
+  },
+  repoLink: {
+    type: String,
+    required: true,
+  },
+  tags: [
+    {
+      type: Object,
       required: true,
     },
   ],

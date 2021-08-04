@@ -609,6 +609,93 @@ Project Page
   width: 30vw;
 }
 
+/* NEW */
+.page.project {
+  height: 150vh;
+}
+
+.homepage-content.project {
+  top: 15vh;
+  left: 15vw;
+  flex-direction: column;
+  /* border: 1px solid white; */
+  align-items: flex-start;
+  justify-content: space-between;
+  height: initial;
+  transform: initial;
+}
+
+.homepage-content.project .project-text {
+  width: 100%;
+}
+
+.project-card {
+  padding-bottom: 5vh;
+  display: flex;
+  /* border: 1px solid white; */
+}
+
+.cards {
+  margin-top: 5vh;
+}
+
+.project-preview {
+  /* border: 1px solid white; */
+  width: 20vw;
+  flex: 0 0 auto;
+}
+
+.project-caption {
+  padding-left: 2vw;
+  flex: 0 1 auto;
+  /* border: 1px solid white; */
+}
+
+.project-caption h2 {
+  font-family: "Yeseva One";
+  font-size: 1.5vw;
+  margin-bottom: 2vh;
+}
+
+.project-caption p {
+  font-size: 1vw;
+  width: initial;
+}
+
+.project-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 1vw;
+}
+
+.project-tags {
+  margin-top: 1vh;
+  display: flex;
+}
+
+h4.project-tag {
+  font-family: "Courier New", Courier, monospace;
+  margin-right: 1vw;
+  padding: 0.4vw;
+  text-decoration: none;
+  text-align: center;
+  font-weight: bolder;
+}
+
+.project-card a.button-like {
+  font-size: 1vw;
+  padding: 0.1em 0.5em;
+}
+
+a.visit-site {
+  margin-right: 1vw;
+}
+
+a.visit-repo {
+  background-color: #344731;
+}
+
 /* 
 
 Contacts Page 
@@ -1132,6 +1219,47 @@ END OF DESKTOP
     opacity: 1;
     width: 40%;
     height: 1vw;
+  }
+
+  /* NEW */
+
+  .page.project {
+    height: 180vh;
+  }
+
+  .homepage-content.project {
+    height: initial;
+    transform: initial;
+    top: 10vh;
+    left: 8vw;
+    flex-direction: column-reverse;
+  }
+
+  .project-card {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .project-tags {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .project-preview {
+    width: 60vw;
+    margin-bottom: 1vh;
+  }
+
+  .project-caption {
+    width: initial;
+  }
+
+  .project-caption h2 {
+    font-size: 4vw;
+  }
+
+  .project-card a.button-like {
+    font-size: 3vw;
   }
 
   /* Bug fix */

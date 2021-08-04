@@ -11,8 +11,9 @@
     "build:server": "babel server --out-dir server-dist",
     "build:server-app": "babel ./src -d ./dist-server --copy-files -s inline",
     "build:client-app": "parcel build src/ui/html/index.html ",
+    "build-app": "npm run build:server-app && npm run build:client-app",
     "start": "npm -s run build:client-app && babel-node server/index.js",
-    "start:server": "node server-dist/index.js"
+    "start:server": "nodemon server-dist/index.js"
   },
   "repository": {
     "type": "git",
@@ -48,6 +49,7 @@
     "eslint-plugin-jsx-a11y": "^6.4.1",
     "eslint-plugin-react": "^7.24.0",
     "ignore-styles": "^5.0.1",
+    "nodemon": "^2.0.12",
     "parcel": "^2.0.0-beta.2",
     "prettier": "^2.3.2"
   },
