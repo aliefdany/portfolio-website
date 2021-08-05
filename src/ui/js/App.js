@@ -8,8 +8,8 @@ import Navbar from "./Navbar";
 import Footer from "./Footer";
 import Homepage from "./Homepage";
 
+const ProjectMiddle = imported(() => import("./ProjectMiddle"));
 const Contacts = imported(() => import("./Contacts"));
-const Project = imported(() => import("./Project"));
 const ProjectDetails = imported(() => import("./ProjectDetails"));
 
 const App = () => {
@@ -40,7 +40,7 @@ const App = () => {
           <Helmet defaultTitle="Alief Dany | Projects">
             <meta charSet="utf-8" />
           </Helmet>
-          <Project toggleNav={toggleNav} showNav={showNav} />
+          <ProjectMiddle toggleNav={toggleNav} showNav={showNav} />
         </Route>
         <Route path="/">
           <Helmet defaultTitle="Alief Dany | Portfolio">

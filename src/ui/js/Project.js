@@ -7,33 +7,32 @@ import VNav from "./VNav";
 import ProjectCard from "./ProjectCard";
 
 const Project = ({ toggleNav, showNav }) => {
-  const [projects, setProject] = useState([]); //eslint-disable-line
-
+  const [projects, setProject] = useState([]);
   const project = useRef();
+  const browserHeight = window.innerHeight;
 
   useScrollPosition(
     ({ currPos }) => {
-      if (currPos.y <= -50) {
-        toggleNav(false);
-      }
       if (currPos.y == 0) {
         toggleNav(true);
       }
-      console.log(currPos.y);
+      if (currPos.y <= -browserHeight * 0.5) {
+        toggleNav(false);
+      }
     },
     [],
     project
   );
+
+  useLayoutEffect(() => {
+    fetchProjects();
+  }, []);
 
   async function fetchProjects() {
     let res = await fetch("/api/project");
     res = await res.json();
     setProject(res);
   }
-
-  useLayoutEffect(() => {
-    fetchProjects();
-  }, []);
 
   return (
     <Fragment>
@@ -117,6 +116,7 @@ const Project = ({ toggleNav, showNav }) => {
                     repoLink={project.repoLink}
                     siteLink={project.siteLink}
                     tags={project.tags}
+                    imageURL={project.imageURL}
                   />
                 );
               })}

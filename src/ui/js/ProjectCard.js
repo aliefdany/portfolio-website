@@ -1,4 +1,10 @@
+import { useState, useEffect } from "react";
 import ProjectTags from "./ProjectTags";
+import Modal from "./Modal";
+import ImageGallery from "react-image-gallery";
+import "react-image-gallery/styles/css/image-gallery.css";
+import { CSSTransition } from "react-transition-group";
+import { BiX } from "react-icons/bi";
 
 const ProjectCard = ({
   title,
@@ -8,13 +14,31 @@ const ProjectCard = ({
   repoLink,
   siteLink,
   tags,
+  imageURL,
 }) => {
   let imgSelector = title.split(" ").join("-").toLowerCase();
   let btnSelector = `${imgSelector}-btn`;
 
-  function handleClickPreview() {
-    console.log("clicked!");
+  const [showModal, setModal] = useState(false);
+  const images = imageURL.map((url) => {
+    return {
+      original: url,
+      thumbnail: url,
+    };
+  });
+
+  function toggleModal() {
+    setModal(!showModal);
+    offHover();
   }
+
+  useEffect(() => {
+    if (showModal) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+  }, [showModal]);
 
   function onHover() {
     let img = document.getElementById(imgSelector);
@@ -31,10 +55,17 @@ const ProjectCard = ({
     img.classList.remove("image-hover");
     previewButton.classList.remove("button-hover");
   }
+
   return (
     <div className="project-card">
       <div className="project-preview">
-        <div className="project-img">
+        {/* eslint-disable-next-line */}
+        <div
+          role="button"
+          tabIndex="0"
+          onClick={toggleModal}
+          className="project-img"
+        >
           <img
             id={title.split(" ").join("-").toLowerCase()}
             onMouseEnter={() => {
@@ -43,15 +74,10 @@ const ProjectCard = ({
             onMouseLeave={() => {
               offHover(title);
             }}
-            onMouse
             src={thumb}
             alt="project-img"
           />
-          <button
-            id={btnSelector}
-            onMouseEnter={onHover}
-            onClick={handleClickPreview}
-          >
+          <button id={btnSelector} onMouseEnter={onHover} onClick={toggleModal}>
             PREVIEW
           </button>
         </div>
@@ -89,6 +115,31 @@ const ProjectCard = ({
           Visit Repo
         </a>
       </div>
+      {showModal ? (
+        <Modal>
+          {/* eslint-disable-next-line */}
+          <div
+            className="modal-bg"
+            role="button"
+            tabIndex="0"
+            onClick={toggleModal}
+          ></div>
+          <CSSTransition in={true} timeout={400} classNames="show-modal" appear>
+            <div className="modal">
+              <BiX onClick={toggleModal} className="exit-icon" />
+              <h1>{title}</h1>
+              <p>PREVIEW</p>
+              <div className="preview-slider">
+                <ImageGallery
+                  items={images}
+                  autoPlay={true}
+                  showPlayButton={false}
+                />
+              </div>
+            </div>
+          </CSSTransition>
+        </Modal>
+      ) : null}
     </div>
   );
 };
