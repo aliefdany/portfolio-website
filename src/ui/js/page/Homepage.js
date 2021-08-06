@@ -1,5 +1,5 @@
-import { Fragment, useRef, useState, useEffect, useLayoutEffect } from "react";
-import VNav from "./VNav";
+import { Fragment, useRef, useEffect } from "react";
+import VNav from "../layout/VNav";
 import { useScrollPosition } from "@n8tb1t/use-scroll-position";
 
 // 1
@@ -19,30 +19,24 @@ function ScrollToTopOnMount() {
 
 const Homepage = ({
   toggleActive,
-  animate1,
   animate2,
   animate3,
   toggleNav,
-  toggleAnimate1,
   toggleAnimate2,
   toggleAnimate3,
   showNav,
+  active,
 }) => {
-  const [activeCache, setActiveCache] = useState("intro");
   const page1 = useRef();
   const page2 = useRef();
   const page3 = useRef();
 
   // try to remove code below and see what happens
-  useLayoutEffect(() => {
-    toggleAnimate1(true);
-  }, []);
 
   useScrollPosition(
     ({ currPos }) => {
       if (currPos.y > -100) {
-        setActiveCache("intro");
-        toggleAnimate1(true);
+        toggleActive("intro");
       }
     },
     [],
@@ -52,7 +46,7 @@ const Homepage = ({
   useScrollPosition(
     ({ currPos }) => {
       if (currPos.y <= 100 && currPos.y >= -100) {
-        setActiveCache("education");
+        toggleActive("education");
         toggleAnimate2(true);
       }
     },
@@ -64,7 +58,6 @@ const Homepage = ({
     ({ currPos }) => {
       if (currPos.y <= 100 && currPos.y >= -100) {
         toggleActive("experience");
-        setActiveCache("experience");
         toggleAnimate3(true);
       }
       if (currPos.y <= -1) {
@@ -78,11 +71,15 @@ const Homepage = ({
     page3
   );
 
+  if (active == "contacts" || active == "project") {
+    return null;
+  }
+
   return (
     <Fragment>
       <VNav
         // handlin browser's back button
-        active={activeCache}
+        active={active}
         showNav={showNav}
         VNavArr={["intro", "education", "experience"]}
       />
@@ -96,7 +93,7 @@ const Homepage = ({
           xmlns="http://www.w3.org/2000/svg"
         >
           <CSSTransition
-            in={animate1}
+            in={true}
             timeout={400}
             classNames="animate-left"
             appear
@@ -109,7 +106,7 @@ const Homepage = ({
             />
           </CSSTransition>
           <CSSTransition
-            in={animate1}
+            in={true}
             timeout={400}
             classNames="animate-right"
             appear
@@ -124,7 +121,7 @@ const Homepage = ({
         </svg>
         <div className="homepage-content">
           <CSSTransition
-            in={animate1}
+            in={true}
             timeout={400}
             classNames="animate-left"
             appear
@@ -175,7 +172,7 @@ const Homepage = ({
             </div>
           </CSSTransition>
           <CSSTransition
-            in={animate1}
+            in={true}
             timeout={400}
             classNames="animate-right"
             appear

@@ -2,11 +2,11 @@ import { Fragment, useLayoutEffect, useState, useRef } from "react";
 import { Link } from "react-router-dom"; //eslint-disable-line
 import { CSSTransition } from "react-transition-group";
 import { useScrollPosition } from "@n8tb1t/use-scroll-position";
-import VNav from "./VNav";
+import VNav from "../layout/VNav";
 
-import ProjectCard from "./ProjectCard";
+import ProjectCard from "../layout/ProjectCard";
 
-const Project = ({ toggleNav, showNav }) => {
+const Project = ({ toggleNav, showNav, active }) => {
   const [projects, setProject] = useState([]);
   const project = useRef();
   const browserHeight = window.innerHeight;
@@ -34,11 +34,15 @@ const Project = ({ toggleNav, showNav }) => {
     setProject(res);
   }
 
+  if (active != "project") {
+    return null;
+  }
+
   return (
     <Fragment>
       <VNav
         // handling browser's back button
-        active="project"
+        active={active}
         showNav={showNav}
         VNavArr={["project"]}
       />

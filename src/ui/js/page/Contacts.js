@@ -1,9 +1,9 @@
 import { useRef, Fragment } from "react";
 import { CSSTransition } from "react-transition-group";
 import { useScrollPosition } from "@n8tb1t/use-scroll-position";
-import VNav from "./VNav";
+import VNav from "../layout/VNav";
 
-const Contacts = ({ toggleNav, showNav }) => {
+const Contacts = ({ toggleNav, showNav, active }) => {
   const contacts = useRef();
 
   useScrollPosition(
@@ -18,11 +18,16 @@ const Contacts = ({ toggleNav, showNav }) => {
     [],
     contacts
   );
+
+  if (active != "contacts") {
+    return null;
+  }
+
   return (
     <Fragment>
       <VNav
         // handling browser's back button
-        active="contacts"
+        active={active}
         showNav={showNav}
         VNavArr={["contacts"]}
       />

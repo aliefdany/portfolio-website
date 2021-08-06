@@ -1,23 +1,38 @@
-import { Fragment, useState } from "react";
+import { Fragment, useState, useLayoutEffect } from "react";
 import { Route, Switch } from "react-router-dom";
 
 import imported from "react-imported-component"; //eslint-disable-line
 import { Helmet } from "react-helmet";
 
-import Navbar from "./Navbar";
-import Footer from "./Footer";
-import Homepage from "./Homepage";
+import Navbar from "./layout/Navbar";
+import Footer from "./layout/Footer";
+import Homepage from "./page/Homepage";
 
-const ProjectMiddle = imported(() => import("./ProjectMiddle"));
-const Contacts = imported(() => import("./Contacts"));
-const ProjectDetails = imported(() => import("./ProjectDetails"));
+import { useLocation } from "react-router-dom";
+
+const Project = imported(() => import("./utils/ProjectMiddle"));
+const Contacts = imported(() => import("./page/Contacts"));
+
+const usePathname = () => {
+  const location = useLocation();
+  return location.pathname;
+};
 
 const App = () => {
   const [showNav, toggleNav] = useState(true);
   const [active, toggleActive] = useState("intro"); // for VNAV
-  const [animate1, toggleAnimate1] = useState(true);
   const [animate2, toggleAnimate2] = useState(false);
   const [animate3, toggleAnimate3] = useState(false);
+
+  const path = usePathname();
+
+  useLayoutEffect(() => {
+    if (path == "/") {
+      toggleActive("intro");
+    } else {
+      toggleActive(path.replace("/", ""));
+    }
+  }, [path]);
 
   return (
     <Fragment>
@@ -27,35 +42,27 @@ const App = () => {
           <Helmet defaultTitle="Alief Dany | Contacts">
             <meta charSet="utf-8" />
           </Helmet>
-          <Contacts toggleNav={toggleNav} showNav={showNav} />
-        </Route>
-        <Route path="/project/:id">
-          <ProjectDetails
-            toggleNav={toggleNav}
-            showNav={showNav}
-            active={active}
-          />
+          <Contacts toggleNav={toggleNav} showNav={showNav} active={active} />
         </Route>
         <Route path="/project">
           <Helmet defaultTitle="Alief Dany | Projects">
             <meta charSet="utf-8" />
           </Helmet>
-          <ProjectMiddle toggleNav={toggleNav} showNav={showNav} />
+          <Project toggleNav={toggleNav} showNav={showNav} active={active} />
         </Route>
         <Route path="/">
           <Helmet defaultTitle="Alief Dany | Portfolio">
             <meta charSet="utf-8" />
           </Helmet>
           <Homepage
-            animate1={animate1}
             animate2={animate2}
             animate3={animate3}
             toggleActive={toggleActive}
-            toggleAnimate1={toggleAnimate1}
             toggleAnimate2={toggleAnimate2}
             toggleAnimate3={toggleAnimate3}
             toggleNav={toggleNav}
             showNav={showNav}
+            active={active}
           />
         </Route>
       </Switch>

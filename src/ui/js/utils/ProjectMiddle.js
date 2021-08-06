@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import Project from "./Project";
+import Project from "../page/Project";
 
 const useIsSsr = () => {
   // we always start off in "SSR mode", to ensure our initial browser render
@@ -15,14 +15,14 @@ const useIsSsr = () => {
   return isSsr;
 };
 
-const ProjectMiddle = ({ toggleNav, showNav }) => {
+const ProjectMiddle = ({ toggleNav, showNav, active }) => {
   const isSsr = useIsSsr();
 
   if (isSsr) {
     return null;
   }
 
-  return <Project toggleNav={toggleNav} showNav={showNav} />;
+  return <Project toggleNav={toggleNav} showNav={showNav} active={active} />;
 };
 
 export default ProjectMiddle;

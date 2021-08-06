@@ -3,7 +3,7 @@ import { CSSTransition } from "react-transition-group";
 import { Link } from "react-scroll";
 
 const VNav = ({ active, showNav, VNavArr }) => {
-  const [classCache, setCache] = useState(VNavArr[0]);
+  const [classCache, setCache] = useState(active);
 
   // ??
   useLayoutEffect(() => {
