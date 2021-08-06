@@ -9,7 +9,7 @@ import ReactDOMServer from "react-dom/server";
 import { StaticRouter } from "react-router-dom";
 
 // import app component
-import App from "../dist-server/ui/js/App";
+import SSRApp from "../dist-server/ui/js/utils/SSRApp";
 
 async function createDocument() {
   if (!(await Project.find({ title: "Whatson Indonesia" }))) {
@@ -163,7 +163,7 @@ app.use("*", (req, res) => {
 
   let appHTML = ReactDOMServer.renderToString(
     <StaticRouter location={req.originalUrl}>
-      <App />
+      <SSRApp />
     </StaticRouter>
   );
 

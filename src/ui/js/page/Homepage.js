@@ -1,6 +1,7 @@
-import { Fragment, useRef, useEffect } from "react";
+import { Fragment, useRef, useEffect, useContext } from "react";
 import VNav from "../layout/VNav";
 import { useScrollPosition } from "@n8tb1t/use-scroll-position";
+import BrowsersHeight from "../utils/BrowsersHeight";
 
 // 1
 import { CSSTransition } from "react-transition-group";
@@ -31,11 +32,11 @@ const Homepage = ({
   const page2 = useRef();
   const page3 = useRef();
 
-  // try to remove code below and see what happens
+  const browsersHalfHeight = useContext(BrowsersHeight) / 2;
 
   useScrollPosition(
     ({ currPos }) => {
-      if (currPos.y > -100) {
+      if (currPos.y > -browsersHalfHeight) {
         toggleActive("intro");
       }
     },
@@ -45,7 +46,7 @@ const Homepage = ({
 
   useScrollPosition(
     ({ currPos }) => {
-      if (currPos.y <= 100 && currPos.y >= -100) {
+      if (currPos.y <= browsersHalfHeight && currPos.y >= -browsersHalfHeight) {
         toggleActive("education");
         toggleAnimate2(true);
       }
@@ -56,14 +57,13 @@ const Homepage = ({
 
   useScrollPosition(
     ({ currPos }) => {
-      if (currPos.y <= 100 && currPos.y >= -100) {
+      if (currPos.y <= browsersHalfHeight && currPos.y >= -browsersHalfHeight) {
         toggleActive("experience");
         toggleAnimate3(true);
       }
-      if (currPos.y <= -1) {
+      if (currPos.y <= 0) {
         toggleNav(false);
-      }
-      if (currPos.y > 0) {
+      } else {
         toggleNav(true);
       }
     },

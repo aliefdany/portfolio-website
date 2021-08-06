@@ -1,23 +1,23 @@
-import { Fragment, useLayoutEffect, useState, useRef } from "react";
+import { Fragment, useLayoutEffect, useState, useRef, useContext } from "react";
 import { Link } from "react-router-dom"; //eslint-disable-line
 import { CSSTransition } from "react-transition-group";
 import { useScrollPosition } from "@n8tb1t/use-scroll-position";
 import VNav from "../layout/VNav";
+import BrowsersHeight from "../utils/BrowsersHeight";
 
 import ProjectCard from "../layout/ProjectCard";
 
 const Project = ({ toggleNav, showNav, active }) => {
   const [projects, setProject] = useState([]);
   const project = useRef();
-  const browserHeight = window.innerHeight;
+  const browserHalfHeight = useContext(BrowsersHeight) * 0.6;
 
   useScrollPosition(
     ({ currPos }) => {
-      if (currPos.y == 0) {
-        toggleNav(true);
-      }
-      if (currPos.y <= -browserHeight * 0.5) {
+      if (currPos.y <= -browserHalfHeight) {
         toggleNav(false);
+      } else {
+        toggleNav(true);
       }
     },
     [],

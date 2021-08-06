@@ -1,17 +1,18 @@
-import { useRef, Fragment } from "react";
+import { useRef, Fragment, useContext } from "react";
 import { CSSTransition } from "react-transition-group";
 import { useScrollPosition } from "@n8tb1t/use-scroll-position";
 import VNav from "../layout/VNav";
+import BrowsersHeight from "../utils/BrowsersHeight";
 
 const Contacts = ({ toggleNav, showNav, active }) => {
   const contacts = useRef();
+  const browsersHeight = useContext(BrowsersHeight);
 
   useScrollPosition(
     ({ currPos }) => {
-      if (currPos.y <= -50) {
+      if (currPos.y <= -browsersHeight / 20) {
         toggleNav(false);
-      }
-      if (currPos.y == 0) {
+      } else {
         toggleNav(true);
       }
     },

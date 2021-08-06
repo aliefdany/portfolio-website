@@ -25,7 +25,7 @@ const App = () => {
   const [animate2, toggleAnimate2] = useState(false);
   const [animate3, toggleAnimate3] = useState(false);
 
-  const browserHeight = window.innerHeight;
+  const browserHeight = 0;
   console.log(browserHeight);
 
   const path = usePathname();
