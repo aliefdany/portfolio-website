@@ -20,22 +20,25 @@ const usePathname = () => {
 };
 
 const App = () => {
+  const path = usePathname();
+  const [active, toggleActive] = useState(path.replace("/", "")); // for VNAV
   const [showNav, toggleNav] = useState(true);
-  const [active, toggleActive] = useState("intro"); // for VNAV
   const [animate2, toggleAnimate2] = useState(false);
   const [animate3, toggleAnimate3] = useState(false);
 
   const browserHeight = 0;
   console.log(browserHeight);
 
-  const path = usePathname();
-
-  useLayoutEffect(() => {
+  function handleActiveRoute() {
     if (path == "/") {
       toggleActive("intro");
     } else {
       toggleActive(path.replace("/", ""));
     }
+  }
+
+  useLayoutEffect(() => {
+    handleActiveRoute();
   }, [path]);
 
   return (
