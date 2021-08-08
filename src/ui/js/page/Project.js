@@ -1,16 +1,37 @@
-import { Fragment, useLayoutEffect, useState, useRef, useContext } from "react";
+import {
+  Fragment,
+  useLayoutEffect,
+  useState,
+  useRef,
+  useContext,
+  useEffect,
+} from "react";
 import { Link } from "react-router-dom"; //eslint-disable-line
 import { CSSTransition } from "react-transition-group";
 import { useScrollPosition } from "@n8tb1t/use-scroll-position";
 import VNav from "../layout/VNav";
 import BrowsersHeight from "../utils/BrowsersHeight";
+import axios from "axios";
 
 import ProjectCard from "../layout/ProjectCard";
 
-const Project = ({ toggleNav, showNav, active }) => {
-  const [projects, setProject] = useState([]);
+const Project = ({ toggleNav, showNav, active, staticContext }) => {
+  const [projects, setProject] = useState(
+    staticContext ? staticContext.data : []
+  );
+  const [isLoading, setIsLoading] = useState(true);
   const project = useRef();
   const browserHalfHeight = useContext(BrowsersHeight) * 0.6;
+
+  // console.log(staticContext);
+  console.log(projects);
+
+  useEffect(() => {
+    if (window.initial_state) {
+      setProject(window.initial_state);
+      setIsLoading(false);
+    }
+  }, []);
 
   useScrollPosition(
     ({ currPos }) => {
@@ -25,14 +46,13 @@ const Project = ({ toggleNav, showNav, active }) => {
   );
 
   useLayoutEffect(() => {
-    fetchProjects();
+    (async () => {
+      if (isLoading && project) {
+        setProject(await Project.fetchProjects());
+        setIsLoading(false);
+      }
+    })();
   }, []);
-
-  async function fetchProjects() {
-    let res = await fetch("/api/project");
-    res = await res.json();
-    setProject(res);
-  }
 
   if (active != "project") {
     return null;
@@ -130,6 +150,12 @@ const Project = ({ toggleNav, showNav, active }) => {
       </div>
     </Fragment>
   );
+};
+
+Project.fetchProjects = () => {
+  return axios.get("http://localhost:3000/api/project").then((res) => {
+    return res.data;
+  });
 };
 
 export default Project;

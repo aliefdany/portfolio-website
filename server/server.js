@@ -6,10 +6,10 @@ import fs from "fs";
 import path from "path";
 import React from "react";
 import ReactDOMServer from "react-dom/server";
-import { StaticRouter } from "react-router-dom";
+import { StaticRouter, matchPath } from "react-router-dom";
+import routes from "./utils/routes";
 
-// import app component
-import SSRApp from "../dist-server/ui/js/utils/SSRApp";
+import AppSSR from "../dist-server/ui/js/AppSSR";
 
 async function createDocument() {
   if (!(await Project.find({ title: "Whatson Indonesia" }))) {
@@ -152,8 +152,22 @@ app.get("/robots.txt", (req, res) => {
   res.status(200).send(robots);
 });
 
-app.use("*", (req, res) => {
-  // read index.html file
+app.use("*", async (req, res) => {
+  let matchRoute = routes.find((route) => {
+    return matchPath(req.originalUrl, route);
+  });
+
+  let componentData = null;
+  if (typeof matchRoute.component.fetchProjects === "function") {
+    componentData = await matchRoute.component.fetchProjects();
+  }
+
+  let appHTML = ReactDOMServer.renderToString(
+    <StaticRouter location={req.originalUrl} context={{ data: componentData }}>
+      <AppSSR />
+    </StaticRouter>
+  );
+
   let indexHTML = fs.readFileSync(
     path.resolve(__dirname, "../build/index.html"),
     {
@@ -161,18 +175,16 @@ app.use("*", (req, res) => {
     }
   );
 
-  let appHTML = ReactDOMServer.renderToString(
-    <StaticRouter location={req.originalUrl}>
-      <SSRApp />
-    </StaticRouter>
-  );
-
   indexHTML = indexHTML.replace(
     '<div id="root"></div>',
     `<div id="root">${appHTML}</div>`
   );
 
-  //   set header and status
+  indexHTML = indexHTML.replace(
+    "var initial_state = null;",
+    `var initial_state = ${JSON.stringify(componentData)};`
+  );
+
   res.contentType("text/html");
   res.status(200);
 

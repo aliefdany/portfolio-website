@@ -1,18 +1,17 @@
-import { useState, useLayoutEffect } from "react";
+import { Fragment, useState, useLayoutEffect } from "react";
 import { Route, Switch } from "react-router-dom";
 
 import imported from "react-imported-component"; //eslint-disable-line
 import { Helmet } from "react-helmet";
 import BrowsersHeight from "./utils/BrowsersHeight";
 
+import Homepage from "./page/Homepage";
+import Project from "./page/Project";
+import Contacts from "./page/Contacts";
 import Navbar from "./layout/Navbar";
 import Footer from "./layout/Footer";
 
 import { useLocation } from "react-router-dom";
-
-const Homepage = imported(() => import("./page/Homepage"));
-const Project = imported(() => import("./page/Project"));
-const Contacts = imported(() => import("./page/Contacts"));
 
 const usePathname = () => {
   const location = useLocation();
@@ -21,13 +20,14 @@ const usePathname = () => {
 
 const App = () => {
   const path = usePathname();
-  const [active, toggleActive] = useState(path.replace("/", "")); // for VNAV
+  const [active, toggleActive] = useState(
+    path.replace("/", `${path.length == 1 ? "intro" : ""}`)
+  ); // for VNAV
   const [showNav, toggleNav] = useState(true);
   const [animate2, toggleAnimate2] = useState(false);
   const [animate3, toggleAnimate3] = useState(false);
 
   const browserHeight = 0;
-  console.log(browserHeight);
 
   function handleActiveRoute() {
     if (path == "/") {
@@ -45,18 +45,43 @@ const App = () => {
     <BrowsersHeight.Provider value={browserHeight}>
       <Navbar showNav={showNav} toggleActive={toggleActive} />
       <Switch>
-        <Route path="/contacts">
-          <Helmet defaultTitle="Alief Dany | Contacts">
-            <meta charSet="utf-8" />
-          </Helmet>
-          <Contacts toggleNav={toggleNav} showNav={showNav} active={active} />
-        </Route>
-        <Route path="/project">
-          <Helmet defaultTitle="Alief Dany | Projects">
-            <meta charSet="utf-8" />
-          </Helmet>
-          <Project toggleNav={toggleNav} showNav={showNav} active={active} />
-        </Route>
+        <Route
+          path="/contacts"
+          exact={true}
+          render={() => {
+            return (
+              <Fragment>
+                <Helmet defaultTitle="Alief Dany | Contacts">
+                  <meta charSet="utf-8" />
+                </Helmet>
+                <Contacts
+                  toggleNav={toggleNav}
+                  showNav={showNav}
+                  active={active}
+                />
+              </Fragment>
+            );
+          }}
+        />
+        <Route
+          path="/project"
+          exact={true}
+          render={({ staticContext }) => {
+            return (
+              <Fragment>
+                <Helmet defaultTitle="Alief Dany | Projects">
+                  <meta charSet="utf-8" />
+                </Helmet>
+                <Project
+                  toggleNav={toggleNav}
+                  showNav={showNav}
+                  active={active}
+                  staticContext={staticContext}
+                />
+              </Fragment>
+            );
+          }}
+        />
         <Route path="/">
           <Helmet defaultTitle="Alief Dany | Portfolio">
             <meta charSet="utf-8" />
