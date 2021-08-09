@@ -1,7 +1,6 @@
 import { Fragment, useState, useLayoutEffect } from "react";
 import { Route, Switch } from "react-router-dom";
 
-import imported from "react-imported-component"; //eslint-disable-line
 import { Helmet } from "react-helmet";
 import BrowsersHeight from "./utils/BrowsersHeight";
 
