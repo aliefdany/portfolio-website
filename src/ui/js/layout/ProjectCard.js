@@ -15,6 +15,7 @@ const ProjectCard = ({
   siteLink,
   tags,
   imageURL,
+  currentlyLightTheme,
 }) => {
   let imgSelector = title.split(" ").join("-").toLowerCase();
   let btnSelector = `${imgSelector}-btn`;
@@ -102,6 +103,11 @@ const ProjectCard = ({
             href={siteLink}
             target="_blank"
             rel="noreferrer"
+            style={{
+              background: currentlyLightTheme
+                ? "hsl(169, 38%, 38%)"
+                : "#012a1c",
+            }}
           >
             Visit Site
           </a>
@@ -111,6 +117,9 @@ const ProjectCard = ({
           href={repoLink}
           target="_blank"
           rel="noreferrer"
+          style={{
+            background: currentlyLightTheme ? "hsl(169, 38%, 38%)" : "#012a1c",
+          }}
         >
           Visit Repo
         </a>

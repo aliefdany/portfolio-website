@@ -15,16 +15,19 @@ import axios from "axios";
 
 import ProjectCard from "../layout/ProjectCard";
 
-const Project = ({ toggleNav, showNav, active, staticContext }) => {
+const Project = ({
+  toggleNav,
+  showNav,
+  active,
+  staticContext,
+  currentlyLightTheme,
+}) => {
   const [projects, setProject] = useState(
     staticContext ? staticContext.data : []
   );
   const [isLoading, setIsLoading] = useState(true);
   const project = useRef();
   const browserHalfHeight = useContext(BrowsersHeight) * 0.6;
-
-  // console.log(staticContext);
-  console.log(projects);
 
   useEffect(() => {
     if (window.initial_state) {
@@ -141,6 +144,7 @@ const Project = ({ toggleNav, showNav, active, staticContext }) => {
                     siteLink={project.siteLink}
                     tags={project.tags}
                     imageURL={project.imageURL}
+                    currentlyLightTheme={currentlyLightTheme}
                   />
                 );
               })}

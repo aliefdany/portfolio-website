@@ -1,4 +1,4 @@
-import { Fragment, useRef, useEffect, useContext } from "react";
+import { Fragment, useRef, useEffect, useContext, useState } from "react";
 import VNav from "../layout/VNav";
 import { useScrollPosition } from "@n8tb1t/use-scroll-position";
 import BrowsersHeight from "../utils/BrowsersHeight";
@@ -27,10 +27,19 @@ const Homepage = ({
   toggleAnimate3,
   showNav,
   active,
+  currentlyLightTheme,
 }) => {
   const page1 = useRef();
   const page2 = useRef();
   const page3 = useRef();
+  const [ssr, setSSR] = useState(true);
+  const linkBg = {
+    background: currentlyLightTheme && !ssr ? "hsl(169, 38%, 38%)" : "#012a1c",
+  };
+
+  useEffect(() => {
+    setSSR(false);
+  }, []);
 
   const browsersHalfHeight = useContext(BrowsersHeight) / 2;
 
@@ -160,15 +169,16 @@ const Homepage = ({
                 </a>{" "}
                 to provide smooth User Experience. Welcome to my site!
               </p>
-              <Link
+              <ScrollLink
                 to="education"
                 onClick={() => {
                   toggleActive("education");
                 }}
                 className="button-like"
+                style={linkBg}
               >
                 My Profile
-              </Link>
+              </ScrollLink>
             </div>
           </CSSTransition>
           <CSSTransition
@@ -181,6 +191,11 @@ const Homepage = ({
               src="https://ik.imagekit.io/aliefseventri/Projects/Web_Portfolio/my-potrait_bDJvstrU0.png?updatedAt=1626881586779&ik-s=fa0534ddb44947d4142e421aab1bf6d9e711b24e"
               alt="potrait of Alief Dany"
               className="alief-potrait"
+              style={{
+                filter: currentlyLightTheme
+                  ? "none"
+                  : "contrast(120%) brightness(80%)",
+              }}
             />
           </CSSTransition>
         </div>
@@ -254,6 +269,7 @@ const Homepage = ({
                 target="_blank"
                 rel="noreferrer"
                 className="button-like"
+                style={linkBg}
               >
                 Visit Site
               </a>
@@ -326,6 +342,7 @@ const Homepage = ({
                   toggleActive("project");
                 }}
                 className="button-like"
+                style={linkBg}
               >
                 See My Project
               </Link>
@@ -538,6 +555,7 @@ const Homepage = ({
             toggleActive("intro");
           }}
           className="back-to-top button-like"
+          style={linkBg}
         >
           Back To Top
         </ScrollLink>

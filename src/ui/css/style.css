@@ -132,13 +132,7 @@ html {
   scroll-behavior: smooth;
 }
 
-body {
-  /* background-color: #e9e9e9; */
-  background-color: #080808;
-}
-
 .loader-container {
-  background-color: #080808;
   width: 99%;
   height: 100vh;
   display: flex;
@@ -162,13 +156,11 @@ p a:hover {
 
 a.button-like {
   transition: background 500ms;
+  color: hsl(46, 25%, 83%);
   padding: 0.2em 1em;
   font-family: "Montserrat", sans-serif;
   font-weight: 900;
   font-size: 1.1vw;
-  /* color: hsl(0, 0%, 100%); */
-  color: hsl(46, 25%, 83%);
-  background: #012a1c;
   border: 1px solid hsl(169, 38%, 38%);
   border-radius: 50px;
   box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.25);
@@ -177,7 +169,7 @@ a.button-like {
 
 a.button-like:hover,
 a.button-like:focus {
-  background-color: rgba(0, 0, 0, 0);
+  background: none !important;
   border: 1px solid hsla(169, 38%, 38%, 1);
   color: hsla(169, 38%, 38%, 1);
   transition: all 500ms;
@@ -220,6 +212,55 @@ h4 {
   border-left: 1px solid hsl(49, 11%, 38%);
 }
 
+.darkmode-container {
+  top: 20vh;
+  right: 9.5vw;
+  position: absolute;
+  z-index: 3;
+}
+
+.darkmode-container button {
+  position: relative;
+  color: inherit;
+  font-size: 1.5vw;
+  width: 5vw;
+  height: 5vh;
+  padding: 0;
+  background: none;
+  cursor: pointer;
+}
+
+.darkmode-text {
+  /* border: 1px solid white; */
+  width: 3.5vw;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 0;
+  opacity: 1;
+  transition: left 500ms, opacity 500ms;
+}
+
+.darkmode-container .circle-icon {
+  /* border: 1px solid white; */
+  width: 1.5vw;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 3.5vw;
+  transition: left 500ms;
+}
+
+.align-right {
+  left: 1.5vw !important;
+  transition: left 500ms;
+}
+
+.align-left {
+  left: 0 !important;
+  transition: left 500ms;
+}
+
 /* 
 
 Below is a style for layout
@@ -237,8 +278,6 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  /* background-color: hsl(49, 11%, 38%); */
-  background-color: #151200;
   z-index: 4;
   transform: translate3d(0, -100%, 0);
   transition: transform 500ms;
@@ -319,7 +358,6 @@ nav ul li:nth-child(2) .coming-soon {
   border-radius: 5px;
   border-bottom: 2px solid hsl(46, 25%, 83%);
   transition: opacity 300ms, width 300ms;
-  /* background-color: hsl(46, 25%, 83%); */
 }
 
 /* 
@@ -380,9 +418,6 @@ svg.diagonal-bg {
   left: 0;
   top: 7.5vh;
 }
-/* .separator.first {
-  background-color: #9e9980;
-} */
 
 .page {
   /* border: 1px solid black; */
@@ -429,8 +464,6 @@ svg.bg {
 .homepage-content {
   width: 65vw;
   height: 55vh;
-  /* color: hsl(48, 12%, 25%); */
-  color: hsl(46, 25%, 83%);
   position: absolute;
   display: flex;
   justify-content: space-between;
@@ -456,7 +489,6 @@ Homepage 1
   visibility: hidden;
   opacity: 0;
   background: transparent;
-  filter: contrast(120%) brightness(80%);
   /* filter: contrast(110%); */
   animation: floating 5s ease-in-out infinite;
 }
@@ -524,8 +556,6 @@ Homepage 3
   transform: translate3d(0, 0, 0);
   font-family: "Yeseva One", cursive;
   font-size: 1.5vw;
-  color: hsl(46, 25%, 83%);
-  /* color: hsl(48, 12%, 25%); */
   margin-left: 2vw;
 }
 
@@ -551,10 +581,6 @@ Homepage 3
 .contacts-link a:focus {
   transform: translate3d(3%, 0, 0);
   transition: all 500ms;
-}
-
-.github-svg {
-  filter: invert(100%);
 }
 
 /* 
@@ -869,11 +895,7 @@ footer {
   display: flex;
   align-items: center;
   justify-content: center;
-  /* color: #e9e9e9; */
-  color: hsl(46, 25%, 83%);
   text-align: center;
-  background-color: #0f0b00;
-  /* background-color: hsl(48, 18%, 22%); */
   height: 10vh;
 }
 
@@ -1103,6 +1125,12 @@ END OF DESKTOP
   Utility
   
   */
+
+  .darkmode-container {
+    top: 18vh;
+    right: 50%;
+    transform: translateX(50%);
+  }
 
   .loader-text {
     font-size: 4vw;
@@ -1351,7 +1379,7 @@ END OF DESKTOP
   .homepage-content.project {
     height: initial;
     transform: initial;
-    top: 10vh;
+    top: 20vh;
     left: 8vw;
     flex-direction: column-reverse;
   }
@@ -1443,4 +1471,110 @@ END OF DESKTOP
     -moz-transition: all 500ms;
     -ms-transition: all 500ms;
   }
+}
+
+/* 
+
+Theme preferences
+
+*/
+
+@media (prefers-color-scheme: dark) {
+  body,
+  .loader-container {
+    background-color: #080808;
+    color: hsl(46, 25%, 83%);
+  }
+
+  nav {
+    background-color: #151200;
+  }
+
+  footer {
+    background-color: #0f0b00;
+    color: hsl(46, 25%, 83%);
+  }
+
+  a.button-like {
+    background: #012a1c;
+  }
+
+  .darkmode-container button {
+    border: 1px solid hsl(46, 25%, 83%);
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  body,
+  .loader-container {
+    background-color: #e9e9e9;
+    color: hsl(48, 12%, 25%);
+  }
+
+  nav {
+    background-color: hsl(49, 11%, 38%);
+  }
+
+  footer {
+    background-color: hsl(48, 18%, 22%);
+    color: #e9e9e9;
+  }
+
+  a.button-like {
+    background: hsl(169, 38%, 38%);
+  }
+
+  .darkmode-container button {
+    border: 1px solid hsl(48, 12%, 25%);
+  }
+}
+
+/* 
+
+Override theme preferences
+
+*/
+
+.nav-overrideDark {
+  background-color: hsl(49, 11%, 38%);
+}
+
+.nav-overrideLight {
+  background-color: #151200;
+}
+
+.body-overrideDark {
+  background-color: #e9e9e9;
+  color: hsl(48, 12%, 25%);
+}
+
+.body-overrideLight {
+  background-color: #080808;
+  color: hsl(46, 25%, 83%);
+}
+
+.buttonlike-overrideDark {
+  background: hsl(169, 38%, 38%) !important;
+}
+
+.buttonlike-overrideLight {
+  background: #012a1c !important;
+}
+
+.darkmodebtn-overrideDark {
+  border: 1px solid hsl(48, 12%, 25%);
+}
+
+.darkmodebtn-overrideLight {
+  border: 1px solid hsl(46, 25%, 83%);
+}
+
+.footer-overrideDark {
+  background-color: hsl(48, 18%, 22%);
+  color: #e9e9e9;
+}
+
+.footer-overrideLight {
+  background-color: #0f0b00;
+  color: hsl(46, 25%, 83%);
 }

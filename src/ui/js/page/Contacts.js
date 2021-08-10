@@ -1,12 +1,21 @@
-import { useRef, Fragment, useContext } from "react";
+import { useRef, Fragment, useContext, useEffect, useState } from "react";
 import { CSSTransition } from "react-transition-group";
 import { useScrollPosition } from "@n8tb1t/use-scroll-position";
 import VNav from "../layout/VNav";
 import BrowsersHeight from "../utils/BrowsersHeight";
 
-const Contacts = ({ toggleNav, showNav, active }) => {
+const Contacts = ({ toggleNav, showNav, active, currentlyLightTheme }) => {
   const contacts = useRef();
   const browsersHeight = useContext(BrowsersHeight);
+  const [ssr, setSSR] = useState(true);
+  let linkColor = {
+    color:
+      currentlyLightTheme && !ssr ? "hsl(48, 12%, 25%)" : "hsl(46, 25%, 83%)",
+  };
+
+  useEffect(() => {
+    setSSR(false);
+  }, []);
 
   useScrollPosition(
     ({ currPos }) => {
@@ -101,13 +110,14 @@ const Contacts = ({ toggleNav, showNav, active }) => {
                 >
                   <path
                     d="M64.9919 0C29.1038 0 3.75089e-05 29.2175 3.75089e-05 65.26C-0.014625 78.9388 4.26984 92.2764 12.2479 103.388C20.226 114.499 31.4942 122.822 44.46 127.181C47.71 127.782 48.8963 125.767 48.8963 124.036C48.8963 122.484 48.8394 118.381 48.8069 112.938C30.7288 116.878 26.91 104.187 26.91 104.187C23.9607 96.6469 19.695 94.64 19.695 94.64C13.7882 90.5938 20.1338 90.675 20.1338 90.675C26.6582 91.1381 30.0869 97.4025 30.0869 97.4025C35.8882 107.372 45.305 104.496 49.01 102.822C49.595 98.605 51.2769 95.7288 53.1375 94.0956C38.7075 92.4463 23.53 86.8481 23.53 61.8475C23.53 54.7219 26.065 48.8962 30.225 44.33C29.5507 42.6806 27.3244 36.0425 30.8588 27.0644C30.8588 27.0644 36.3188 25.3094 48.7338 33.7512C54.0374 32.3018 59.5101 31.5641 65.0082 31.5575C70.5065 31.5684 75.979 32.3088 81.2825 33.7594C93.6894 25.3175 99.1413 27.0725 99.1413 27.0725C102.684 36.0588 100.458 42.6887 99.7913 44.3381C103.959 48.9044 106.47 54.73 106.47 61.8556C106.47 86.9212 91.2763 92.4381 76.7975 94.055C79.1294 96.07 81.2094 100.051 81.2094 106.137C81.2094 114.863 81.1282 121.899 81.1282 124.036C81.1282 125.783 82.2982 127.814 85.5969 127.173C98.5501 122.804 109.804 114.477 117.771 103.369C125.738 92.2601 130.016 78.9302 130 65.26C130 29.2175 100.896 0 64.9919 0Z"
-                    fill="black"
+                    fill={currentlyLightTheme && !ssr ? "black" : "white"}
                   />
                 </svg>
                 <a
                   href="https://github.com/aliefdany"
                   rel="noreferrer"
                   target="_blank"
+                  style={linkColor}
                 >
                   github.com/aliefdany
                   <div className="github-underline"></div>
@@ -134,6 +144,7 @@ const Contacts = ({ toggleNav, showNav, active }) => {
                   href="https://twitter.com/aliefdany"
                   rel="noreferrer"
                   target="_blank"
+                  style={linkColor}
                 >
                   twitter.com/aliefdany
                   <div className="twt-underline"></div>
@@ -191,6 +202,7 @@ const Contacts = ({ toggleNav, showNav, active }) => {
                   href="https://instagram.com/aliefdany"
                   rel="noreferrer"
                   target="_blank"
+                  style={linkColor}
                 >
                   instagram.com/aliefdany
                   <div className="cp-underline"></div>

@@ -3,6 +3,7 @@ import { Route, Switch } from "react-router-dom";
 
 import { Helmet } from "react-helmet";
 import BrowsersHeight from "./utils/BrowsersHeight";
+import ThemeMiddle from "./utils/ThemeMiddle";
 
 import Homepage from "./page/Homepage";
 import Project from "./page/Project";
@@ -25,9 +26,11 @@ const App = () => {
   const [showNav, toggleNav] = useState(true);
   const [animate2, toggleAnimate2] = useState(false);
   const [animate3, toggleAnimate3] = useState(false);
+  const [currentlyLightTheme, toggle] = useState(
+    window.matchMedia("(prefers-color-scheme: light)").matches
+  );
 
   const browserHeight = window.innerHeight;
-
   function handleActiveRoute() {
     if (path == "/") {
       toggleActive("intro");
@@ -42,7 +45,12 @@ const App = () => {
 
   return (
     <BrowsersHeight.Provider value={browserHeight}>
-      <Navbar showNav={showNav} toggleActive={toggleActive} />
+      <ThemeMiddle currentlyLightTheme={currentlyLightTheme} toggle={toggle} />
+      <Navbar
+        showNav={showNav}
+        toggleActive={toggleActive}
+        currentlyLightTheme={currentlyLightTheme}
+      />
       <Switch>
         <Route
           path="/contacts"
@@ -57,6 +65,7 @@ const App = () => {
                   toggleNav={toggleNav}
                   showNav={showNav}
                   active={active}
+                  currentlyLightTheme={currentlyLightTheme}
                 />
               </Fragment>
             );
@@ -75,6 +84,7 @@ const App = () => {
                   toggleNav={toggleNav}
                   showNav={showNav}
                   active={active}
+                  currentlyLightTheme={currentlyLightTheme}
                 />
               </Fragment>
             );
@@ -84,6 +94,7 @@ const App = () => {
           <Helmet defaultTitle="Alief Dany | Portfolio">
             <meta charSet="utf-8" />
           </Helmet>
+
           <Homepage
             animate2={animate2}
             animate3={animate3}
@@ -93,6 +104,7 @@ const App = () => {
             toggleNav={toggleNav}
             showNav={showNav}
             active={active}
+            currentlyLightTheme={currentlyLightTheme}
           />
         </Route>
       </Switch>
