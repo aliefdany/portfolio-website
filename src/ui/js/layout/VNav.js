@@ -5,6 +5,9 @@ import { Link } from "react-scroll";
 const VNav = ({ active, showNav, VNavArr }) => {
   const [classCache, setCache] = useState(active);
 
+  console.log("now", active);
+  console.log("now", VNavArr);
+
   // ??
   useLayoutEffect(() => {
     handleActive();

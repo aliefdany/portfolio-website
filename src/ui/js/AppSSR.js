@@ -8,6 +8,7 @@ import ThemeMiddle from "./utils/ThemeMiddle";
 import Homepage from "./page/Homepage";
 import Project from "./page/Project";
 import Contacts from "./page/Contacts";
+import NotFound from "./page/NotFound";
 import Navbar from "./layout/Navbar";
 import Footer from "./layout/Footer";
 
@@ -19,7 +20,13 @@ const usePathname = () => {
 };
 
 const App = () => {
-  const path = usePathname();
+  const routes = ["/", "/contacts", "/project"];
+  let path = usePathname();
+
+  if (!routes.includes(path)) {
+    path = "/notfound";
+  }
+
   const [active, toggleActive] = useState(
     path.replace("/", `${path.length == 1 ? "intro" : ""}`)
   ); // for VNAV
@@ -29,12 +36,14 @@ const App = () => {
   const [currentlyLightTheme, toggle] = useState(true);
 
   const browserHeight = 0;
-
   function handleActiveRoute() {
     if (path == "/") {
       toggleActive("intro");
-    } else {
+    } else if (path == "/contacts" || path == "/project") {
       toggleActive(path.replace("/", ""));
+    } else {
+      toggleActive("notfound");
+      console.log("third else");
     }
   }
 
@@ -50,7 +59,6 @@ const App = () => {
         toggleActive={toggleActive}
         currentlyLightTheme={currentlyLightTheme}
       />
-
       <Switch>
         <Route
           path="/contacts"
@@ -74,7 +82,7 @@ const App = () => {
         <Route
           path="/project"
           exact={true}
-          render={({ staticContext }) => {
+          render={() => {
             return (
               <Fragment>
                 <Helmet defaultTitle="Alief Dany | Projects">
@@ -84,14 +92,13 @@ const App = () => {
                   toggleNav={toggleNav}
                   showNav={showNav}
                   active={active}
-                  staticContext={staticContext}
                   currentlyLightTheme={currentlyLightTheme}
                 />
               </Fragment>
             );
           }}
         />
-        <Route path="/">
+        <Route path="/" exact={true}>
           <Helmet defaultTitle="Alief Dany | Portfolio">
             <meta charSet="utf-8" />
           </Helmet>
@@ -108,6 +115,23 @@ const App = () => {
             currentlyLightTheme={currentlyLightTheme}
           />
         </Route>
+        <Route
+          render={(staticContext) => {
+            if (staticContext) {
+              staticContext.staticContext.notfound = true;
+            }
+            return (
+              <NotFound
+                toggleNav={toggleNav}
+                showNav={showNav}
+                active={active}
+                currentlyLightTheme={currentlyLightTheme}
+                toggleActive={toggleActive}
+                staticContext={staticContext}
+              />
+            );
+          }}
+        />
       </Switch>
       <Footer />
     </BrowsersHeight.Provider>

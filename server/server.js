@@ -157,16 +157,25 @@ app.use("*", async (req, res) => {
     return matchPath(req.originalUrl, route);
   });
 
+  let context = {};
   let componentData = null;
-  if (typeof matchRoute.component.fetchProjects === "function") {
-    componentData = await matchRoute.component.fetchProjects();
+
+  if (!matchRoute) {
+    context.test = "hi";
+  } else {
+    if (typeof matchRoute.component.fetchProjects === "function") {
+      componentData = await matchRoute.component.fetchProjects();
+      context.data = componentData;
+    }
   }
 
   let appHTML = ReactDOMServer.renderToString(
-    <StaticRouter location={req.originalUrl} context={{ data: componentData }}>
+    <StaticRouter location={req.originalUrl} context={context}>
       <AppSSR />
     </StaticRouter>
   );
+
+  console.log(context.notfound);
 
   let indexHTML = fs.readFileSync(
     path.resolve(__dirname, "../build/index.html"),
@@ -184,9 +193,14 @@ app.use("*", async (req, res) => {
     "var initial_state = null;",
     `var initial_state = ${JSON.stringify(componentData)};`
   );
-
   res.contentType("text/html");
-  res.status(200);
+
+  if (context.notfound) {
+    console.log(context);
+    res.status(404);
+  } else {
+    res.status(200);
+  }
 
   return res.send(indexHTML);
 });

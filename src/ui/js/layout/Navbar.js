@@ -64,7 +64,7 @@ const Navbar = ({ showNav, toggleActive, currentlyLightTheme }) => {
             </Link>
           </li>
           <li>
-            <Link>
+            <Link to="/blog">
               Blog
               <div className="coming-soon">Coming Soon</div>
               {/* <div className="navbar-underline"></div> */}

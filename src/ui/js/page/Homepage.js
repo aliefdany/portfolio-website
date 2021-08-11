@@ -55,7 +55,10 @@ const Homepage = ({
 
   useScrollPosition(
     ({ currPos }) => {
-      if (currPos.y <= browsersHalfHeight && currPos.y >= -browsersHalfHeight) {
+      if (
+        currPos.y <= browsersHalfHeight + 100 &&
+        currPos.y >= -browsersHalfHeight
+      ) {
         toggleActive("education");
         toggleAnimate2(true);
       }
@@ -66,7 +69,10 @@ const Homepage = ({
 
   useScrollPosition(
     ({ currPos }) => {
-      if (currPos.y <= browsersHalfHeight && currPos.y >= -browsersHalfHeight) {
+      if (
+        currPos.y <= browsersHalfHeight + 100 &&
+        currPos.y >= -browsersHalfHeight
+      ) {
         toggleActive("experience");
         toggleAnimate3(true);
       }
