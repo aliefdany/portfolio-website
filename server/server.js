@@ -1,4 +1,5 @@
 import express from "express";
+import cors from "cors";
 import { connect } from "./utils/db";
 import projectRouter from "./resources/project/project.router";
 import { Project } from "./resources/project/project.model";
@@ -133,6 +134,8 @@ async function createDocument() {
 }
 
 export const app = express();
+
+app.use(cors());
 
 app.disable("x-powered-by");
 
