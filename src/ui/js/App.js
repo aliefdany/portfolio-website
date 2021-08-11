@@ -45,7 +45,6 @@ const App = () => {
       toggleActive(path.replace("/", ""));
     } else {
       toggleActive("notfound");
-      console.log("third else");
     }
   }
 

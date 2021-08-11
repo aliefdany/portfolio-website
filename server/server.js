@@ -175,8 +175,6 @@ app.use("*", async (req, res) => {
     </StaticRouter>
   );
 
-  console.log(context.notfound);
-
   let indexHTML = fs.readFileSync(
     path.resolve(__dirname, "../build/index.html"),
     {
@@ -196,7 +194,6 @@ app.use("*", async (req, res) => {
   res.contentType("text/html");
 
   if (context.notfound) {
-    console.log(context);
     res.status(404);
   } else {
     res.status(200);
