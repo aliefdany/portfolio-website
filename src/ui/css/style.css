@@ -975,6 +975,98 @@ a.do-referral {
   filter: none;
 }
 
+/* 
+
+Email Form
+
+*/
+
+.email-form {
+  padding: 0 10vw;
+  height: 35vh;
+  background-color: #353229;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.email-form h1 {
+  font-size: 3vw;
+  margin-right: 3vw;
+}
+
+.email-form button {
+  width: auto;
+}
+
+.email-form .error {
+  font-size: 1vw;
+}
+
+.form {
+  /* border: 1px solid white; */
+  height: 90%;
+  width: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-family: "Montserrat", sans-serif;
+}
+
+.form-identity {
+  flex: 0 0 auto;
+  height: 11vh;
+  display: flex;
+  justify-content: space-between;
+}
+
+.form-identity .input:first-child {
+  margin-right: 3vw;
+}
+
+.form-feedback {
+  /* border: 1px solid white; */
+  flex: 0 0 auto;
+  height: 13vh;
+}
+
+.form-button {
+  flex: 0 0 auto;
+  height: 3vh;
+}
+
+label {
+  display: block;
+  font-size: 1vw;
+  margin-bottom: 0.5vh;
+  height: 2vh;
+}
+
+textarea {
+  border: none;
+  font-family: inherit;
+  border-radius: 0.5vw;
+  width: 100%;
+  height: 7vh;
+  resize: none;
+  padding: 1vh;
+  overflow-y: hidden;
+}
+
+.input {
+  /* border: 1px solid white; */
+}
+
+input[type="text"],
+input[type="email"] {
+  font-family: inherit;
+  height: 5vh;
+  padding: 1vh;
+  border: 0;
+  border-radius: 0.5vw;
+  margin-bottom: 0.5vh;
+}
+
 /*
 
 Transition 

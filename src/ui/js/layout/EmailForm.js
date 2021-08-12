@@ -1,0 +1,64 @@
+import { Formik, Form } from "formik";
+import * as Yup from "yup";
+import { TextInput, TextArea } from "../utils/FormComponent";
+
+const EmailForm = () => {
+  return (
+    <section className="email-form">
+      <h1>Email Me !</h1>
+      <Formik
+        initialValues={{
+          name: "",
+          email: "",
+          feedback: "",
+        }}
+        validationSchema={Yup.object({
+          name: Yup.string()
+            .max(15, "Must be 15 characters or less")
+            .required("Required"),
+          email: Yup.string()
+            .email("Invalid email address")
+            .required("Required"),
+          feedback: Yup.string().max(50, "it's to long!").required("Required"),
+        })}
+        onSubmit={(values, { setSubmitting }) => {
+          setTimeout(() => {
+            alert(JSON.stringify(values, null, 2));
+            setSubmitting(false);
+          }, 400);
+        }}
+      >
+        <Form className="form">
+          <div className="form-identity">
+            <TextInput
+              label="Your Name"
+              name="name"
+              type="text"
+              placeholder="Jane"
+            />
+
+            <TextInput
+              label="Email Address"
+              name="email"
+              type="email"
+              placeholder="jane@formik.com"
+            />
+          </div>
+          <div className="form-feedback">
+            <TextArea
+              label="Your feedback"
+              name="feedback"
+              type="textarea"
+              placeholder="Your thoughts......"
+            />
+          </div>
+          <div className="form-button">
+            <button type="submit">Submit</button>
+          </div>
+        </Form>
+      </Formik>
+    </section>
+  );
+};
+
+export default EmailForm;

@@ -13,6 +13,7 @@ import Navbar from "./layout/Navbar";
 import Footer from "./layout/Footer";
 
 import { useLocation } from "react-router-dom";
+import EmailForm from "./layout/EmailForm";
 
 const usePathname = () => {
   const location = useLocation();
@@ -133,6 +134,7 @@ const App = () => {
           }}
         />
       </Switch>
+      <EmailForm />
       <Footer />
     </BrowsersHeight.Provider>
   );
