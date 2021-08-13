@@ -84,7 +84,7 @@ const Contacts = ({ toggleNav, showNav, active, currentlyLightTheme }) => {
             appear
           >
             <div className="text">
-              <h4>CONTACT ME</h4>
+              <h4>LETS CONNECT</h4>
               <h1>Find Me!</h1>
               <p>
                 I’m so open for any critics and advise as it can help me solve

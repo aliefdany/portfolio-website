@@ -115,7 +115,7 @@ const Project = ({
             appear
           >
             <div className="project-text">
-              <h4>Project</h4>
+              <h4>MY WORK</h4>
               <h1>Projects</h1>
               <p>
                 By the time you end up on this page, i’ve done 3 project. 2 of

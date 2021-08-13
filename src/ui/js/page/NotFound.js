@@ -126,7 +126,7 @@ const NotFound = ({
                 <span>{countDown}</span>
               </p>
               <div className="text">
-                <h4>Error - Not Found</h4>
+                <h4>ERROR - NOT FOUND</h4>
                 <h1>Oops, it seems like you lost in space!</h1>
               </div>{" "}
               <NotfoundSVG currentlyLightTheme={currentlyLightTheme} />
