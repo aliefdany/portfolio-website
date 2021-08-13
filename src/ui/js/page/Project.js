@@ -70,7 +70,7 @@ const Project = ({
         VNavArr={["project"]}
       />
 
-      <div ref={project} className="separator" id="contacts"></div>
+      <div ref={project} className="separator" id="project"></div>
       <div className="page project">
         <svg
           className="bg"

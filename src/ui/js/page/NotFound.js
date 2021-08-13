@@ -68,7 +68,7 @@ const NotFound = ({
         showNav={showNav}
         VNavArr={["notfound"]}
       />
-      <div ref={notfound} className="separator" id="contacts"></div>
+      <div ref={notfound} className="separator" id="notfound"></div>
       <div className="page">
         <svg
           className="bg"
