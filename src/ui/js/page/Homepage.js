@@ -36,12 +36,11 @@ const Homepage = ({
   const linkBg = {
     background: currentlyLightTheme && !ssr ? "hsl(169, 38%, 38%)" : "#012a1c",
   };
+  const browsersHalfHeight = useContext(BrowsersHeight) / 2;
 
   useEffect(() => {
     setSSR(false);
   }, []);
-
-  const browsersHalfHeight = useContext(BrowsersHeight) / 2;
 
   useScrollPosition(
     ({ currPos }) => {

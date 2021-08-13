@@ -839,6 +839,10 @@ Modal
   padding: 5vh 10vw;
 }
 
+.modal.mail {
+  width: 40%;
+}
+
 .modal h1,
 .modal p {
   text-align: center;
@@ -1326,6 +1330,22 @@ Email Form
   input[type="email"] {
     border-radius: 2vw;
     font-size: 3vw;
+  }
+
+  .modal.mail {
+    width: 70%;
+  }
+
+  .modal {
+    width: 90%;
+  }
+
+  .modal h1 {
+    font-size: 6vw;
+  }
+
+  .exit-icon {
+    font-size: 6vw;
   }
 
   /* 
