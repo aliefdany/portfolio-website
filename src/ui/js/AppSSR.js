@@ -13,6 +13,7 @@ import Navbar from "./layout/Navbar";
 import Footer from "./layout/Footer";
 
 import { useLocation } from "react-router-dom";
+import EmailForm from "./layout/EmailForm";
 
 const usePathname = () => {
   const location = useLocation();
@@ -113,11 +114,12 @@ const App = () => {
             active={active}
             currentlyLightTheme={currentlyLightTheme}
           />
+          <EmailForm currentlyLightTheme={currentlyLightTheme} />
         </Route>
         <Route
           render={(staticContext) => {
             if (staticContext) {
-              staticContext.staticContext.notfound = true;
+              staticContext.notfound = true;
             }
             return (
               <NotFound
@@ -126,7 +128,6 @@ const App = () => {
                 active={active}
                 currentlyLightTheme={currentlyLightTheme}
                 toggleActive={toggleActive}
-                staticContext={staticContext}
               />
             );
           }}
