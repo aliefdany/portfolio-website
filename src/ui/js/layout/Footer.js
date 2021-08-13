@@ -9,7 +9,7 @@ const Footer = () => {
           </span>{" "}
           By{" "}
           <a
-            href="https://instagram.com/aliefseventri"
+            href="https://instagram.com/aliefdany"
             target="_blank"
             rel="noreferrer"
           >
