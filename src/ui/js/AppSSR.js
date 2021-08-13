@@ -66,7 +66,7 @@ const App = () => {
           render={() => {
             return (
               <Fragment>
-                <Helmet defaultTitle="Alief Dany | Contacts">
+                <Helmet defaultTitle="Alief Dany | Contacts 📞">
                   <meta charSet="utf-8" />
                 </Helmet>
                 <Contacts
@@ -85,7 +85,7 @@ const App = () => {
           render={() => {
             return (
               <Fragment>
-                <Helmet defaultTitle="Alief Dany | Projects">
+                <Helmet defaultTitle="Alief Dany | Projects 👨‍💻">
                   <meta charSet="utf-8" />
                 </Helmet>
                 <Project
@@ -99,7 +99,7 @@ const App = () => {
           }}
         />
         <Route path="/" exact={true}>
-          <Helmet defaultTitle="Alief Dany | Portfolio">
+          <Helmet defaultTitle="Alief Dany | Home 🏠">
             <meta charSet="utf-8" />
           </Helmet>
 
@@ -122,13 +122,18 @@ const App = () => {
               staticContext.notfound = true;
             }
             return (
-              <NotFound
-                toggleNav={toggleNav}
-                showNav={showNav}
-                active={active}
-                currentlyLightTheme={currentlyLightTheme}
-                toggleActive={toggleActive}
-              />
+              <Fragment>
+                <Helmet defaultTitle="Alief Dany | 404 🚨">
+                  <meta charSet="utf-8" />
+                </Helmet>
+                <NotFound
+                  toggleNav={toggleNav}
+                  showNav={showNav}
+                  active={active}
+                  currentlyLightTheme={currentlyLightTheme}
+                  toggleActive={toggleActive}
+                />
+              </Fragment>
             );
           }}
         />

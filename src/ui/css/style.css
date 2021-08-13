@@ -494,6 +494,10 @@ svg.bg {
   height: 70vh;
 }
 
+.homepage-content.not-found .text {
+  text-align: center;
+}
+
 /*
 
 Homepage 1 
