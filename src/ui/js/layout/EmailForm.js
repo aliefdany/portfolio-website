@@ -53,27 +53,27 @@ const EmailForm = ({ currentlyLightTheme }) => {
           feedback: Yup.string().max(50, "it's too long!").required("Required"),
         })}
         onSubmit={(values, { setSubmitting, resetForm }) => {
-          // send(
-          //   "service_a1wxu9q",
-          //   "template_cbw8xtk",
-          //   values,
-          //   "user_qPqEFvtFfUKVdCwgsT1xD"
-          // )
-          //   .then(() => {
-          //     // console.log("SUCCESS!", response.status, response.text);
-          //     setModal(true);
-          //     setSubmitting(false);
-          //     resetForm();
-          //   })
-          //   .catch((err) => {
-          //     console.log("FAILED...", err);
-          //   });
-          setTimeout(() => {
-            // alert(JSON.stringify(values, null, 2));
-            setModal(true);
-            setSubmitting(false);
-            resetForm();
-          }, 400);
+          send(
+            "service_a1wxu9q",
+            "template_cbw8xtk",
+            values,
+            "user_qPqEFvtFfUKVdCwgsT1xD"
+          )
+            .then(() => {
+              // console.log("SUCCESS!", response.status, response.text);
+              setModal(true);
+              setSubmitting(false);
+              resetForm();
+            })
+            .catch((err) => {
+              console.log("FAILED...", err);
+            });
+          // setTimeout(() => {
+          //   // alert(JSON.stringify(values, null, 2));
+          //   setModal(true);
+          //   setSubmitting(false);
+          //   resetForm();
+          // }, 400);
         }}
       >
         <Form className="form">
