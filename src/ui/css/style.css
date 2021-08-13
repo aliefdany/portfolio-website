@@ -292,7 +292,7 @@ nav {
 
 nav ul li:nth-child(2) {
   position: relative;
-  margin-bottom: 0.8vh;
+  /* margin-bottom: 0.8vh; */
 }
 
 nav ul li:nth-child(2) a:hover > .coming-soon {
@@ -1054,6 +1054,7 @@ label {
 textarea {
   border: none;
   font-family: inherit;
+  font-size: 1vw;
   border-radius: 0.5vw;
   width: 100%;
   height: 7vh;
@@ -1070,6 +1071,7 @@ textarea {
 input[type="text"],
 input[type="email"] {
   font-family: inherit;
+  font-size: 1vw;
   height: 5vh;
   padding: 1vh;
   border: 0;
@@ -1297,6 +1299,7 @@ Email Form
   textarea {
     height: 100%;
     border-radius: 2vw;
+    font-size: 3vw;
   }
 
   input {
@@ -1313,6 +1316,7 @@ Email Form
   input[type="text"],
   input[type="email"] {
     border-radius: 2vw;
+    font-size: 3vw;
   }
 
   /* 

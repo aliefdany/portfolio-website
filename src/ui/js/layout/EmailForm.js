@@ -8,6 +8,9 @@ const EmailForm = ({ currentlyLightTheme }) => {
   const emailBg = {
     background: currentlyLightTheme && !ssr ? "#CEC8B2" : "#012a1c",
   };
+  const linkBg = {
+    background: currentlyLightTheme && !ssr ? "hsl(169, 38%, 38%)" : "#012a1c",
+  };
 
   useEffect(() => {
     setSSR(false);
@@ -63,7 +66,9 @@ const EmailForm = ({ currentlyLightTheme }) => {
             />
           </div>
           <div className="form-button">
-            <button type="submit">Submit</button>
+            <button style={linkBg} type="submit">
+              Submit
+            </button>
           </div>
         </Form>
       </Formik>
