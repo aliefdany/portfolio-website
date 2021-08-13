@@ -180,7 +180,7 @@ a.button-like:focus,
 
 .button-like.back-to-top {
   position: absolute;
-  bottom: 9vh;
+  bottom: 5vh;
   right: 9vw;
 }
 
@@ -370,7 +370,7 @@ Vertical Navigation
 .vnav {
   position: fixed;
   top: 20vh;
-  left: 9vw;
+  left: 10vw;
   transform: translate3d(0, 0, 0);
 
   width: 2vw;
@@ -464,7 +464,7 @@ svg.bg {
   margin-bottom: 4vh;
 }
 .homepage-content {
-  /* border: 1px solid white; */
+  /* border: 1px solid black; */
   width: 65vw;
   height: 55vh;
   position: absolute;
@@ -478,7 +478,9 @@ svg.bg {
 }
 
 .homepage-content .text {
-  /* border: 1px solid white; */
+  width: 50%;
+  flex: 0 0 auto;
+  /* border: 1px solid black; */
   text-align: center;
 }
 
@@ -497,9 +499,9 @@ Homepage 1
   /* Hardware Acceleration */
   transform: translate3d(0, 0, 0);
 
-  width: 25vw;
+  width: 40%;
   height: auto;
-  flex: 0 1 auto;
+  flex: 0 0 auto;
   visibility: hidden;
   opacity: 0;
   background: transparent;
@@ -531,9 +533,9 @@ Homepage 2
 */
 .logo-filkom {
   transform: translateZ(0);
-  width: 23vw;
+  width: 40%;
   height: auto;
-  flex: 0 1 auto;
+  flex: 0 0 auto;
   visibility: hidden;
   opacity: 0;
 }
@@ -544,10 +546,13 @@ Homepage 3
 
 */
 .skill-stack {
+  flex: 0 0 auto;
+  /* border: 1px solid black; */
   transform: translateZ(0);
   visibility: hidden;
   opacity: 0;
-  width: 25vw;
+  width: 50%;
+  height: 100%;
 }
 
 .contacts-link svg {
@@ -927,13 +932,6 @@ footer p {
 }
 
 footer a {
-  color: hsl(46, 25%, 83%);
-  transition: background-size 500ms;
-  background-size: 0;
-  background-image: #e9e9e9;
-}
-
-footer a:hover {
   transition: background-size 500ms;
   background-size: 100%;
   background-clip: text;
@@ -1240,6 +1238,13 @@ END OF DESKTOP
 */
 
 @media (max-device-width: 480px) {
+  nav {
+    padding: 0 10.5vw;
+  }
+
+  .logo {
+    width: 90vw;
+  }
   /* 
 
 Email Form
@@ -1248,14 +1253,14 @@ Email Form
 
   .form {
     /* border: 1px solid white; */
-    width: 80%;
+    width: 100%;
     height: 80%;
     justify-content: flex-start;
   }
 
   .email-form {
     flex-direction: column;
-    padding: 0 5vw;
+    padding: 0 9vw;
     height: 45vh;
     justify-content: space-around;
   }
@@ -1331,8 +1336,6 @@ Email Form
 
   .darkmode-container {
     top: 18vh;
-    right: 50%;
-    transform: translateX(50%);
   }
 
   .loader-text {
@@ -1383,6 +1386,8 @@ Email Form
 
   .main-menu {
     font-size: 4vw;
+    width: 100%;
+    justify-content: space-between;
   }
 
   .vnav {
@@ -1415,6 +1420,10 @@ Email Form
     height: 100%;
   }
 
+  .homepage-content .text {
+    width: 100%;
+  }
+
   .homepage-content h1 {
     font-size: 7vw;
     margin-bottom: 1.5vh;
@@ -1431,8 +1440,8 @@ Email Form
   }
 
   .homepage-content {
-    height: 100vh;
-    width: 90vw;
+    height: 90vh;
+    width: 83vw;
     flex-direction: column-reverse;
     justify-content: center;
     align-items: center;
@@ -1455,8 +1464,13 @@ Email Form
   }
 
   .skill-stack {
-    width: 50vw;
+    width: 100%;
+    height: 30%;
     margin-bottom: 3vh;
+  }
+
+  .button-like.back-to-top {
+    bottom: 3vh;
   }
 
   /* 

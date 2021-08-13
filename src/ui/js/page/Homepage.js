@@ -144,10 +144,10 @@ const Homepage = ({
             <div className="text">
               <h4>GREETINGS</h4>
               <h1>
-                Welcome! <br /> My Name is Alief Dany
+                Welcome! <br /> I am Alief Dany
               </h1>
               <p>
-                I am a{" "}
+                {"I'm"} a{" "}
                 <a
                   href="https://www.javascript.com/"
                   target="_blank"
@@ -331,16 +331,15 @@ const Homepage = ({
               <h4>SKILLS</h4>
               <h1>Current Skill Stack</h1>
               <p>
-                Web development is a major, vast and growing <br /> expertise.
-                There was so much things happened since the <br /> beginning of
-                the web until what’s happening and <br /> emerging right now.
+                Web development is a major, vast and growing expertise. There
+                was so much things happened since the beginning of the web until
+                what’s happening and emerging right now.
               </p>
               <p>
-                To caught up with all this technology, as a college student,{" "}
-                <br /> my approach is to keep learning and look up for all the{" "}
-                <br />
-                possibilities to growth and expand my experience with <br />{" "}
-                project, intership, and communities
+                To caught up with all this technology, as a college student, my
+                approach is to keep learning and look up for all the{" "}
+                possibilities to growth and expand my experience with project,
+                intership, and communities
               </p>
               <Link
                 to="/project"
