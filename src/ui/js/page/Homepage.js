@@ -85,7 +85,7 @@ const Homepage = ({
     page3
   );
 
-  if (active == "contacts" || active == "project") {
+  if (active == "contacts" || active == "project" || active == "notfound") {
     return null;
   }
 
