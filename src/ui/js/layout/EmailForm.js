@@ -3,6 +3,8 @@ import * as Yup from "yup";
 import { TextInput, TextArea } from "../utils/FormComponent";
 import { useEffect, useState } from "react";
 
+import { send } from "emailjs-com";
+
 const EmailForm = ({ currentlyLightTheme }) => {
   const [ssr, setSSR] = useState(true);
   const emailBg = {
@@ -35,10 +37,23 @@ const EmailForm = ({ currentlyLightTheme }) => {
           feedback: Yup.string().max(50, "it's to long!").required("Required"),
         })}
         onSubmit={(values, { setSubmitting }) => {
-          setTimeout(() => {
-            alert(JSON.stringify(values, null, 2));
-            setSubmitting(false);
-          }, 400);
+          send(
+            "service_a1wxu9q",
+            "template_cbw8xtk",
+            values,
+            "user_qPqEFvtFfUKVdCwgsT1xD"
+          )
+            .then((response) => {
+              console.log("SUCCESS!", response.status, response.text);
+              setSubmitting(false);
+            })
+            .catch((err) => {
+              console.log("FAILED...", err);
+            });
+
+          // setTimeout(() => {
+          //   alert(JSON.stringify(values, null, 2));
+          // }, 400);
         }}
       >
         <Form className="form">
