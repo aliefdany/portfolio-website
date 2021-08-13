@@ -1,10 +1,20 @@
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
 import { TextInput, TextArea } from "../utils/FormComponent";
+import { useEffect, useState } from "react";
 
-const EmailForm = () => {
+const EmailForm = ({ currentlyLightTheme }) => {
+  const [ssr, setSSR] = useState(true);
+  const emailBg = {
+    background: currentlyLightTheme && !ssr ? "#CEC8B2" : "#012a1c",
+  };
+
+  useEffect(() => {
+    setSSR(false);
+  }, []);
+
   return (
-    <section className="email-form">
+    <section className="email-form" style={emailBg}>
       <h1>Email Me !</h1>
       <Formik
         initialValues={{

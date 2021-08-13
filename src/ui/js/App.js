@@ -116,6 +116,7 @@ const App = () => {
             active={active}
             currentlyLightTheme={currentlyLightTheme}
           />
+          <EmailForm currentlyLightTheme={currentlyLightTheme} />
         </Route>
         <Route
           render={(staticContext) => {
@@ -134,7 +135,6 @@ const App = () => {
           }}
         />
       </Switch>
-      <EmailForm />
       <Footer />
     </BrowsersHeight.Provider>
   );
