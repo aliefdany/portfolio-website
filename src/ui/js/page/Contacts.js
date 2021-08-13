@@ -87,10 +87,12 @@ const Contacts = ({ toggleNav, showNav, active, currentlyLightTheme }) => {
               <h4>CONTACT ME</h4>
               <h1>Find Me!</h1>
               <p>
-                I’m so open for any critics and advise as it can help me <br />{" "}
-                solve any obtacles that i didn’t even notice at the first <br />{" "}
-                sight. So come on, find and reach me and share your <br />{" "}
-                thought! see you👋
+                I’m so open for any critics and advise as it can help me solve
+                any obtacles that i didn’t even notice at the first sight. So
+                come on, find and reach me and share your thought! see you
+                <span aria-label="hand-wave-icon" role="img">
+                  👋
+                </span>
               </p>
             </div>
           </CSSTransition>

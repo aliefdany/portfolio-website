@@ -70,7 +70,7 @@ const Homepage = ({
   useScrollPosition(
     ({ currPos }) => {
       if (
-        currPos.y <= browsersHalfHeight + 100 &&
+        currPos.y <= browsersHalfHeight + 150 &&
         currPos.y >= -browsersHalfHeight
       ) {
         toggleActive("experience");
@@ -134,7 +134,7 @@ const Homepage = ({
             />
           </CSSTransition>
         </svg>
-        <div className="homepage-content">
+        <div className="homepage-content greeting">
           <CSSTransition
             in={true}
             timeout={400}
@@ -144,7 +144,7 @@ const Homepage = ({
             <div className="text">
               <h4>GREETINGS</h4>
               <h1>
-                Welcome! <br /> I am Alief Dany
+                Welcome! <br /> My Name is Alief Dany
               </h1>
               <p>
                 {"I'm"} a{" "}

@@ -481,7 +481,11 @@ svg.bg {
   width: 50%;
   flex: 0 0 auto;
   /* border: 1px solid black; */
-  text-align: center;
+  /* text-align: center; */
+}
+
+.homepage-content.greeting .text {
+  width: 60%;
 }
 
 .homepage-content.not-found {
@@ -1461,6 +1465,10 @@ Email Form
     order: 1;
     width: 60vw;
     margin-bottom: 3vh;
+  }
+
+  .homepage-content.greeting .text {
+    width: 100%;
   }
 
   .skill-stack {
