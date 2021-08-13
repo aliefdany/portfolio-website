@@ -132,6 +132,18 @@ html {
   scroll-behavior: smooth;
 }
 
+html,
+body {
+  height: 100%;
+  position: relative;
+}
+
+#root {
+  position: absolute;
+  width: 100%;
+  min-height: 100%;
+}
+
 .loader-container {
   width: 99%;
   height: 100vh;
