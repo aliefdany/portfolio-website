@@ -132,13 +132,12 @@ html {
   scroll-behavior: smooth;
 }
 
-/* html,
+html,
 body {
-  height: 100%;
-  position: relative;
+  height: 3000px;
 }
 
-#root {
+/* #root {
   position: absolute;
   width: 100%;
   min-height: 100%;
