@@ -132,21 +132,9 @@ html {
   scroll-behavior: smooth;
 }
 
-html,
-body {
-  height: 100%;
-  position: relative;
-}
-
-#root {
-  position: absolute;
-  width: 100%;
-  min-height: 100%;
-}
-
 .loader-container {
   width: 99%;
-  height: 100vh;
+  height: calc(100 * var(--vh));
   display: flex;
   align-items: center;
   justify-content: center;
@@ -192,7 +180,7 @@ a.button-like:focus,
 
 .button-like.back-to-top {
   position: absolute;
-  bottom: 5vh;
+  bottom: calc(5 * var(--vh));
   right: 9vw;
 }
 
@@ -216,7 +204,7 @@ h4 {
 }
 
 .separator {
-  height: 10vh;
+  height: calc(10 * var(--vh));
 }
 
 .vertical-separator {
@@ -227,7 +215,7 @@ h4 {
 }
 
 .darkmode-container {
-  top: 20vh;
+  top: calc(20 * var(--vh));
   right: 9.5vw;
   position: absolute;
   z-index: 3;
@@ -238,7 +226,7 @@ h4 {
   color: inherit;
   font-size: 1.5vw;
   width: 5vw;
-  height: 5vh;
+  height: calc(5 * var(--vh));
   padding: 0;
   background: none;
   cursor: pointer;
@@ -286,7 +274,7 @@ nav {
   right: 0;
   left: 0;
 
-  height: 10vh;
+  height: calc(10 * var(--vh));
   width: auto;
   padding: 0 10vw;
   display: flex;
@@ -304,7 +292,7 @@ nav {
 
 nav ul li:nth-child(2) {
   position: relative;
-  /* margin-bottom: 0.8vh; */
+  /* margin-bottom:     calc(0.8*var(--vh)); */
 }
 
 nav ul li:nth-child(2) a:hover > .coming-soon {
@@ -317,7 +305,7 @@ nav ul li:nth-child(2) .coming-soon {
   font-size: 1vw;
   text-align: center;
   /* width: 8vw; */
-  margin-top: 1vh;
+  margin-top: calc(1 * var(--vh));
   opacity: 0;
   transform: rotate(-25deg);
   transform-origin: left center;
@@ -327,7 +315,7 @@ nav ul li:nth-child(2) .coming-soon {
 }
 
 .logo {
-  height: 8vh;
+  height: calc(8 * var(--vh));
   width: auto;
 }
 
@@ -365,8 +353,8 @@ nav ul li:nth-child(2) .coming-soon {
 
 .navbar-underline {
   transition: width 300ms;
-  margin-top: 0.5vh;
-  height: 0.3vh;
+  margin-top: calc(0.5 * var(--vh));
+  height: calc(0.3 * var(--vh));
   opacity: 0;
   width: 0;
   border-radius: 5px;
@@ -381,12 +369,12 @@ Vertical Navigation
  */
 .vnav {
   position: fixed;
-  top: 20vh;
+  top: calc(20 * var(--vh));
   left: 10vw;
   transform: translate3d(0, 0, 0);
 
   width: 2vw;
-  height: 50vh;
+  height: calc(50 * var(--vh));
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -399,7 +387,7 @@ Vertical Navigation
 .vnav li {
   font-family: "Yeseva One", cursive;
 
-  width: 20vh;
+  width: calc(20 * var(--vh));
   transform-origin: 50% 50%;
   transform: rotate(-90deg);
 }
@@ -430,13 +418,13 @@ General Page
 svg.diagonal-bg {
   position: absolute;
   left: 0;
-  top: 7.5vh;
+  top: calc(7.5 * var(--vh));
 }
 
 .page {
   /* border: 1px solid black; */
   position: relative;
-  height: 90vh;
+  height: calc(90 * var(--vh));
 }
 
 .text {
@@ -461,24 +449,24 @@ svg.bg {
 
 .homepage-content h1 {
   font-size: 3vw;
-  margin-bottom: 3vh;
+  margin-bottom: calc(3 * var(--vh));
 }
 
 .homepage-content h4 {
   font-size: 0.8vw;
-  margin-bottom: 0.8vh;
+  margin-bottom: calc(0.8 * var(--vh));
   text-decoration: underline;
 }
 
 .homepage-content p {
   font-size: 1.2vw;
   line-height: 150%;
-  margin-bottom: 4vh;
+  margin-bottom: calc(4 * var(--vh));
 }
 .homepage-content {
   /* border: 1px solid black; */
   width: 65vw;
-  height: 55vh;
+  height: calc(55 * var(--vh));
   position: absolute;
   display: flex;
   justify-content: space-between;
@@ -503,7 +491,7 @@ svg.bg {
 .homepage-content.not-found {
   flex-direction: column-reverse;
   justify-content: center;
-  height: 70vh;
+  height: calc(70 * var(--vh));
 }
 
 .homepage-content.not-found .text {
@@ -585,7 +573,7 @@ Homepage 3
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 60vh;
+  height: calc(60 * var(--vh));
 }
 
 .contacts-link {
@@ -658,7 +646,7 @@ Project Page
 
 .project-showcase button {
   max-width: 10vw;
-  margin-top: 3vh;
+  margin-top: calc(3 * var(--vh));
 }
 
 .project-showcase img {
@@ -668,7 +656,7 @@ Project Page
 }
 
 .project-logo {
-  margin-bottom: 3vh;
+  margin-bottom: calc(3 * var(--vh));
 }
 
 .slider {
@@ -680,11 +668,11 @@ Project Page
 
 /* NEW */
 .page.project {
-  height: 150vh;
+  height: calc(150 * var(--vh));
 }
 
 .homepage-content.project {
-  top: 15vh;
+  top: calc(15 * var(--vh));
   left: 50%;
   flex-direction: column;
   /* border: 1px solid white; */
@@ -699,13 +687,13 @@ Project Page
 }
 
 .project-card {
-  padding-bottom: 5vh;
+  padding-bottom: calc(5 * var(--vh));
   display: flex;
   /* border: 1px solid white; */
 }
 
 .cards {
-  margin-top: 5vh;
+  margin-top: calc(5 * var(--vh));
 }
 
 .project-preview {
@@ -723,7 +711,7 @@ Project Page
 .project-caption h2 {
   font-family: "Yeseva One";
   font-size: 1.5vw;
-  margin-bottom: 2vh;
+  margin-bottom: calc(2 * var(--vh));
 }
 
 .project-caption p {
@@ -790,7 +778,7 @@ Project Page
 }
 
 .project-tags {
-  margin-top: 1vh;
+  margin-top: calc(1 * var(--vh));
   display: flex;
 }
 
@@ -826,7 +814,7 @@ Modal
   position: fixed;
   z-index: 24;
   width: 100vw;
-  height: 100vh;
+  height: calc(100 * var(--vh));
 
   background: linear-gradient(
     131.44deg,
@@ -852,7 +840,7 @@ Modal
   border: 2px solid #353229;
 
   width: 70vw;
-  padding: 5vh 10vw;
+  padding: calc(5 * var(--vh)) 10vw;
 }
 
 .modal.mail {
@@ -862,7 +850,7 @@ Modal
 .modal h1,
 .modal p {
   text-align: center;
-  margin-bottom: 1.5vh;
+  margin-bottom: calc(1.5 * var(--vh));
 }
 
 .modal h1 {
@@ -888,8 +876,8 @@ Contacts Page
 */
 .cp-underline {
   transition: width 300ms;
-  margin-top: 0.6vh;
-  height: 0.5vh;
+  margin-top: calc(0.6 * var(--vh));
+  height: calc(0.5 * var(--vh));
   width: 0;
   background: linear-gradient(
     45deg,
@@ -905,8 +893,8 @@ Contacts Page
 
 .twt-underline {
   transition: width 300ms;
-  margin-top: 0.6vh;
-  height: 0.5vh;
+  margin-top: calc(0.6 * var(--vh));
+  height: calc(0.5 * var(--vh));
   width: 0;
   border-radius: 5px;
   background: linear-gradient(
@@ -921,8 +909,8 @@ Contacts Page
 
 .github-underline {
   transition: width 300ms;
-  margin-top: 0.7vh;
-  height: 0.5vh;
+  margin-top: calc(0.7 * var(--vh));
+  height: calc(0.5 * var(--vh));
   width: 0;
   border-radius: 5px;
   background: linear-gradient(
@@ -943,13 +931,13 @@ footer {
   align-items: center;
   justify-content: center;
   text-align: center;
-  height: 10vh;
+  height: calc(10 * var(--vh));
 }
 
 footer h5 {
   font-family: "Yeseva One", cursive;
   font-size: 1.2vw;
-  margin-bottom: 1vh;
+  margin-bottom: calc(1 * var(--vh));
 }
 footer p {
   font-size: 1vw;
@@ -980,7 +968,7 @@ a.do-referral {
   display: flex;
   align-items: center;
   right: 2vw;
-  max-height: 10vh;
+  max-height: calc(10 * var(--vh));
   /* border: 1px solid black; */
 }
 
@@ -993,7 +981,7 @@ a.do-referral {
 
 .do-referral img {
   border-radius: 5px;
-  height: 6vh;
+  height: calc(6 * var(--vh));
   transition: transform 400ms, filter 400ms;
   transform: translate3d(0, 0, 0);
   filter: none;
@@ -1007,7 +995,7 @@ Email Form
 
 .email-form {
   padding: 0 10vw;
-  height: 35vh;
+  height: calc(35 * var(--vh));
   background-color: #353229;
   display: flex;
   justify-content: center;
@@ -1028,7 +1016,7 @@ Email Form
   color: red;
   font-size: 1vw;
   position: absolute;
-  top: 5vh;
+  top: calc(5 * var(--vh));
   margin-right: 1vw;
   right: 0;
   transform: translateY(-50%);
@@ -1046,7 +1034,7 @@ Email Form
 
 .form-identity {
   flex: 0 0 auto;
-  height: 11vh;
+  height: calc(11 * var(--vh));
   display: flex;
   justify-content: space-between;
 }
@@ -1058,19 +1046,19 @@ Email Form
 .form-feedback {
   /* border: 1px solid white; */
   flex: 0 0 auto;
-  height: 13vh;
+  height: calc(13 * var(--vh));
 }
 
 .form-button {
   flex: 0 0 auto;
-  height: 3vh;
+  height: calc(3 * var(--vh));
 }
 
 label {
   display: block;
   font-size: 1vw;
-  margin-bottom: 0.5vh;
-  height: 2vh;
+  margin-bottom: calc(0.5 * var(--vh));
+  height: calc(2 * var(--vh));
 }
 
 textarea {
@@ -1079,9 +1067,9 @@ textarea {
   font-size: 1vw;
   border-radius: 0.5vw;
   width: 100%;
-  height: 7vh;
+  height: calc(7 * var(--vh));
   resize: none;
-  padding: 1vh;
+  padding: calc(1 * var(--vh));
   overflow-y: hidden;
 }
 
@@ -1094,11 +1082,11 @@ input[type="text"],
 input[type="email"] {
   font-family: inherit;
   font-size: 1vw;
-  height: 5vh;
-  padding: 1vh;
+  height: calc(5 * var(--vh));
+  padding: calc(1 * var(--vh));
   border: 0;
   border-radius: 0.5vw;
-  margin-bottom: 0.5vh;
+  margin-bottom: calc(0.5 * var(--vh));
 }
 
 /*
@@ -1285,7 +1273,7 @@ Email Form
   .email-form {
     flex-direction: column;
     padding: 0 9vw;
-    height: 45vh;
+    height: calc(45 * var(--vh));
     justify-content: space-around;
   }
 
@@ -1321,7 +1309,7 @@ Email Form
 
   label {
     font-size: 4vw;
-    margin-bottom: 0.5vh;
+    margin-bottom: calc(0.5 * var(--vh));
     height: auto;
   }
 
@@ -1375,7 +1363,7 @@ Email Form
   }
 
   .darkmode-container {
-    top: 18vh;
+    top: calc(18 * var(--vh));
   }
 
   .loader-text {
@@ -1394,7 +1382,7 @@ Email Form
     order: 1;
     opacity: 0;
     width: 0;
-    margin-bottom: 1.5vh;
+    margin-bottom: calc(1.5 * var(--vh));
     border-top: 1px solid hsl(49, 11%, 38%);
     border-left: 0;
   }
@@ -1414,14 +1402,14 @@ Email Form
   */
   nav {
     z-index: 20;
-    height: 13vh;
+    height: calc(13 * var(--vh));
     flex-direction: column;
     justify-content: center;
   }
 
   svg.diagonal-bg {
-    top: 12vh;
-    height: 5vh;
+    top: calc(12 * var(--vh));
+    height: calc(5 * var(--vh));
   }
 
   .main-menu {
@@ -1466,21 +1454,21 @@ Email Form
 
   .homepage-content h1 {
     font-size: 7vw;
-    margin-bottom: 1.5vh;
+    margin-bottom: calc(1.5 * var(--vh));
   }
 
   .homepage-content h4 {
     font-size: 2.5vw;
-    margin-bottom: 0.4vh;
+    margin-bottom: calc(0.4 * var(--vh));
   }
 
   .homepage-content p {
     font-size: 3vw;
-    margin-bottom: 2vh;
+    margin-bottom: calc(2 * var(--vh));
   }
 
   .homepage-content {
-    height: 90vh;
+    height: calc(90 * var(--vh));
     width: 83vw;
     flex-direction: column-reverse;
     justify-content: center;
@@ -1494,13 +1482,13 @@ Email Form
 
   .homepage-content .alief-potrait {
     width: 60vw;
-    margin-bottom: 2vh;
+    margin-bottom: calc(2 * var(--vh));
   }
 
   .homepage-content .logo-filkom {
     order: 1;
     width: 60vw;
-    margin-bottom: 3vh;
+    margin-bottom: calc(3 * var(--vh));
   }
 
   .homepage-content.greeting .text {
@@ -1510,11 +1498,11 @@ Email Form
   .skill-stack {
     width: 100%;
     height: 30%;
-    margin-bottom: 3vh;
+    margin-bottom: calc(3 * var(--vh));
   }
 
   .button-like.back-to-top {
-    bottom: 3vh;
+    bottom: calc(3 * var(--vh));
   }
 
   /* 
@@ -1547,7 +1535,7 @@ Email Form
     width: 70vw;
     height: auto;
     order: 2;
-    margin-bottom: 1.5vh;
+    margin-bottom: calc(1.5 * var(--vh));
   }
 
   /* 
@@ -1556,14 +1544,14 @@ Email Form
 
   */
   .contacts-list {
-    margin-top: 2vh;
+    margin-top: calc(2 * var(--vh));
     justify-content: center;
     height: auto;
     order: -1;
   }
 
   .contacts-link {
-    margin-bottom: 2vh;
+    margin-bottom: calc(2 * var(--vh));
   }
 
   .contacts-link a {
@@ -1581,7 +1569,7 @@ Email Form
 
   */
   footer {
-    height: 15vh;
+    height: calc(15 * var(--vh));
     flex-direction: column;
     justify-content: space-around;
   }
@@ -1634,13 +1622,13 @@ Email Form
   /* NEW */
 
   .page.project {
-    height: 180vh;
+    height: calc(180 * var(--vh));
   }
 
   .homepage-content.project {
     height: initial;
     transform: translateX(-50%);
-    top: 20vh;
+    top: calc(20 * var(--vh));
     left: 50%;
     flex-direction: column-reverse;
   }
@@ -1657,7 +1645,7 @@ Email Form
 
   .project-preview {
     width: 60vw;
-    margin-bottom: 1vh;
+    margin-bottom: calc(1 * var(--vh));
   }
 
   .project-caption {

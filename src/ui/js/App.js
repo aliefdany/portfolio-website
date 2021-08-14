@@ -1,4 +1,4 @@
-import { Fragment, useState, useLayoutEffect } from "react";
+import { Fragment, useState, useLayoutEffect, useEffect } from "react";
 import { Route, Switch } from "react-router-dom";
 
 import { Helmet } from "react-helmet";
@@ -34,6 +34,7 @@ const App = () => {
   const [showNav, toggleNav] = useState(true);
   const [animate2, toggleAnimate2] = useState(false);
   const [animate3, toggleAnimate3] = useState(false);
+  const [viewportFixed, setViewportFixed] = useState(false);
   const [currentlyLightTheme, toggle] = useState(
     window.matchMedia("(prefers-color-scheme: light)").matches
   );
@@ -48,6 +49,15 @@ const App = () => {
       toggleActive("notfound");
     }
   }
+
+  useEffect(() => {
+    if (!viewportFixed) {
+      document
+        .querySelector(":root")
+        .style.setProperty("--vh", window.innerHeight / 100 + "px");
+      setViewportFixed(true);
+    }
+  }, []);
 
   useLayoutEffect(() => {
     handleActiveRoute();
