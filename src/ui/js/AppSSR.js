@@ -82,7 +82,7 @@ const App = () => {
         <Route
           path="/project"
           exact={true}
-          render={() => {
+          render={(staticContext) => {
             return (
               <Fragment>
                 <Helmet defaultTitle="Alief Dany | Projects 👨‍💻">
@@ -93,6 +93,7 @@ const App = () => {
                   showNav={showNav}
                   active={active}
                   currentlyLightTheme={currentlyLightTheme}
+                  staticContext={staticContext.staticContext}
                 />
               </Fragment>
             );
