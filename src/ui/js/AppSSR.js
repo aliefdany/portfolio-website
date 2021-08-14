@@ -1,4 +1,4 @@
-import { Fragment, useState, useLayoutEffect } from "react";
+import { Fragment, useState, useLayoutEffect, useEffect } from "react";
 import { Route, Switch } from "react-router-dom";
 
 import { Helmet } from "react-helmet";
@@ -35,8 +35,8 @@ const App = () => {
   const [animate2, toggleAnimate2] = useState(false);
   const [animate3, toggleAnimate3] = useState(false);
   const [currentlyLightTheme, toggle] = useState(true);
-
   const browserHeight = 0;
+
   function handleActiveRoute() {
     if (path == "/") {
       toggleActive("intro");
@@ -52,94 +52,99 @@ const App = () => {
   }, [path]);
 
   return (
-    <BrowsersHeight.Provider value={browserHeight}>
-      <ThemeMiddle currentlyLightTheme={currentlyLightTheme} toggle={toggle} />
-      <Navbar
-        showNav={showNav}
-        toggleActive={toggleActive}
-        currentlyLightTheme={currentlyLightTheme}
-      />
-      <Switch>
-        <Route
-          path="/contacts"
-          exact={true}
-          render={() => {
-            return (
-              <Fragment>
-                <Helmet defaultTitle="Alief Dany | Contacts 📞">
-                  <meta charSet="utf-8" />
-                </Helmet>
-                <Contacts
-                  toggleNav={toggleNav}
-                  showNav={showNav}
-                  active={active}
-                  currentlyLightTheme={currentlyLightTheme}
-                />
-              </Fragment>
-            );
-          }}
+    <div className="app-wrapper" style={{ height: "1000px" }}>
+      <BrowsersHeight.Provider value={browserHeight}>
+        <ThemeMiddle
+          currentlyLightTheme={currentlyLightTheme}
+          toggle={toggle}
         />
-        <Route
-          path="/project"
-          exact={true}
-          render={() => {
-            return (
-              <Fragment>
-                <Helmet defaultTitle="Alief Dany | Projects 👨‍💻">
-                  <meta charSet="utf-8" />
-                </Helmet>
-                <Project
-                  toggleNav={toggleNav}
-                  showNav={showNav}
-                  active={active}
-                  currentlyLightTheme={currentlyLightTheme}
-                />
-              </Fragment>
-            );
-          }}
+        <Navbar
+          showNav={showNav}
+          toggleActive={toggleActive}
+          currentlyLightTheme={currentlyLightTheme}
         />
-        <Route path="/" exact={true}>
-          <Helmet defaultTitle="Alief Dany | Home 🏠">
-            <meta charSet="utf-8" />
-          </Helmet>
-
-          <Homepage
-            animate2={animate2}
-            animate3={animate3}
-            toggleActive={toggleActive}
-            toggleAnimate2={toggleAnimate2}
-            toggleAnimate3={toggleAnimate3}
-            toggleNav={toggleNav}
-            showNav={showNav}
-            active={active}
-            currentlyLightTheme={currentlyLightTheme}
+        <Switch>
+          <Route
+            path="/contacts"
+            exact={true}
+            render={() => {
+              return (
+                <Fragment>
+                  <Helmet defaultTitle="Alief Dany | Contacts 📞">
+                    <meta charSet="utf-8" />
+                  </Helmet>
+                  <Contacts
+                    toggleNav={toggleNav}
+                    showNav={showNav}
+                    active={active}
+                    currentlyLightTheme={currentlyLightTheme}
+                  />
+                </Fragment>
+              );
+            }}
           />
-          <EmailForm currentlyLightTheme={currentlyLightTheme} />
-        </Route>
-        <Route
-          render={(staticContext) => {
-            if (staticContext) {
-              staticContext.notfound = true;
-            }
-            return (
-              <Fragment>
-                <Helmet defaultTitle="Alief Dany | 404 🚨">
-                  <meta charSet="utf-8" />
-                </Helmet>
-                <NotFound
-                  toggleNav={toggleNav}
-                  showNav={showNav}
-                  active={active}
-                  currentlyLightTheme={currentlyLightTheme}
-                  toggleActive={toggleActive}
-                />
-              </Fragment>
-            );
-          }}
-        />
-      </Switch>
-      <Footer />
-    </BrowsersHeight.Provider>
+          <Route
+            path="/project"
+            exact={true}
+            render={() => {
+              return (
+                <Fragment>
+                  <Helmet defaultTitle="Alief Dany | Projects 👨‍💻">
+                    <meta charSet="utf-8" />
+                  </Helmet>
+                  <Project
+                    toggleNav={toggleNav}
+                    showNav={showNav}
+                    active={active}
+                    currentlyLightTheme={currentlyLightTheme}
+                  />
+                </Fragment>
+              );
+            }}
+          />
+          <Route path="/" exact={true}>
+            <Helmet defaultTitle="Alief Dany | Home 🏠">
+              <meta charSet="utf-8" />
+            </Helmet>
+
+            <Homepage
+              animate2={animate2}
+              animate3={animate3}
+              toggleActive={toggleActive}
+              toggleAnimate2={toggleAnimate2}
+              toggleAnimate3={toggleAnimate3}
+              toggleNav={toggleNav}
+              showNav={showNav}
+              active={active}
+              currentlyLightTheme={currentlyLightTheme}
+            />
+            <EmailForm currentlyLightTheme={currentlyLightTheme} />
+          </Route>
+          <Route
+            render={(staticContext) => {
+              if (staticContext) {
+                staticContext.notfound = true;
+              }
+              return (
+                <Fragment>
+                  <Helmet defaultTitle="Alief Dany | 404 🚨">
+                    <meta charSet="utf-8" />
+                  </Helmet>
+                  <NotFound
+                    toggleNav={toggleNav}
+                    showNav={showNav}
+                    active={active}
+                    currentlyLightTheme={currentlyLightTheme}
+                    toggleActive={toggleActive}
+                  />
+                </Fragment>
+              );
+            }}
+          />
+        </Switch>
+        <Footer />
+      </BrowsersHeight.Provider>
+    </div>
   );
 };
 

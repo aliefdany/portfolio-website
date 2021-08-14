@@ -59,7 +59,7 @@ const App = () => {
   }, [path]);
 
   return (
-    <div className="app-wrapper" style={{ height: !ssr ? browserHeight : 0 }}>
+    <div className="app-wrapper" style={{ height: "1000px" }}>
       <BrowsersHeight.Provider value={browserHeight}>
         <ThemeMiddle
           currentlyLightTheme={currentlyLightTheme}
