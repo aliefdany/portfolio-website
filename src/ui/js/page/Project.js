@@ -1,12 +1,4 @@
-import {
-  Fragment,
-  useLayoutEffect,
-  useState,
-  useRef,
-  useContext,
-  useEffect,
-} from "react";
-import { Link } from "react-router-dom"; //eslint-disable-line
+import { Fragment, useState, useRef, useContext, useEffect } from "react";
 import { CSSTransition } from "react-transition-group";
 import { useScrollPosition } from "@n8tb1t/use-scroll-position";
 import VNav from "../layout/VNav";
@@ -25,16 +17,8 @@ const Project = ({
   const [projects, setProject] = useState(
     staticContext ? staticContext.data : []
   );
-  const [isLoading, setIsLoading] = useState(true);
   const project = useRef();
   const browserHalfHeight = useContext(BrowsersHeight) * 0.6;
-
-  useEffect(() => {
-    if (window.initial_state) {
-      setProject(window.initial_state);
-      setIsLoading(false);
-    }
-  }, []);
 
   useScrollPosition(
     ({ currPos }) => {
@@ -44,15 +28,18 @@ const Project = ({
         toggleNav(true);
       }
     },
-    [],
+    [browserHalfHeight],
     project
   );
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     (async () => {
-      if (isLoading && project) {
-        setProject(await Project.fetchProjects());
-        setIsLoading(false);
+      if (!projects.length) {
+        if (window.initial_state) {
+          setProject(window.initial_state);
+        } else {
+          setProject(await Project.fetchProjects());
+        }
       }
     })();
   }, []);

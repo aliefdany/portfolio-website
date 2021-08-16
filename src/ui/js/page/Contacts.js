@@ -7,6 +7,7 @@ import BrowsersHeight from "../utils/BrowsersHeight";
 const Contacts = ({ toggleNav, showNav, active, currentlyLightTheme }) => {
   const contacts = useRef();
   const browsersHeight = useContext(BrowsersHeight);
+
   const [ssr, setSSR] = useState(true);
   let linkColor = {
     color:
@@ -25,7 +26,7 @@ const Contacts = ({ toggleNav, showNav, active, currentlyLightTheme }) => {
         toggleNav(true);
       }
     },
-    [],
+    [browsersHeight],
     contacts
   );
 

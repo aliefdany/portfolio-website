@@ -35,11 +35,9 @@ const App = () => {
   const [animate2, toggleAnimate2] = useState(false);
   const [animate3, toggleAnimate3] = useState(false);
   const [viewportFixed, setViewportFixed] = useState(false);
-  const [currentlyLightTheme, toggle] = useState(
-    window.matchMedia("(prefers-color-scheme: light)").matches
-  );
+  const [currentlyLightTheme, toggle] = useState(true);
+  const [browserHeight, setBrowserHeight] = useState(0);
 
-  const browserHeight = window.innerHeight;
   function handleActiveRoute() {
     if (path == "/") {
       toggleActive("intro");
@@ -49,6 +47,14 @@ const App = () => {
       toggleActive("notfound");
     }
   }
+
+  useEffect(() => {
+    setBrowserHeight(window.innerHeight);
+  }, []);
+
+  useEffect(() => {
+    window.matchMedia("(prefers-color-scheme: light)").matches;
+  }, []);
 
   useEffect(() => {
     if (!viewportFixed) {
@@ -94,7 +100,7 @@ const App = () => {
         <Route
           path="/project"
           exact={true}
-          render={() => {
+          render={(staticContext) => {
             return (
               <Fragment>
                 <Helmet defaultTitle="Alief Dany | Projects 👨‍💻">
@@ -105,6 +111,7 @@ const App = () => {
                   showNav={showNav}
                   active={active}
                   currentlyLightTheme={currentlyLightTheme}
+                  staticContext={staticContext.staticContext}
                 />
               </Fragment>
             );

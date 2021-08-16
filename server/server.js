@@ -10,7 +10,7 @@ import ReactDOMServer from "react-dom/server";
 import { StaticRouter, matchPath } from "react-router-dom";
 import routes from "./utils/routes";
 
-import AppSSR from "../dist-server/ui/js/AppSSR";
+import App from "../dist-server/ui/js/App";
 
 async function createDocument() {
   if (!(await Project.find({ title: "Whatson Indonesia" }))) {
@@ -174,7 +174,7 @@ app.use("*", async (req, res) => {
 
   let appHTML = ReactDOMServer.renderToString(
     <StaticRouter location={req.originalUrl} context={context}>
-      <AppSSR />
+      <App />
     </StaticRouter>
   );
 

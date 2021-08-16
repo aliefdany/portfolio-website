@@ -47,7 +47,7 @@ const NotFound = ({
         toggleNav(true);
       }
     },
-    [],
+    [browsersHeight],
     notfound
   );
 

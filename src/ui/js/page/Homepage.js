@@ -3,11 +3,9 @@ import VNav from "../layout/VNav";
 import { useScrollPosition } from "@n8tb1t/use-scroll-position";
 import BrowsersHeight from "../utils/BrowsersHeight";
 
-// 1
 import { CSSTransition } from "react-transition-group";
 import { Link } from "react-router-dom";
 
-// 3
 import { Link as ScrollLink } from "react-scroll";
 
 function ScrollToTopOnMount() {
@@ -32,11 +30,12 @@ const Homepage = ({
   const page1 = useRef();
   const page2 = useRef();
   const page3 = useRef();
+  const browsersHalfHeight = useContext(BrowsersHeight) / 2;
+
   const [ssr, setSSR] = useState(true);
   const linkBg = {
     background: currentlyLightTheme && !ssr ? "hsl(169, 38%, 38%)" : "#012a1c",
   };
-  const browsersHalfHeight = useContext(BrowsersHeight) / 2;
 
   useEffect(() => {
     setSSR(false);
