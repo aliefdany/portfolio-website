@@ -815,7 +815,7 @@ Modal
   position: fixed;
   z-index: 24;
   width: 100vw;
-  height: calc(100 * var(--vh));
+  min-height: calc(100 * var(--vh));
 
   background: linear-gradient(
     131.44deg,
@@ -824,6 +824,7 @@ Modal
   );
   backdrop-filter: blur(5px);
   -moz-backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
 }
 
 .modal {
@@ -841,6 +842,7 @@ Modal
   border: 2px solid #353229;
 
   width: 70vw;
+  min-height: calc(85 * var(--vh));
   padding: calc(5 * var(--vh)) 10vw;
 }
 
@@ -1343,6 +1345,7 @@ Email Form
 
   .modal {
     width: 90%;
+    min-height: calc(50 * var(--vh));
   }
 
   .modal h1 {
@@ -1350,7 +1353,7 @@ Email Form
   }
 
   .exit-icon {
-    font-size: 6vw;
+    font-size: 8vw;
   }
 
   /* 
