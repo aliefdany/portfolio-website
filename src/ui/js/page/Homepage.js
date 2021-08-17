@@ -97,7 +97,7 @@ const Homepage = ({
       <div ref={page1} className="separator first" id="intro"></div>
       <div className="page">
         <Homepage1BG />
-        <div className="homepage-content greeting">
+        <div className="content greeting">
           <CSSTransition
             in={true}
             timeout={400}
@@ -173,7 +173,7 @@ const Homepage = ({
       <div ref={page2} className="separator with-bg" id={"education"}></div>
       <div className="page">
         <Homepage2BG animate={animate2} />
-        <div className="homepage-content">
+        <div className="content">
           <CSSTransition
             in={animate2}
             timeout={400}
@@ -217,7 +217,7 @@ const Homepage = ({
       <div ref={page3} className="separator with-bg"></div>
       <div className="page" id={"experience"}>
         <Homepage3BG animate={animate3} />
-        <div className="homepage-content">
+        <div className="content">
           <CSSTransition
             in={animate3}
             timeout={400}

@@ -61,7 +61,7 @@ const Project = ({
       <div ref={project} className="separator" id="project"></div>
       <div className="page project">
         <ProjectBG />
-        <div className="homepage-content project">
+        <div className="content project">
           <CSSTransition
             in={true}
             timeout={400}

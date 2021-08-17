@@ -131,6 +131,32 @@ async function createDocument() {
       },
     ],
   });
+
+  await Project.create({
+    title: "Adopt Me",
+    preview:
+      "Pet adoption apps that based on United States. Build with React with real API from pet adopting company Petfinder",
+    overview: [],
+    logoURL: "",
+    imageURL: [
+      "https://ik.imagekit.io/aliefseventri/Projects/Adopt-Me/adopt-me-1_2VxVUCObb.png?updatedAt=1629213274227&ik-s=d2c35b8f9a279c8ed60552a2442a54bc6322d6a2",
+      "https://ik.imagekit.io/aliefseventri/Projects/Adopt-Me/adopt-me-3_6Pup8sgU6.png?updatedAt=1629213274826&ik-s=386ad51569c005457f2644eb3339559913ba51e1",
+      "https://ik.imagekit.io/aliefseventri/Projects/Adopt-Me/adopt-me-2_RCO_yivJ6Jr.png?updatedAt=1629213274486&ik-s=06765b479990ccd188ad329ee397feed3d7f475b",
+    ],
+    done: true,
+    siteLink: "https://aliefdany.github.io/adopt-me",
+    repoLink: "https://github.com/aliefdany/adopt-me",
+    tags: [
+      {
+        tag: "React",
+        color: "#1ABCFE",
+      },
+      {
+        tag: "CSS",
+        color: "#4285F4",
+      },
+    ],
+  });
 }
 
 export const app = express();

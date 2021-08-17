@@ -47,7 +47,7 @@ const Contacts = ({ toggleNav, showNav, active, currentlyLightTheme }) => {
       <div ref={contacts} className="separator" id="contacts"></div>
       <div className="page">
         <ContactsBG />
-        <div className="homepage-content">
+        <div className="content">
           <CSSTransition
             in={true}
             timeout={400}

@@ -72,7 +72,7 @@ const NotFound = ({
       <div ref={notfound} className="separator" id="notfound"></div>
       <div className="page">
         <NotfoundBG />
-        <div className="homepage-content not-found">
+        <div className="content not-found">
           <CSSTransition
             in={true}
             timeout={400}

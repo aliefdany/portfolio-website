@@ -447,27 +447,27 @@ svg.bg {
   transform: translate3d(0, 0, 0);
 }
 
-.homepage-content h1 {
+.content h1 {
   font-size: 3vw;
   margin-bottom: calc(3 * var(--vh));
 }
 
-.homepage-content h4 {
+.content h4 {
   font-size: 0.8vw;
   margin-bottom: calc(0.8 * var(--vh));
   text-decoration: underline;
 }
 
-.homepage-content p {
+.content p {
   font-size: 1.2vw;
   line-height: 150%;
   margin-bottom: calc(4 * var(--vh));
 }
-.homepage-content {
+.content {
   /* border: 1px solid black; */
   width: 65vw;
   height: calc(55 * var(--vh));
-  position: absolute;
+  position: relative;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -477,24 +477,24 @@ svg.bg {
   transform: translate(-50%, -50%);
 }
 
-.homepage-content .text {
+.content .text {
   width: 50%;
   flex: 0 0 auto;
   /* border: 1px solid black; */
   /* text-align: center; */
 }
 
-.homepage-content.greeting .text {
+.content.greeting .text {
   width: 60%;
 }
 
-.homepage-content.not-found {
+.content.not-found {
   flex-direction: column-reverse;
   justify-content: center;
   height: calc(70 * var(--vh));
 }
 
-.homepage-content.not-found .text {
+.content.not-found .text {
   text-align: center;
 }
 
@@ -517,7 +517,7 @@ Homepage 1
   animation: floating 5s ease-in-out infinite;
 }
 
-.homepage-content.not-found svg {
+.content.not-found svg {
   animation: floating 5s ease-in-out infinite;
 }
 
@@ -668,21 +668,22 @@ Project Page
 
 /* NEW */
 .page.project {
-  height: calc(150 * var(--vh));
+  height: auto;
+  position: relative;
 }
 
-.homepage-content.project {
-  top: calc(15 * var(--vh));
+.content.project {
+  margin: calc(15 * var(--vh)) 0;
+  top: 0;
   left: 50%;
   flex-direction: column;
-  /* border: 1px solid white; */
   align-items: flex-start;
   justify-content: space-between;
   height: initial;
   transform: translateX(-50%);
 }
 
-.homepage-content.project .project-text {
+.content.project .project-text {
   width: 100%;
 }
 
@@ -1358,7 +1359,7 @@ Email Form
   
   */
 
-  .homepage-content.not-found svg {
+  .content.not-found svg {
     width: 80vw;
   }
 
@@ -1448,50 +1449,45 @@ Email Form
     height: 100%;
   }
 
-  .homepage-content .text {
+  .content .text {
     width: 100%;
   }
 
-  .homepage-content h1 {
+  .content h1 {
     font-size: 7vw;
     margin-bottom: calc(1.5 * var(--vh));
   }
 
-  .homepage-content h4 {
+  .content h4 {
     font-size: 2.5vw;
     margin-bottom: calc(0.4 * var(--vh));
   }
 
-  .homepage-content p {
+  .content p {
     font-size: 3vw;
     margin-bottom: calc(2 * var(--vh));
   }
 
-  .homepage-content {
+  .content {
     height: calc(90 * var(--vh));
     width: 83vw;
     flex-direction: column-reverse;
     justify-content: center;
-    align-items: center;
     text-align: center;
-
-    top: 50%;
-    right: 50%;
-    transform: translate(-50%, -50%);
   }
 
-  .homepage-content .alief-potrait {
+  .content .alief-potrait {
     width: 60vw;
     margin-bottom: calc(2 * var(--vh));
   }
 
-  .homepage-content .logo-filkom {
+  .content .logo-filkom {
     order: 1;
     width: 60vw;
     margin-bottom: calc(3 * var(--vh));
   }
 
-  .homepage-content.greeting .text {
+  .content.greeting .text {
     width: 100%;
   }
 
@@ -1620,16 +1616,7 @@ Email Form
   }
 
   /* NEW */
-
-  .page.project {
-    height: calc(180 * var(--vh));
-  }
-
-  .homepage-content.project {
-    height: initial;
-    transform: translateX(-50%);
-    top: calc(20 * var(--vh));
-    left: 50%;
+  .content.project {
     flex-direction: column-reverse;
   }
 
