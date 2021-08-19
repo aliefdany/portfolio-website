@@ -36,7 +36,12 @@ const EmailForm = ({ currentlyLightTheme }) => {
 
   return (
     <section className="email-form" style={emailBg}>
-      <h1>Email Me !</h1>
+      <h1>
+        Email Me !
+        <span role="img" aria-label="post-box">
+          📮
+        </span>
+      </h1>
       <Formik
         initialValues={{
           name: "",

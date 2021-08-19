@@ -1273,8 +1273,8 @@ Email Form
 
   .email-form {
     flex-direction: column;
-    padding: 0 9vw;
-    height: calc(45 * var(--vh));
+    padding: calc(4 * var(--vh)) 9vw;
+    height: calc(48 * var(--vh));
     justify-content: space-around;
   }
 
@@ -1305,6 +1305,7 @@ Email Form
   .form-button button {
     width: auto;
     height: auto;
+    margin-top: calc(1.5 * var(--vh));
     font-size: 4vw;
   }
 
