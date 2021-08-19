@@ -7,13 +7,14 @@ import BrowsersHeight from "./utils/BrowsersHeight";
 import ThemeMiddle from "./utils/ThemeMiddle";
 import { useLocation } from "react-router-dom";
 
-const Navbar = lazy(() => import("./layout/Navbar"));
-const Footer = lazy(() => import("./layout/Footer"));
-const EmailForm = lazy(() => import("./layout/EmailForm"));
+import Navbar from "./layout/Navbar";
+import Footer from "./layout/Footer";
+
 const Homepage = lazy(() => import("./page/Homepage"));
 const Project = lazy(() => import("./page/Project"));
 const Contacts = lazy(() => import("./page/Contacts"));
 const NotFound = lazy(() => import("./page/NotFound"));
+const EmailForm = lazy(() => import("./layout/EmailForm"));
 
 const usePathname = () => {
   const location = useLocation();
