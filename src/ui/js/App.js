@@ -167,8 +167,8 @@ const App = () => {
           </Route>
           <Route
             render={(staticContext) => {
-              if (staticContext) {
-                staticContext.notfound = true;
+              if (staticContext.staticContext) {
+                staticContext.staticContext.notfound = true;
               }
               return (
                 <Fragment>

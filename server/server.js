@@ -189,7 +189,8 @@ app.use("*", async (req, res) => {
   let context = {};
   let componentData = null;
 
-  if (typeof matchRoute.component.fetchProjects === "function") {
+  // for data fetch
+  if (matchRoute && typeof matchRoute.component.fetchProjects === "function") {
     componentData = await matchRoute.component.fetchProjects();
     context.data = componentData;
   }
