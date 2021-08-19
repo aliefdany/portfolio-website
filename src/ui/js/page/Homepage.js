@@ -87,9 +87,9 @@ const Homepage = ({
         showNav={showNav}
         VNavArr={["intro", "education", "experience"]}
       />
-      <ScrollToTopOnMount />
       <div ref={page1} className="separator first" id="intro"></div>
       <div className="page">
+        <ScrollToTopOnMount />
         <Homepage1BG />
         <div className="content greeting">
           <CSSTransition
@@ -327,6 +327,8 @@ const Homepage = ({
           </CSSTransition>
           <SkillStack animate={animate3} />
         </div>
+      </div>
+      <div className="separator">
         <ScrollLink
           to="intro"
           onClick={() => {

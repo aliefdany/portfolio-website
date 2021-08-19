@@ -19,8 +19,12 @@ const Project = ({
   const [projects, setProject] = useState(
     staticContext ? staticContext.data : []
   );
+  const [ssr, setSSR] = useState(true);
   const project = useRef();
   const browserHalfHeight = useContext(BrowsersHeight) * 0.6;
+  const linkBg = {
+    background: currentlyLightTheme && !ssr ? "hsl(169, 38%, 38%)" : "#012a1c",
+  };
 
   useScrollPosition(
     ({ currPos }) => {
@@ -46,6 +50,10 @@ const Project = ({
     })();
   }, []);
 
+  useEffect(() => {
+    setSSR(false);
+  });
+
   if (active != "project") {
     return null;
   }
@@ -61,6 +69,7 @@ const Project = ({
 
       <div ref={project} className="separator" id="project"></div>
       <div className="page project">
+        <ScrollToTopOnMount />
         <ProjectBG />
         <div className="content project">
           <CSSTransition
@@ -160,13 +169,27 @@ const Project = ({
             </div>
           </CSSTransition>
         </div>
-        <ScrollLink to="project" className="back-to-top button-like">
+      </div>
+      <div className="separator">
+        <ScrollLink
+          to="project"
+          className="back-to-top button-like"
+          style={linkBg}
+        >
           Back To Top
         </ScrollLink>
       </div>
     </Fragment>
   );
 };
+
+function ScrollToTopOnMount() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  return null;
+}
 
 Project.fetchProjects = () => {
   return axios.get("https://aliefdany.me/api/project").then((res) => {

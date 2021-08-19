@@ -176,8 +176,9 @@ a.button-like:focus,
 
 .button-like.back-to-top {
   position: absolute;
-  bottom: calc(5 * var(--vh));
   right: 9vw;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 h1 {
@@ -199,6 +200,7 @@ h4 {
 }
 
 .separator {
+  position: relative;
   height: calc(10 * var(--vh));
 }
 
@@ -1497,10 +1499,6 @@ Email Form
     width: 100%;
     height: 30%;
     margin-bottom: calc(3 * var(--vh));
-  }
-
-  .button-like.back-to-top {
-    bottom: calc(3 * var(--vh));
   }
 
   /* 

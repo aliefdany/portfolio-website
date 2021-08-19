@@ -40,6 +40,10 @@ const NotFound = ({
     setSSR(false);
   }, []);
 
+  useEffect(() => {
+    window.scroll(0, 0);
+  }, []);
+
   useScrollPosition(
     ({ currPos }) => {
       if (currPos.y <= -browsersHeight / 20) {
@@ -71,6 +75,7 @@ const NotFound = ({
       />
       <div ref={notfound} className="separator" id="notfound"></div>
       <div className="page">
+        <ScrollToTopOnMount />
         <NotfoundBG />
         <div className="content not-found">
           <CSSTransition
@@ -111,5 +116,13 @@ const NotFound = ({
     </Fragment>
   );
 };
+
+function ScrollToTopOnMount() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  return null;
+}
 
 export default NotFound;

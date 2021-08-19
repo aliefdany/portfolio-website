@@ -164,7 +164,6 @@ const App = () => {
               active={active}
               currentlyLightTheme={currentlyLightTheme}
             />
-            <EmailForm currentlyLightTheme={currentlyLightTheme} />
           </Route>
           <Route
             render={(staticContext) => {
@@ -188,6 +187,7 @@ const App = () => {
             }}
           />
         </Switch>
+        <EmailForm currentlyLightTheme={currentlyLightTheme} />
         <Footer />
       </BrowsersHeight.Provider>
     </LazyBoundary>

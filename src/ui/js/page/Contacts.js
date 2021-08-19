@@ -20,6 +20,10 @@ const Contacts = ({ toggleNav, showNav, active, currentlyLightTheme }) => {
     setSSR(false);
   }, []);
 
+  useEffect(() => {
+    window.scroll(0, 0);
+  }, []);
+
   useScrollPosition(
     ({ currPos }) => {
       if (currPos.y <= -browsersHeight / 20) {
@@ -46,6 +50,7 @@ const Contacts = ({ toggleNav, showNav, active, currentlyLightTheme }) => {
       />
       <div ref={contacts} className="separator" id="contacts"></div>
       <div className="page">
+        <ScrollToTopOnMount />
         <ContactsBG />
         <div className="content">
           <CSSTransition
@@ -122,5 +127,13 @@ const Contacts = ({ toggleNav, showNav, active, currentlyLightTheme }) => {
     </Fragment>
   );
 };
+
+function ScrollToTopOnMount() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  return null;
+}
 
 export default Contacts;
