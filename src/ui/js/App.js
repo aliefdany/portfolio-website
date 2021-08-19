@@ -84,7 +84,7 @@ const App = () => {
           render={() => {
             return (
               <Fragment>
-                <Helmet defaultTitle="Alief Dany | Contacts 📞">
+                <Helmet defaultTitle="Alief Dany | Contacts 📲">
                   <meta charSet="utf-8" />
                 </Helmet>
                 <Contacts

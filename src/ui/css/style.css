@@ -178,6 +178,10 @@ a.button-like:focus,
   transition: all 500ms;
 }
 
+.page.project .button-like.back-to-top {
+  transform: translateY(calc(10 * var(--vh)));
+}
+
 .button-like.back-to-top {
   position: absolute;
   bottom: calc(5 * var(--vh));
@@ -431,8 +435,8 @@ svg.diagonal-bg {
   /* hardware acceleration */
   transform: translateZ(0);
 
-  /* visibility: hidden;
-  opacity: 0; */
+  visibility: hidden;
+  opacity: 0;
 }
 
 svg.bg {
@@ -496,6 +500,8 @@ svg.bg {
 
 .content.not-found .text {
   text-align: center;
+  visibility: visible;
+  opacity: 1;
 }
 
 /*
@@ -679,7 +685,8 @@ Project Page
   flex-direction: column;
   align-items: flex-start;
   justify-content: space-between;
-  height: initial;
+  min-height: calc(90 * var(--vh));
+  height: auto;
   transform: translateX(-50%);
 }
 
@@ -1467,7 +1474,7 @@ Email Form
   }
 
   .content p {
-    font-size: 3vw;
+    font-size: 3.5vw;
     margin-bottom: calc(2 * var(--vh));
   }
 
@@ -1643,11 +1650,11 @@ Email Form
   }
 
   .project-caption h2 {
-    font-size: 4vw;
+    font-size: 5vw;
   }
 
   .project-card a.button-like {
-    font-size: 3vw;
+    font-size: 4vw;
   }
 
   /* Bug fix */

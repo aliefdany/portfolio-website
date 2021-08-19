@@ -5,6 +5,7 @@ import VNav from "../layout/VNav";
 import BrowsersHeight from "../utils/BrowsersHeight";
 import axios from "axios";
 import { ProjectBG } from "../illustration/SVG";
+import { Link as ScrollLink } from "react-scroll";
 
 import ProjectCard from "../layout/ProjectCard";
 
@@ -70,12 +71,66 @@ const Project = ({
           >
             <div className="project-text">
               <h4>MY WORK</h4>
-              <h1>Projects</h1>
+              <h1>
+                Projects
+                <span role="img" aria-label="man working">
+                  👨‍💻
+                </span>
+              </h1>
               <p>
-                By the time you end up on this page, i’ve done 3 project. 2 of
-                them is individual project and 1 is a team project. This website
-                is one of my individual project. Checkout my projects on the
-                right side of this page and share your thought!
+                Frontend Web Development is a field that currently {"i'm"}{" "}
+                focusing on. {"I'm"} always very excited to implement UI Design
+                into a real Web Apps. Nevertheless, i do some Backend too, like
+                making a REST API for CRUD with{" "}
+                <a href="https://nodejs.org/" target="_blank" rel="noreferrer">
+                  Node
+                </a>{" "}
+                and doing a sort of database stuff with{" "}
+                <a
+                  href="https://www.mongodb.com/"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  MongoDB
+                </a>
+                .
+              </p>
+              <p>
+                All of my project are available on my{" "}
+                <a
+                  href="https://www.github.com/aliefdany"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Github
+                </a>
+                . Some are finished and some are still in development. For
+                Deployment,{" "}
+                <a
+                  href="https://www.netlify.com/"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Netlify
+                </a>{" "}
+                and{" "}
+                <a
+                  href="https://www.vercel.com/"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Vercel
+                </a>{" "}
+                is really a good platform, but i found that{" "}
+                <a
+                  href="https://pages.github.com/"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Github Pages
+                </a>{" "}
+                is pretty cool. You can checkout my pages with links that i
+                provided below! 👇
               </p>
             </div>
           </CSSTransition>
@@ -105,6 +160,9 @@ const Project = ({
             </div>
           </CSSTransition>
         </div>
+        <ScrollLink to="project" className="back-to-top button-like">
+          Back To Top
+        </ScrollLink>
       </div>
     </Fragment>
   );

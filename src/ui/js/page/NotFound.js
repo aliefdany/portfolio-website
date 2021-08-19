@@ -96,7 +96,12 @@ const NotFound = ({
               </p>
               <div className="text">
                 <h4>ERROR - NOT FOUND</h4>
-                <h1>Oops, it seems like you lost in space!</h1>
+                <h1>
+                  Oops, it seems like you lost in space
+                  <span role="img" aria-label="emergency">
+                    🚨
+                  </span>
+                </h1>
               </div>{" "}
               <Astronauts currentlyLightTheme={currentlyLightTheme} />
             </Fragment>

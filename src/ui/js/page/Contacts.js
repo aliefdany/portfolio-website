@@ -56,7 +56,12 @@ const Contacts = ({ toggleNav, showNav, active, currentlyLightTheme }) => {
           >
             <div className="text">
               <h4>LETS CONNECT</h4>
-              <h1>Find Me!</h1>
+              <h1>
+                Find Me
+                <span role="img" aria-label="contact me">
+                  📲
+                </span>
+              </h1>
               <p>
                 I’m so open for any critics and advise as it can help me solve
                 any obtacles that i didn’t even notice at the first sight. So

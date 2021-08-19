@@ -50,10 +50,7 @@ const Homepage = ({
 
   useScrollPosition(
     ({ currPos }) => {
-      if (
-        currPos.y <= browsersHalfHeight + 100 &&
-        currPos.y >= -browsersHalfHeight
-      ) {
+      if (currPos.y <= browsersHalfHeight && currPos.y >= -browsersHalfHeight) {
         toggleActive("education");
         toggleAnimate2(true);
       }
@@ -64,10 +61,7 @@ const Homepage = ({
 
   useScrollPosition(
     ({ currPos }) => {
-      if (
-        currPos.y <= browsersHalfHeight + 150 &&
-        currPos.y >= -browsersHalfHeight
-      ) {
+      if (currPos.y <= browsersHalfHeight && currPos.y >= -browsersHalfHeight) {
         toggleActive("experience");
         toggleAnimate3(true);
       }
@@ -107,7 +101,11 @@ const Homepage = ({
             <div className="text">
               <h4>GREETINGS</h4>
               <h1>
-                Welcome! <br /> My Name is Alief Dany
+                Hello, Folks
+                <span role="img" aria-label="wave emoji">
+                  👋
+                </span>{" "}
+                <br /> My Name is Alief Dany
               </h1>
               <p>
                 {"I'm"} a{" "}
@@ -118,8 +116,7 @@ const Homepage = ({
                 >
                   Javascript
                 </a>{" "}
-                Developer that focused on building Accessible Web with
-                technology like{" "}
+                Developer that focused on building Web Apps with technology like{" "}
                 <a href="https://reactjs.org/" target="_blank" rel="noreferrer">
                   React
                 </a>{" "}
@@ -127,8 +124,15 @@ const Homepage = ({
                 <a href="https://nodejs.org/" target="_blank" rel="noreferrer">
                   Node
                 </a>
-                , and <a href="https://expressjs.com/">Express</a>. Managing
-                online data through the use of REST API and{" "}
+                , and{" "}
+                <a
+                  href="https://expressjs.com/"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Express
+                </a>
+                . Managing online data through the use of REST API and{" "}
                 <a
                   href="https://www.mongodb.com/"
                   target="_blank"
@@ -136,7 +140,7 @@ const Homepage = ({
                 >
                   Mongo
                 </a>{" "}
-                to provide smooth User Experience. Welcome to my site!
+                to provide smooth User Experience 💯
               </p>
               <ScrollLink
                 to="education"
@@ -194,11 +198,18 @@ const Homepage = ({
           >
             <div className="text">
               <h4>ACADEMIC PROFILE</h4>
-              <h1>Brawijaya University</h1>
+              <h1>
+                Bachelor of Computer Science
+                <span role="img" aria-label="tech emoji">
+                  🎓
+                </span>
+              </h1>
               <p>
+                Brawijaya University
+                <br />
                 Faculty of Computer Science <br /> Department of Information
                 System <br />
-                (2019 - Now)
+                (2019 - Current)
               </p>
               <a
                 href="https://filkom.ub.ac.id"
@@ -225,18 +236,82 @@ const Homepage = ({
             appear
           >
             <div className="text">
-              <h4>SKILLS</h4>
-              <h1>Current Skill Stack</h1>
+              <h4>TECH & TOOLS</h4>
+              <h1>
+                Skill Stack
+                <span role="img" aria-label="tech emoji">
+                  🧰
+                </span>
+              </h1>
               <p>
-                Web development is a major, vast and growing expertise. There
-                was so much things happened since the beginning of the web until
-                what’s happening and emerging right now.
+                {"I've"} built some web apps with Frontend technology such as{" "}
+                <a href="https://reactjs.org/" target="_blank" rel="noreferrer">
+                  React
+                </a>{" "}
+                , HTML, and CSS. As well as Backend like{" "}
+                <a href="https://nodejs.org/" target="_blank" rel="noreferrer">
+                  Node.js
+                </a>{" "}
+                ,{" "}
+                <a
+                  href="https://expressjs.com/"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Express
+                </a>{" "}
+                , and{" "}
+                <a
+                  href="https://www.mongodb.com/"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Mongo
+                </a>{" "}
+                to create server and provide data to it.{" "}
+                <a href="https://ubuntu.com/" target="_blank" rel="noreferrer">
+                  Ubuntu
+                </a>{" "}
+                is my main Operating System and{" "}
+                <a
+                  href="https://www.gnu.org/software/bash/"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Bash
+                </a>{" "}
+                is my default shell
               </p>
               <p>
-                To caught up with all this technology, as a college student, my
-                approach is to keep learning and look up for all the{" "}
-                possibilities to growth and expand my experience with project,
-                intership, and communities
+                Some tools helped me focus to the task that i want to accomplish
+                such as{" "}
+                <a href="https://prettier.io/" target="_blank" rel="noreferrer">
+                  Prettier
+                </a>{" "}
+                ,{" "}
+                <a href="https://eslint.org/" target="_blank" rel="noreferrer">
+                  ESLint
+                </a>{" "}
+                , and{" "}
+                <a
+                  href="https://v2.parceljs.org/"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Parcel
+                </a>
+                . {"I'm"} starting to use{" "}
+                <a
+                  href="https://webpack.js.org/"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Webpack
+                </a>{" "}
+                too as {"it's"} required for some React SSR frameworks like{" "}
+                <a href="https://nextjs.org/" target="_blank" rel="noreferrer">
+                  Next.js
+                </a>
               </p>
               <Link
                 to="/project"
