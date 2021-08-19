@@ -142,10 +142,6 @@ a {
   color: hsl(169, 38%, 38%);
 }
 
-p a:hover {
-  text-decoration: underline;
-}
-
 a.button-like,
 .email-form button {
   transition: background 500ms;
@@ -158,16 +154,6 @@ a.button-like,
   border-radius: 50px;
   box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.25);
   cursor: pointer;
-}
-
-a.button-like:hover,
-a.button-like:focus,
-.email-form button:hover,
-.email-form button:focus {
-  background: none !important;
-  border: 1px solid hsla(169, 38%, 38%, 1);
-  color: hsla(169, 38%, 38%, 1);
-  transition: all 500ms;
 }
 
 .page.project .button-like.back-to-top {
@@ -342,12 +328,6 @@ nav ul li:nth-child(2) .coming-soon {
   color: hsl(46, 25%, 83%);
 }
 
-.main-menu li a:hover > .navbar-underline {
-  opacity: 1;
-  width: 100%;
-  transition: width 300ms;
-}
-
 .navbar-underline {
   transition: width 300ms;
   margin-top: calc(0.5 * var(--vh));
@@ -394,12 +374,6 @@ Vertical Navigation
   transition: font-size 400ms, color 400ms;
   color: hsla(169, 38%, 38%, 0.3);
   cursor: pointer;
-}
-
-.vnav li a:hover {
-  color: hsla(169, 38%, 38%, 1);
-  font-size: 1.3vw;
-  transition: all 400ms;
 }
 
 .push-vnav {
@@ -771,13 +745,6 @@ Project Page
   transition: all 200ms !important;
 }
 
-.project-img button:hover {
-  visibility: visible;
-  opacity: 1;
-  background: #080808;
-  transition: all 200ms;
-}
-
 .project-tags {
   margin-top: calc(1 * var(--vh));
   display: flex;
@@ -973,13 +940,6 @@ a.do-referral {
   right: 2vw;
   max-height: calc(10 * var(--vh));
   /* border: 1px solid black; */
-}
-
-.do-referral img:hover {
-  transform: translate3d(-10%, 0, 0);
-  transition: all 400ms;
-
-  filter: drop-shadow(-3px 0px 8px #9fc7ff);
 }
 
 .do-referral img {
@@ -1246,6 +1206,48 @@ because this class is used with javascript along with classList.add() method
   transition: all 1s;
 }
 
+@media (hover: hover) {
+  p a:hover {
+    text-decoration: underline;
+  }
+
+  .main-menu li a:hover > .navbar-underline {
+    opacity: 1;
+    width: 100%;
+    transition: width 300ms;
+  }
+
+  .vnav li a:hover {
+    color: hsla(169, 38%, 38%, 1);
+    font-size: 1.3vw;
+    transition: all 400ms;
+  }
+
+  a.button-like:hover,
+  a.button-like:focus,
+  .email-form button:hover,
+  .email-form button:focus {
+    background: none !important;
+    border: 1px solid hsla(169, 38%, 38%, 1);
+    color: hsla(169, 38%, 38%, 1);
+    transition: all 500ms;
+  }
+
+  .project-img button:hover {
+    visibility: visible;
+    opacity: 1;
+    background: #080808;
+    transition: all 200ms;
+  }
+
+  .do-referral img:hover {
+    transform: translate3d(-10%, 0, 0);
+    transition: all 400ms;
+
+    filter: drop-shadow(-3px 0px 8px #9fc7ff);
+  }
+}
+
 /*
 
 END OF DESKTOP
@@ -1431,12 +1433,6 @@ Email Form
     font-size: 4vw;
   }
 
-  .vnav li a:hover {
-    color: hsla(169, 38%, 38%, 1);
-    font-size: 4.2vw;
-    transition: all 400ms;
-  }
-
   /* 
   
   !Important ALERT!!!
@@ -1587,10 +1583,6 @@ Email Form
     position: static !important;
   }
 
-  .do-referral img:hover {
-    transform: translate3d(0, 0, 0);
-  }
-
   /* 
   
   styles for  react CSSTransition component
@@ -1706,6 +1698,18 @@ Email Form
     -webkit-transition: all 500ms;
     -moz-transition: all 500ms;
     -ms-transition: all 500ms;
+  }
+
+  @media (hover: hover) {
+    .vnav li a:hover {
+      color: hsla(169, 38%, 38%, 1);
+      font-size: 4.2vw;
+      transition: all 400ms;
+    }
+
+    .do-referral img:hover {
+      transform: translate3d(0, 0, 0);
+    }
   }
 }
 
