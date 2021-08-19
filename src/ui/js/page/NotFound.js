@@ -95,11 +95,11 @@ const NotFound = ({
                 <span>{countDown}</span>
               </p>
               <div className="text">
-                <h4>ERROR - NOT FOUND</h4>
+                <h4>404 - NOT FOUND</h4>
                 <h1>
                   Oops, it seems like you lost in space
                   <span role="img" aria-label="emergency">
-                    🚨
+                    🚀
                   </span>
                 </h1>
               </div>{" "}

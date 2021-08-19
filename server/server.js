@@ -189,13 +189,9 @@ app.use("*", async (req, res) => {
   let context = {};
   let componentData = null;
 
-  if (!matchRoute) {
-    context.test = "hi";
-  } else {
-    if (typeof matchRoute.component.fetchProjects === "function") {
-      componentData = await matchRoute.component.fetchProjects();
-      context.data = componentData;
-    }
+  if (typeof matchRoute.component.fetchProjects === "function") {
+    componentData = await matchRoute.component.fetchProjects();
+    context.data = componentData;
   }
 
   let appHTML = ReactDOMServer.renderToString(

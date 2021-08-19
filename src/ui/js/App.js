@@ -1,15 +1,16 @@
 import { Fragment, useState, useLayoutEffect, useEffect } from "react";
 import { Route, Switch } from "react-router-dom";
+import { lazy, LazyBoundary } from "react-imported-component";
 
 import { Helmet } from "react-helmet";
 import BrowsersHeight from "./utils/BrowsersHeight";
 import ThemeMiddle from "./utils/ThemeMiddle";
 
-import Homepage from "./page/Homepage";
-import Project from "./page/Project";
-import Contacts from "./page/Contacts";
-import NotFound from "./page/NotFound";
 import Navbar from "./layout/Navbar";
+const Homepage = lazy(() => import("./page/Homepage"));
+const Project = lazy(() => import("./page/Project"));
+const Contacts = lazy(() => import("./page/Contacts"));
+const NotFound = lazy(() => import("./page/NotFound"));
 import Footer from "./layout/Footer";
 
 import { useLocation } from "react-router-dom";
@@ -53,7 +54,7 @@ const App = () => {
   }, []);
 
   useEffect(() => {
-    window.matchMedia("(prefers-color-scheme: light)").matches;
+    toggle(window.matchMedia("(prefers-color-scheme: light)").matches);
   }, []);
 
   useEffect(() => {
@@ -70,95 +71,126 @@ const App = () => {
   }, [path]);
 
   return (
-    <BrowsersHeight.Provider value={browserHeight}>
-      <ThemeMiddle currentlyLightTheme={currentlyLightTheme} toggle={toggle} />
-      <Navbar
-        showNav={showNav}
-        toggleActive={toggleActive}
-        currentlyLightTheme={currentlyLightTheme}
-      />
-      <Switch>
-        <Route
-          path="/contacts"
-          exact={true}
-          render={() => {
-            return (
-              <Fragment>
-                <Helmet defaultTitle="Alief Dany | Contacts 📲">
-                  <meta charSet="utf-8" />
-                </Helmet>
-                <Contacts
-                  toggleNav={toggleNav}
-                  showNav={showNav}
-                  active={active}
-                  currentlyLightTheme={currentlyLightTheme}
-                />
-              </Fragment>
-            );
+    <LazyBoundary
+      fallback={
+        <div
+          style={{
+            width: "99%",
+            height: "calc(100 * var(--vh))",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
           }}
+        >
+          <div
+            style={{
+              color: currentlyLightTheme
+                ? "hsl(48, 12%, 25%)"
+                : "hsl(46, 25%, 83%)",
+            }}
+            className="loader-text animate__animated animate__pulse animate__infinite animate__slow"
+          >
+            Please Wait{" "}
+            <span role="img" aria-label="coffee emoji">
+              ☕
+            </span>
+          </div>
+        </div>
+      }
+    >
+      <BrowsersHeight.Provider value={browserHeight}>
+        <ThemeMiddle
+          currentlyLightTheme={currentlyLightTheme}
+          toggle={toggle}
         />
-        <Route
-          path="/project"
-          exact={true}
-          render={(staticContext) => {
-            return (
-              <Fragment>
-                <Helmet defaultTitle="Alief Dany | Projects 👨‍💻">
-                  <meta charSet="utf-8" />
-                </Helmet>
-                <Project
-                  toggleNav={toggleNav}
-                  showNav={showNav}
-                  active={active}
-                  currentlyLightTheme={currentlyLightTheme}
-                  staticContext={staticContext.staticContext}
-                />
-              </Fragment>
-            );
-          }}
+        <Navbar
+          showNav={showNav}
+          toggleActive={toggleActive}
+          currentlyLightTheme={currentlyLightTheme}
         />
-        <Route path="/" exact={true}>
-          <Helmet defaultTitle="Alief Dany | Home 🏠">
-            <meta charSet="utf-8" />
-          </Helmet>
-
-          <Homepage
-            animate2={animate2}
-            animate3={animate3}
-            toggleActive={toggleActive}
-            toggleAnimate2={toggleAnimate2}
-            toggleAnimate3={toggleAnimate3}
-            toggleNav={toggleNav}
-            showNav={showNav}
-            active={active}
-            currentlyLightTheme={currentlyLightTheme}
+        <Switch>
+          <Route
+            path="/contacts"
+            exact={true}
+            render={() => {
+              return (
+                <Fragment>
+                  <Helmet defaultTitle="Alief Dany | Contacts 📲">
+                    <meta charSet="utf-8" />
+                  </Helmet>
+                  <Contacts
+                    toggleNav={toggleNav}
+                    showNav={showNav}
+                    active={active}
+                    currentlyLightTheme={currentlyLightTheme}
+                  />
+                </Fragment>
+              );
+            }}
           />
-          <EmailForm currentlyLightTheme={currentlyLightTheme} />
-        </Route>
-        <Route
-          render={(staticContext) => {
-            if (staticContext) {
-              staticContext.notfound = true;
-            }
-            return (
-              <Fragment>
-                <Helmet defaultTitle="Alief Dany | 404 🚨">
-                  <meta charSet="utf-8" />
-                </Helmet>
-                <NotFound
-                  toggleNav={toggleNav}
-                  showNav={showNav}
-                  active={active}
-                  currentlyLightTheme={currentlyLightTheme}
-                  toggleActive={toggleActive}
-                />
-              </Fragment>
-            );
-          }}
-        />
-      </Switch>
-      <Footer />
-    </BrowsersHeight.Provider>
+          <Route
+            path="/project"
+            exact={true}
+            render={(staticContext) => {
+              return (
+                <Fragment>
+                  <Helmet defaultTitle="Alief Dany | Projects 👨‍💻">
+                    <meta charSet="utf-8" />
+                  </Helmet>
+                  <Project
+                    toggleNav={toggleNav}
+                    showNav={showNav}
+                    active={active}
+                    currentlyLightTheme={currentlyLightTheme}
+                    staticContext={staticContext.staticContext}
+                  />
+                </Fragment>
+              );
+            }}
+          />
+          <Route path="/" exact={true}>
+            <Helmet defaultTitle="Alief Dany | Home 🏠">
+              <meta charSet="utf-8" />
+            </Helmet>
+
+            <Homepage
+              animate2={animate2}
+              animate3={animate3}
+              toggleActive={toggleActive}
+              toggleAnimate2={toggleAnimate2}
+              toggleAnimate3={toggleAnimate3}
+              toggleNav={toggleNav}
+              showNav={showNav}
+              active={active}
+              currentlyLightTheme={currentlyLightTheme}
+            />
+            <EmailForm currentlyLightTheme={currentlyLightTheme} />
+          </Route>
+          <Route
+            render={(staticContext) => {
+              if (staticContext) {
+                staticContext.notfound = true;
+              }
+              return (
+                <Fragment>
+                  <Helmet defaultTitle="Alief Dany | 404 👽">
+                    <meta charSet="utf-8" />
+                  </Helmet>
+                  <NotFound
+                    toggleNav={toggleNav}
+                    showNav={showNav}
+                    active={active}
+                    currentlyLightTheme={currentlyLightTheme}
+                    toggleActive={toggleActive}
+                  />
+                </Fragment>
+              );
+            }}
+          />
+        </Switch>
+        <Footer />
+      </BrowsersHeight.Provider>
+    </LazyBoundary>
   );
 };
 
