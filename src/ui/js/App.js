@@ -5,16 +5,15 @@ import { lazy, LazyBoundary } from "react-imported-component";
 import { Helmet } from "react-helmet";
 import BrowsersHeight from "./utils/BrowsersHeight";
 import ThemeMiddle from "./utils/ThemeMiddle";
+import { useLocation } from "react-router-dom";
 
-import Navbar from "./layout/Navbar";
+const Navbar = lazy(() => import("./layout/Navbar"));
+const Footer = lazy(() => import("./layout/Footer"));
+const EmailForm = lazy(() => import("./layout/EmailForm"));
 const Homepage = lazy(() => import("./page/Homepage"));
 const Project = lazy(() => import("./page/Project"));
 const Contacts = lazy(() => import("./page/Contacts"));
 const NotFound = lazy(() => import("./page/NotFound"));
-import Footer from "./layout/Footer";
-
-import { useLocation } from "react-router-dom";
-import EmailForm from "./layout/EmailForm";
 
 const usePathname = () => {
   const location = useLocation();
