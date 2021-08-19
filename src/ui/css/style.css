@@ -672,7 +672,7 @@ Project Page
 }
 
 .content.project {
-  margin: calc(15 * var(--vh)) 0;
+  margin: calc(15 * var(--vh)) 0 calc(5 * var(--vh)) 0;
   top: 0;
   left: 50%;
   flex-direction: column;
