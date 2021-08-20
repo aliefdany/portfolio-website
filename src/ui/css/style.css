@@ -344,12 +344,13 @@ nav ul li:nth-child(2) .coming-soon {
 Vertical Navigation
 
  */
+
 .vnav {
   position: fixed;
   top: calc(20 * var(--vh));
   left: 10vw;
-  transform: translate3d(0, 0, 0);
 
+  transform: translate3d(0, 20%, 0);
   width: 2vw;
   height: calc(50 * var(--vh));
   display: flex;
@@ -359,6 +360,11 @@ Vertical Navigation
   z-index: 5;
   transition: transform 500ms;
   /* border: 1px solid black; */
+}
+
+.push-vnav {
+  transform: translate3d(0, 0, 0);
+  transition: all 500ms;
 }
 
 .vnav li {
@@ -374,11 +380,6 @@ Vertical Navigation
   transition: font-size 400ms, color 400ms;
   color: hsla(169, 38%, 38%, 0.3);
   cursor: pointer;
-}
-
-.push-vnav {
-  transform: translate3d(0, 20%, 0) !important;
-  transition: all 500ms;
 }
 
 /* 
@@ -547,6 +548,8 @@ Homepage 3
   flex-direction: column;
   justify-content: space-between;
   height: calc(60 * var(--vh));
+  opacity: 0;
+  visibility: hidden;
 }
 
 .contacts-link {
@@ -596,6 +599,8 @@ Project Page
   /* border: 1px solid black; */
   width: 35vw;
   flex-shrink: 0;
+  opacity: 0;
+  visibility: hidden;
 }
 
 .project-showcase {
@@ -664,11 +669,15 @@ Project Page
 .project-card {
   padding-bottom: calc(5 * var(--vh));
   display: flex;
+  transform: translate3d(0%, 0, 0);
+  transition: transform 500ms;
   /* border: 1px solid white; */
 }
 
 .cards {
   margin-top: calc(5 * var(--vh));
+  opacity: 0;
+  visibility: hidden;
 }
 
 .project-preview {
@@ -1109,10 +1118,10 @@ Transition
   visibility: visible;
   opacity: 1;
 
-  transition: all 500ms;
-  -webkit-transition: all 500ms;
-  -moz-transition: all 500ms;
-  -ms-transition: all 500ms;
+  transition: all 600ms;
+  -webkit-transition: all 600ms;
+  -moz-transition: all 600ms;
+  -ms-transition: all 600ms;
 }
 
 .animate-left-enter-done,
@@ -1245,6 +1254,10 @@ because this class is used with javascript along with classList.add() method
     transition: all 400ms;
 
     filter: drop-shadow(-3px 0px 8px #9fc7ff);
+  }
+  .project-card:hover {
+    transform: translate3d(5%, 0, 0);
+    transition: all 500ms;
   }
 }
 

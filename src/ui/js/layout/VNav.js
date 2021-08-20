@@ -1,14 +1,12 @@
 import { useEffect, useLayoutEffect, useState } from "react";
-import { CSSTransition } from "react-transition-group";
 import { Link } from "react-scroll";
 
 const VNav = ({ active, showNav, VNavArr }) => {
   const [classCache, setCache] = useState(active);
 
-  // ??
   useLayoutEffect(() => {
     handleActive();
-  });
+  }, [active]);
 
   useEffect(() => {
     pushVnav();
@@ -16,7 +14,7 @@ const VNav = ({ active, showNav, VNavArr }) => {
 
   function pushVnav() {
     const vnav = document.querySelector(".vnav");
-    if (showNav) {
+    if (!showNav) {
       vnav.classList.add("push-vnav");
     } else {
       vnav.classList.remove("push-vnav");
@@ -35,19 +33,17 @@ const VNav = ({ active, showNav, VNavArr }) => {
   }
 
   return (
-    <CSSTransition in={true} timeout={400} classNames="animate-left" appear>
-      <ul className="vnav">
-        {VNavArr.map((item) => {
-          return (
-            <li key={item}>
-              <Link className={item} to={item}>
-                —{item.charAt(0).toUpperCase() + item.slice(1)}
-              </Link>
-            </li>
-          );
-        })}
-      </ul>
-    </CSSTransition>
+    <ul className="vnav">
+      {VNavArr.map((item) => {
+        return (
+          <li key={item}>
+            <Link className={item} to={item}>
+              —{item.charAt(0).toUpperCase() + item.slice(1)}
+            </Link>
+          </li>
+        );
+      })}
+    </ul>
   );
 };
 

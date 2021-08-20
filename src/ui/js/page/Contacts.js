@@ -10,11 +10,18 @@ const Contacts = ({ toggleNav, showNav, active, currentlyLightTheme }) => {
   const contacts = useRef();
   const browsersHeight = useContext(BrowsersHeight);
   const [ssr, setSSR] = useState(true);
+  const [animate, setAnimate] = useState(false);
 
   let linkColor = {
     color:
       currentlyLightTheme && !ssr ? "hsl(48, 12%, 25%)" : "hsl(46, 25%, 83%)",
   };
+
+  useEffect(() => {
+    setTimeout(() => {
+      setAnimate(true);
+    }, 50);
+  }, []);
 
   useEffect(() => {
     setSSR(false);
@@ -51,14 +58,9 @@ const Contacts = ({ toggleNav, showNav, active, currentlyLightTheme }) => {
       <div ref={contacts} className="separator" id="contacts"></div>
       <div className="page">
         <ScrollToTopOnMount />
-        <ContactsBG />
+        <ContactsBG animate={animate} />
         <div className="content">
-          <CSSTransition
-            in={true}
-            timeout={400}
-            classNames="animate-left"
-            appear
-          >
+          <CSSTransition in={animate} timeout={1000} classNames="animate-left">
             <div className="text">
               <h4>LETS CONNECT</h4>
               <h1>
@@ -77,12 +79,7 @@ const Contacts = ({ toggleNav, showNav, active, currentlyLightTheme }) => {
               </p>
             </div>
           </CSSTransition>
-          <CSSTransition
-            in={true}
-            timeout={400}
-            classNames="animate-right"
-            appear
-          >
+          <CSSTransition in={animate} timeout={1000} classNames="animate-right">
             <div className="contacts-list">
               <div className="contacts-link">
                 <GitHub currentlyLightTheme={currentlyLightTheme} ssr={ssr} />

@@ -30,9 +30,17 @@ const Homepage = ({
   const browsersHalfHeight = useContext(BrowsersHeight) / 2;
 
   const [ssr, setSSR] = useState(true);
+  const [animate, setAnimate] = useState(false);
+
   const linkBg = {
     background: currentlyLightTheme && !ssr ? "hsl(169, 38%, 38%)" : "#012a1c",
   };
+
+  useEffect(() => {
+    setTimeout(() => {
+      setAnimate(true);
+    }, 50);
+  }, []);
 
   useEffect(() => {
     setSSR(false);
@@ -90,14 +98,9 @@ const Homepage = ({
       <div ref={page1} className="separator first" id="intro"></div>
       <div className="page">
         <ScrollToTopOnMount />
-        <Homepage1BG />
+        <Homepage1BG animate={animate} />
         <div className="content greeting">
-          <CSSTransition
-            in={true}
-            timeout={400}
-            classNames="animate-left"
-            appear
-          >
+          <CSSTransition in={animate} timeout={1000} classNames="animate-left">
             <div className="text">
               <h4>GREETINGS</h4>
               <h1>
@@ -154,12 +157,7 @@ const Homepage = ({
               </ScrollLink>
             </div>
           </CSSTransition>
-          <CSSTransition
-            in={true}
-            timeout={400}
-            classNames="animate-right"
-            appear
-          >
+          <CSSTransition in={animate} timeout={1000} classNames="animate-right">
             <img
               src="https://ik.imagekit.io/aliefseventri/Projects/Web_Portfolio/my-potrait_bDJvstrU0.png?updatedAt=1626881586779&ik-s=fa0534ddb44947d4142e421aab1bf6d9e711b24e"
               alt="potrait of Alief Dany"
@@ -180,7 +178,7 @@ const Homepage = ({
         <div className="content">
           <CSSTransition
             in={animate2}
-            timeout={400}
+            timeout={1000}
             classNames="animate-left"
             appear
           >
@@ -192,7 +190,7 @@ const Homepage = ({
           </CSSTransition>
           <CSSTransition
             in={animate2}
-            timeout={400}
+            timeout={1000}
             classNames="animate-right"
             appear
           >
@@ -231,7 +229,7 @@ const Homepage = ({
         <div className="content">
           <CSSTransition
             in={animate3}
-            timeout={400}
+            timeout={1000}
             classNames="animate-left"
             appear
           >

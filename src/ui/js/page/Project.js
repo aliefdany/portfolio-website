@@ -20,6 +20,7 @@ const Project = ({
     staticContext ? staticContext.data : []
   );
   const [ssr, setSSR] = useState(true);
+  const [animate, setAnimate] = useState(false);
   const project = useRef();
   const browserHalfHeight = useContext(BrowsersHeight) * 0.6;
   const linkBg = {
@@ -37,6 +38,12 @@ const Project = ({
     [browserHalfHeight],
     project
   );
+
+  useEffect(() => {
+    setTimeout(() => {
+      setAnimate(true);
+    }, 50);
+  }, []);
 
   useEffect(() => {
     (async () => {
@@ -70,14 +77,9 @@ const Project = ({
       <div ref={project} className="separator" id="project"></div>
       <div className="page project">
         <ScrollToTopOnMount />
-        <ProjectBG />
+        <ProjectBG animate={animate} />
         <div className="content project">
-          <CSSTransition
-            in={true}
-            timeout={400}
-            classNames="animate-left"
-            appear
-          >
+          <CSSTransition in={animate} timeout={1000} classNames="animate-left">
             <div className="project-text">
               <h4>MY WORK</h4>
               <h1>
@@ -143,12 +145,7 @@ const Project = ({
               </p>
             </div>
           </CSSTransition>
-          <CSSTransition
-            in={true}
-            timeout={400}
-            classNames="animate-left"
-            appear
-          >
+          <CSSTransition in={animate} timeout={1000} classNames="animate-left">
             <div className="cards">
               {projects.map((project) => {
                 return (
