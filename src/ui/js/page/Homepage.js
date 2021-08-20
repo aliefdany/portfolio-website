@@ -292,6 +292,10 @@ const Homepage = ({
                 <a href="https://eslint.org/" target="_blank" rel="noreferrer">
                   ESLint
                 </a>{" "}
+                ,{" "}
+                <a href="https://babeljs.io/" target="_blank" rel="noreferrer">
+                  Babel
+                </a>
                 , and{" "}
                 <a
                   href="https://v2.parceljs.org/"
