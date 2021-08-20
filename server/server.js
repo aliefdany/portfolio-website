@@ -167,7 +167,7 @@ app.disable("x-powered-by");
 
 // serve static assets
 app.get(
-  /\.(js|css|map|ico)$/,
+  /\.(js|css|map|svg)$/,
   express.static(path.resolve(__dirname, "../build"))
 );
 
