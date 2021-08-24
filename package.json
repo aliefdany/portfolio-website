@@ -53,6 +53,7 @@
     "prettier": "^2.3.2"
   },
   "dependencies": {
+    "@frontendmasters/pet": "^1.0.3",
     "@n8tb1t/use-scroll-position": "^2.0.3",
     "axios": "^0.21.1",
     "cors": "^2.8.5",

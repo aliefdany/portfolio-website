@@ -2,6 +2,7 @@ import express from "express";
 import cors from "cors";
 import { connect } from "./utils/db";
 import projectRouter from "./resources/project/project.router";
+import petsRouter from "./resources/project/pets/pets.router";
 import { Project } from "./resources/project/project.model";
 import fs from "fs";
 import path from "path";
@@ -172,6 +173,7 @@ app.get(
 );
 
 app.use("/api/project", projectRouter);
+app.use("/api/pets", petsRouter);
 
 app.get("/robots.txt", (req, res) => {
   let robots = fs.readFileSync(path.resolve(__dirname, "../robots.txt"), {
