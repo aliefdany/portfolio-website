@@ -17,6 +17,48 @@ async function createDocument() {
   // if (!(await Project.find({ title: "Whatson Indonesia" }))) {
   //   return;
   // }
+
+  await Project.create({
+    title: "HappyStore",
+    preview:
+      "My debut performance as a professional fullstack software developer, developed with PERN stack architecture, HappyStore is an e-commerce website that selling majority of female's trendy shoes",
+    overview: [],
+    logoURL:
+      "https://ik.imagekit.io/aliefseventri/Projects/HappyStore/happystorelogo_A8fRAYI3M.png?updatedAt=1669085360770&ik-s=0c82f1194abe1a5915e38022843b78baa65ded93",
+    imageURL: [
+      "https://ik.imagekit.io/aliefseventri/Projects/HappyStore/Screenshot_from_2022-11-22_09-26-22_puOitPnbsn.png?updatedAt=1669084881416&ik-s=778337535dcabff3c1336f53e36c5fc566307a67",
+      "https://ik.imagekit.io/aliefseventri/Projects/HappyStore/Screenshot_from_2022-11-22_09-27-48_U_9GbWlXi.png?updatedAt=1669084881850&ik-s=f29deed98729bf89690a6e9f86e796dcae028eb5",
+      "https://ik.imagekit.io/aliefseventri/Projects/HappyStore/Screenshot_from_2022-11-22_09-27-48_U_9GbWlXi.png?updatedAt=1669084881850&ik-s=f29deed98729bf89690a6e9f86e796dcae028eb5",
+      "https://ik.imagekit.io/aliefseventri/Projects/HappyStore/Screenshot_from_2022-11-22_09-36-10_rcsMngEEt.png?updatedAt=1669084879106&ik-s=e1bf400664ce76bc538011b29e8e5aead9793f11",
+      "https://ik.imagekit.io/aliefseventri/Projects/HappyStore/Screenshot_from_2022-11-22_09-36-57_hpzBWJohF.png?updatedAt=1669084880472&ik-s=245ea51a959949050211f385755f9259043b032d",
+      "https://ik.imagekit.io/aliefseventri/Projects/HappyStore/Screenshot_from_2022-11-22_09-37-15_AK0356FfL.png?updatedAt=1669084880366&ik-s=087cc2dc8a7c92dac9603bbcb9182fe9c41e3e7a",
+      "https://ik.imagekit.io/aliefseventri/Projects/HappyStore/Screenshot_from_2022-11-22_09-29-58_RIHmVm1qSV.png?updatedAt=1669084878919&ik-s=2daf014291131299dc55f824487ffe92355de639",
+      "https://ik.imagekit.io/aliefseventri/Projects/HappyStore/Screenshot_from_2022-11-22_09-30-11_SaOzc1woM.png?updatedAt=1669084878644&ik-s=d9d9f62e390899275d43031bd97355a0be623c62",
+      "https://ik.imagekit.io/aliefseventri/Projects/HappyStore/Screenshot_from_2022-11-22_09-37-57_mZ9kkpf15o.png?updatedAt=1669084882194&ik-s=d6dbedd61b0f3cabea547e0103dd033711f7789c",
+    ],
+    done: true,
+    siteLink: "https://happystore.id",
+    repoLink: "",
+    tags: [
+      {
+        tag: "React",
+        color: "#1ABCFE",
+      },
+      {
+        tag: "Node",
+        color: "#0ACF83",
+      },
+      {
+        tag: "Express",
+        color: "#00713A",
+      },
+      {
+        tag: "PostgreSQL",
+        color: "#007070",
+      },
+    ],
+  });
+
   await Project.create({
     title: "Whatson Indonesia",
     preview:

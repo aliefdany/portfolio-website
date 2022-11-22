@@ -31,11 +31,9 @@ const projectSchema = new mongoose.Schema({
   },
   siteLink: {
     type: String,
-    required: false,
   },
   repoLink: {
     type: String,
-    required: true,
   },
   tags: [
     {
