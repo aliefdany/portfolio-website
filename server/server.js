@@ -14,9 +14,9 @@ import routes from "./utils/routes";
 import App from "../dist-server/ui/js/App";
 
 async function createDocument() {
-  if (!(await Project.find({ title: "Whatson Indonesia" }))) {
-    return;
-  }
+  // if (!(await Project.find({ title: "Whatson Indonesia" }))) {
+  //   return;
+  // }
   await Project.create({
     title: "Whatson Indonesia",
     preview:
@@ -158,6 +158,8 @@ async function createDocument() {
       },
     ],
   });
+
+  console.log("created new project");
 }
 
 export const app = express();
@@ -233,8 +235,8 @@ app.use("*", async (req, res) => {
 export const start = async () => {
   try {
     await connect();
+    await createDocument();
     app.listen(3000, () => {
-      // createDocument();
       console.log("REST API on http:localhost:3000/api");
     });
   } catch (e) {

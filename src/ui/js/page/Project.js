@@ -189,7 +189,7 @@ function ScrollToTopOnMount() {
 }
 
 Project.fetchProjects = () => {
-  return axios.get("https://aliefdany.me/api/project").then((res) => {
+  return axios.get("http://localhost:3000/api/project").then((res) => {
     return res.data;
   });
 };
