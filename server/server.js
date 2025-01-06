@@ -46,12 +46,8 @@ async function createDocument() {
         color: "#0ACF83",
       },
       {
-        tag: "Postgresql",
+        tag: "PostgreSQL",
         color: "#00713A",
-      },
-      {
-        tag: "Cloudflare Pages",
-        color: "#007070",
       },
     ],
   });
@@ -75,7 +71,7 @@ async function createDocument() {
     tags: [
       {
         tag: "Python",
-        color: "#1ABCFE",
+        color: "#0ACF83",
       },
       {
         tag: "Streamlit",
