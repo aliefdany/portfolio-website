@@ -14,9 +14,75 @@ import routes from "./utils/routes";
 import App from "../dist-server/ui/js/App";
 
 async function createDocument() {
-  // if (!(await Project.find({ title: "Whatson Indonesia" }))) {
-  //   return;
-  // }
+  const data = await Project.find({});
+  if (data.length) {
+    return;
+  }
+
+  await Project.create({
+    title: "Gradswithus",
+    preview:
+      "My freelance experience of building a website for local graduation photography service 'Gradswithus'. It helped them to showcase their services and photography catalog and provide easy way for customer to reserve a graduation photo session. This project was built using NextJS 14 with static export, TailwindCSS, PostgreSQL, and Cloudflare Pages.",
+    overview: [],
+    logoURL:
+      "https://ik.imagekit.io/aliefseventri/Projects/Gradswithus/Screenshot%20from%202025-01-06%2020-00-12_bA4uK1YFF.png?updatedAt=1736168439651&ik-s=e599a43e5ebccdc5e18933092b06acc43fe6e0f3",
+    imageURL: [
+      "https://ik.imagekit.io/aliefseventri/Projects/Gradswithus/0.png?updatedAt=1736167480831&ik-s=033e2936c6ff7db881f7d7c3c963c2dd982320c0",
+      "https://ik.imagekit.io/aliefseventri/Projects/Gradswithus/Screenshot%20from%202025-01-06%2019-39-36_EBUs3UtAs.png?updatedAt=1736167375361&ik-s=ae1a947a43251efbf56041a7d0082b96e0b0126d",
+      "https://ik.imagekit.io/aliefseventri/Projects/Gradswithus/Screenshot%20from%202025-01-06%2019-40-33_qj9-4U9Jg.png?updatedAt=1736167374195&ik-s=32713a0ce045780a85e149d883ef6be1fc180175",
+      "https://ik.imagekit.io/aliefseventri/Projects/Gradswithus/Screenshot%20from%202025-01-06%2019-41-37_udfjgmplP.png?updatedAt=1736167374732&ik-s=df71ad8b0893722e0401e74090bd753c1d65bb47",
+      "https://ik.imagekit.io/aliefseventri/Projects/Gradswithus/Screenshot%20from%202025-01-06%2019-40-53_xFh-n1aAB.png?updatedAt=1736167373012&ik-s=e69cf299788ab1d77b2fcf521bf60100466870d3",
+    ],
+    done: true,
+    siteLink: "https://grads.withus.pictures",
+    repoLink: "",
+    tags: [
+      {
+        tag: "NextJS",
+        color: "#1ABCFE",
+      },
+      {
+        tag: "TailwindCSS",
+        color: "#0ACF83",
+      },
+      {
+        tag: "Postgresql",
+        color: "#00713A",
+      },
+      {
+        tag: "Cloudflare Pages",
+        color: "#007070",
+      },
+    ],
+  });
+
+  await Project.create({
+    title: "Churn Prediction Dashboard",
+    preview:
+      "This project was a part of a national Data Science competition where i built a web based dashboard with Python framework called Streamlit to deploy machine learning models that has a functionality to predict customer churn in a telecommunication company and gives recommendation based on it. My team was the first winner of this competition.",
+    overview: [],
+    logoURL:
+      "https://ik.imagekit.io/aliefseventri/Projects/Churn%20Prediction%20Dashboard/dsw_CRObvJ5-5.png?updatedAt=1736169332666&ik-s=4d90e5db3278c67b5a2d1ee3d8c79f3c6c8400f8",
+    imageURL: [
+      "https://ik.imagekit.io/aliefseventri/Projects/Churn%20Prediction%20Dashboard/Screenshot%20from%202025-01-06%2020-10-22_W_6pPY9Us.png?updatedAt=1736169264655&ik-s=69ebb156be42d7a274df8b6a1ab224204667e08e",
+      "https://ik.imagekit.io/aliefseventri/Projects/Churn%20Prediction%20Dashboard/Screenshot%20from%202025-01-06%2020-05-45_Z34lxOHP6.png?updatedAt=1736169265563&ik-s=7449f60756405b110ad1986f658606da3aa5bc90",
+      "https://ik.imagekit.io/aliefseventri/Projects/Churn%20Prediction%20Dashboard/Screenshot%20from%202025-01-06%2020-09-13_L2MB0IsZA.png?updatedAt=1736169265443&ik-s=df840225ae3fd2ba90b236a83fd62692497c693f",
+      "https://ik.imagekit.io/aliefseventri/Projects/Churn%20Prediction%20Dashboard/Screenshot%20from%202025-01-06%2020-09-22_OGxX1LVau.png?updatedAt=1736169265300&ik-s=ddefd5f4e3624f614e0724a92a1c5aa94bc23cf9",
+    ],
+    done: true,
+    siteLink: "https://dsw-churn-prediction.streamlit.app/",
+    repoLink: "",
+    tags: [
+      {
+        tag: "Python",
+        color: "#1ABCFE",
+      },
+      {
+        tag: "Streamlit",
+        color: "#c71400",
+      },
+    ],
+  });
 
   await Project.create({
     title: "HappyStore",
@@ -59,81 +125,42 @@ async function createDocument() {
     ],
   });
 
-  await Project.create({
-    title: "Whatson Indonesia",
-    preview:
-      "The idea of this site is come from myself. it is a project for making an indonesia’s wiki. user can search and browse information about indonesia in a cooler way!",
-    overview: [
-      "The idea of this product is to makes people easier and convenient whenever they wants to look up information about indonesia, the culture, tourism, etc.",
-      "The design itself was made using figma. currently this website is work in progress to be made online. i code this web using ReactJS, basic CSS, node.js, and mongoDB for the database. share your thought!",
-    ],
-    logoURL:
-      "https://ik.imagekit.io/aliefseventri/Projects/Whatson_Indonesia/WOID-logo-raster_Njobajd87.png?updatedAt=1626883684448&ik-s=cdc573e3d7fb5e58452b386986ab3a43ea45fac9",
-    imageURL: [
-      "https://ik.imagekit.io/aliefseventri/Projects/Whatson_Indonesia/WOID-LandingPage_BE2aW5ar5.png?updatedAt=1626882782148&ik-s=ad04a8ae8bce7e52c9b87f866c324f551cf3f8d6",
-      "https://ik.imagekit.io/aliefseventri/Projects/Whatson_Indonesia/WOID-Culture_ExImLkNQV.png?updatedAt=1626882785119&ik-s=8eb98e2540edd53eb69eefca0fe4788d26640f4a",
-      "https://ik.imagekit.io/aliefseventri/Projects/Whatson_Indonesia/WOID-Details_sF5oDQ2XU.png?updatedAt=1626882785991&ik-s=7cf61d9c58c189dd4cd309e1c0ae654d81ba995d",
-      "https://ik.imagekit.io/aliefseventri/Projects/Whatson_Indonesia/WOID-Travel_WFk7u9akw.png?updatedAt=1626882786953&ik-s=503de285502c988bd7351f8e5387cf8c5e4d940f",
-      "https://ik.imagekit.io/aliefseventri/Projects/Whatson_Indonesia/WOID-TraditionExpand_CBffqQmFx.png?updatedAt=1626882784180&ik-s=1499f75d7233870bfbd6990da638151bada31d35",
-      "https://ik.imagekit.io/aliefseventri/Projects/Whatson_Indonesia/WOID-Culinary_Y3nGA1TBg.png?updatedAt=1626882783407&ik-s=28177de93f22e580ddb26982446340488d311375",
-    ],
-    done: false,
-    siteLink: "",
-    repoLink: "https://github.com/aliefdany/whatson-indonesia",
-    tags: [
-      {
-        tag: "React",
-        color: "#1ABCFE",
-      },
-      {
-        tag: "Node",
-        color: "#0ACF83",
-      },
-      {
-        tag: "CSS",
-        color: "#4285F4",
-      },
-    ],
-  });
-
-  await Project.create({
-    title: "Microsoft Landingpage Redesign",
-    preview:
-      "Its a college projects that i’ve done in second semester of university. It is responsive landing page that built with HTML, CSS, JS, and a little  JQuery",
-    overview: [],
-    logoURL: "",
-    imageURL: [
-      "https://ik.imagekit.io/aliefseventri/Projects/Microsoft_Redesign/microsoft_landingpage_ub1ZcQqQl?updatedAt=1628005637903&ik-s=e8addfef2b86724e50df4790c4ca9d37fade8699",
-      "https://ik.imagekit.io/aliefseventri/Projects/Microsoft_Redesign/microsoft_landingpage-2_BiE8DviN5i6?updatedAt=1629221282646&ik-s=58e21c804d055291eafe333b6467d0f250b18f3e",
-      "https://ik.imagekit.io/aliefseventri/Projects/Microsoft_Redesign/microsoft_landingpage_3_nvQNCNjoD?updatedAt=1629221323188&ik-s=686ba664c9ae694f8622888d2a0893ce0f1181b1",
-      "https://ik.imagekit.io/aliefseventri/Projects/Microsoft_Redesign/microsoft_landingpage_4_-77crl1N2?updatedAt=1629221390415&ik-s=cef58d211722c97d1790815897fb4f879ba283d5",
-    ],
-    done: true,
-    siteLink: "https://aliefdany.github.io/microsoft-landingpage-redesign",
-    repoLink: "https://github.com/aliefdany/microsoft-landingpage-redesign",
-    tags: [
-      {
-        tag: "HTML",
-        color: "#F24E1E",
-      },
-      {
-        tag: "CSS",
-        color: "#4285F4",
-      },
-      {
-        tag: "JS",
-        color: "#A97B00",
-      },
-      {
-        tag: "JQuery",
-        color: "#C69000",
-      },
-      {
-        tag: "Bootstrap",
-        color: "#4285F4",
-      },
-    ],
-  });
+  // await Project.create({
+  //   title: "Whatson Indonesia",
+  //   preview:
+  //     "The idea of this site is come from myself. it is a project for making an indonesia’s wiki. user can search and browse information about indonesia in a cooler way!",
+  //   overview: [
+  //     "The idea of this product is to makes people easier and convenient whenever they wants to look up information about indonesia, the culture, tourism, etc.",
+  //     "The design itself was made using figma. currently this website is work in progress to be made online. i code this web using ReactJS, basic CSS, node.js, and mongoDB for the database. share your thought!",
+  //   ],
+  //   logoURL:
+  //     "https://ik.imagekit.io/aliefseventri/Projects/Whatson_Indonesia/WOID-logo-raster_Njobajd87.png?updatedAt=1626883684448&ik-s=cdc573e3d7fb5e58452b386986ab3a43ea45fac9",
+  //   imageURL: [
+  //     "https://ik.imagekit.io/aliefseventri/Projects/Whatson_Indonesia/WOID-LandingPage_BE2aW5ar5.png?updatedAt=1626882782148&ik-s=ad04a8ae8bce7e52c9b87f866c324f551cf3f8d6",
+  //     "https://ik.imagekit.io/aliefseventri/Projects/Whatson_Indonesia/WOID-Culture_ExImLkNQV.png?updatedAt=1626882785119&ik-s=8eb98e2540edd53eb69eefca0fe4788d26640f4a",
+  //     "https://ik.imagekit.io/aliefseventri/Projects/Whatson_Indonesia/WOID-Details_sF5oDQ2XU.png?updatedAt=1626882785991&ik-s=7cf61d9c58c189dd4cd309e1c0ae654d81ba995d",
+  //     "https://ik.imagekit.io/aliefseventri/Projects/Whatson_Indonesia/WOID-Travel_WFk7u9akw.png?updatedAt=1626882786953&ik-s=503de285502c988bd7351f8e5387cf8c5e4d940f",
+  //     "https://ik.imagekit.io/aliefseventri/Projects/Whatson_Indonesia/WOID-TraditionExpand_CBffqQmFx.png?updatedAt=1626882784180&ik-s=1499f75d7233870bfbd6990da638151bada31d35",
+  //     "https://ik.imagekit.io/aliefseventri/Projects/Whatson_Indonesia/WOID-Culinary_Y3nGA1TBg.png?updatedAt=1626882783407&ik-s=28177de93f22e580ddb26982446340488d311375",
+  //   ],
+  //   done: false,
+  //   siteLink: "",
+  //   repoLink: "https://github.com/aliefdany/whatson-indonesia",
+  //   tags: [
+  //     {
+  //       tag: "React",
+  //       color: "#1ABCFE",
+  //     },
+  //     {
+  //       tag: "Node",
+  //       color: "#0ACF83",
+  //     },
+  //     {
+  //       tag: "CSS",
+  //       color: "#4285F4",
+  //     },
+  //   ],
+  // });
 
   await Project.create({
     title: "Portfolio Website",
@@ -201,7 +228,46 @@ async function createDocument() {
     ],
   });
 
-  console.log("created new project");
+  await Project.create({
+    title: "Microsoft Landingpage Redesign",
+    preview:
+      "Its a college projects that i’ve done in second semester of university. It is responsive landing page that built with HTML, CSS, JS, and a little  JQuery",
+    overview: [],
+    logoURL: "",
+    imageURL: [
+      "https://ik.imagekit.io/aliefseventri/Projects/Microsoft_Redesign/microsoft_landingpage_ub1ZcQqQl?updatedAt=1628005637903&ik-s=e8addfef2b86724e50df4790c4ca9d37fade8699",
+      "https://ik.imagekit.io/aliefseventri/Projects/Microsoft_Redesign/microsoft_landingpage-2_BiE8DviN5i6?updatedAt=1629221282646&ik-s=58e21c804d055291eafe333b6467d0f250b18f3e",
+      "https://ik.imagekit.io/aliefseventri/Projects/Microsoft_Redesign/microsoft_landingpage_3_nvQNCNjoD?updatedAt=1629221323188&ik-s=686ba664c9ae694f8622888d2a0893ce0f1181b1",
+      "https://ik.imagekit.io/aliefseventri/Projects/Microsoft_Redesign/microsoft_landingpage_4_-77crl1N2?updatedAt=1629221390415&ik-s=cef58d211722c97d1790815897fb4f879ba283d5",
+    ],
+    done: true,
+    siteLink: "https://aliefdany.github.io/microsoft-landingpage-redesign",
+    repoLink: "https://github.com/aliefdany/microsoft-landingpage-redesign",
+    tags: [
+      {
+        tag: "HTML",
+        color: "#F24E1E",
+      },
+      {
+        tag: "CSS",
+        color: "#4285F4",
+      },
+      {
+        tag: "JS",
+        color: "#A97B00",
+      },
+      {
+        tag: "JQuery",
+        color: "#C69000",
+      },
+      {
+        tag: "Bootstrap",
+        color: "#4285F4",
+      },
+    ],
+  });
+
+  console.log("created projects");
 }
 
 export const app = express();

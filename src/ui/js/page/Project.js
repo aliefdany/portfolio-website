@@ -189,7 +189,7 @@ function ScrollToTopOnMount() {
 }
 
 Project.fetchProjects = () => {
-  return axios.get("https://alief.tech/api/project").then((res) => {
+  return axios.get("https://aliefdany.site/api/project").then((res) => {
     return res.data;
   });
 };
